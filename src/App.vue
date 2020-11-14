@@ -1,19 +1,17 @@
 <template>
-  <div id="app">
-    <h1>NUPEC</h1>
-  </div>
+  <Navbar/>
 </template>
 
 <script>
-
+import Navbar from './components/Navbar';
 export default {
   name: 'App',
   components: {
+    Navbar,
   }
 }
 </script>
 
-<style>
-/* #app {
-} */
+<style scoped src="./assets/styles.css">
+
 </style>
