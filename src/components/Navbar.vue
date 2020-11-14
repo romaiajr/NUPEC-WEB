@@ -2,20 +2,20 @@
     <div>
     <b-navbar toggleable="lg" class="navbar">
       <div class="container">
-    <b-navbar-brand href="#"><img id="logo" src="../assets/Logo.png"/></b-navbar-brand>
+    <b-navbar-brand href="#"><img id="logo-nav" src="../assets/Logo.png"/></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-item>Nossa História</b-nav-item>
+        <b-nav-item href="#quem-somos">Quem Somos</b-nav-item>
         <b-nav-item-dropdown text="Materiais" right>
           <b-dropdown-item href="#">Artigos</b-dropdown-item>
           <b-dropdown-item href="#">Livros</b-dropdown-item>
           <b-dropdown-item href="#">Atividades Extras</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item>Nossa Equipes</b-nav-item>
+        <b-nav-item href="#nossa-equipe">Nossa Equipes</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
     </div>
@@ -40,7 +40,7 @@
         background-color: var(--light-color);
     }
 
-    #logo{
+    #logo-nav{
         width: 150px;
     }
     .nav-link{
@@ -58,7 +58,7 @@
         background-color: var(--primary-dark-color);
     }
     @media screen and (max-width: 600px) {
-        #logo{
+        #logo-nav{
             width: 90px;
         }
         .nav-link{
