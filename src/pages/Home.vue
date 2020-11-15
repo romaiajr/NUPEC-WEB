@@ -3,7 +3,7 @@
     <Navbar/>
     <div class="content-home">
     <Hero/>
-    <div id="quem-somos">
+    <div id="quem-somos" ref="quem-somos">
         <div class="container">
             <div class="row m-0">
                 <img src="../assets/box.png" id="box"/>
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div id="materiais">
+    <div id="materiais" ref="materiais">
         <div class="container">
              <div class="row m-0">
                 <img src="../assets/box.png" id="box"/>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <div id="nossa-equipe">
+    <div id="nossa-equipe" ref="nossa-equipe">
         <div class="container">
             <div class="row m-0">
                 <img src="../assets/box.png" id="box"/>
@@ -74,7 +74,15 @@ export default {
   components: {
     Navbar,
     Hero,
+  },
+  methods:{
+    scrollMeTo(refName) {
+        var element = this.$refs[refName];
+        var top = element.offsetTop;
+        window.scrollTo(0, top-80);
+    }
   }
+
 }
 </script>
 <style>

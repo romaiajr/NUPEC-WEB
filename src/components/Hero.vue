@@ -39,7 +39,7 @@
     }
      @media screen and (max-width: 1140px) and (min-width: 761px){
          #logo-hero{
-            width: 70%;
+            width: 60%;
         }
      }
 </style>

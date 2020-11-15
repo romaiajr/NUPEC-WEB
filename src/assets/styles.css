@@ -18,6 +18,9 @@
     font-family: 'IBM Plex Sans', sans-serif;
     font-family: 'IBM Plex Serif', serif;
 }
+html{
+    scroll-behavior: smooth;
+ }
 body {
     margin: 0;
     padding-top: 92px;

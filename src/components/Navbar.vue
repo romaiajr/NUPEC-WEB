@@ -2,20 +2,20 @@
     <div>
     <b-navbar toggleable="lg" class="navbar" fixed="top">
       <div class="container">
-    <b-navbar-brand href="#"><img id="logo-nav" src="../assets/Logo.png"/></b-navbar-brand>
+    <b-navbar-brand href="/home"><img id="logo-nav" src="../assets/Logo.png"/></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#quem-somos">Quem Somos</b-nav-item>
-        <b-nav-item-dropdown text="Materiais" right id="item-dropdown">
+        <b-nav-item @click="scrollMeTo('quem-somos')">Quem Somos</b-nav-item>
+        <b-nav-item-dropdown class="disabled" text="Materiais" right id="item-dropdown" @click="scrollMeTo('materiais')" >
           <b-dropdown-item href="#">Artigos</b-dropdown-item>
           <b-dropdown-item href="#">Livros</b-dropdown-item>
           <b-dropdown-item href="#">Atividades Extras</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item href="#nossa-equipe">Nossa Equipe</b-nav-item>
+        <b-nav-item @click="scrollMeTo('nossa-equipe')">Nossa Equipe</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
     </div>
@@ -27,11 +27,14 @@
     export default {
         data:() => ({
         active: 'guide',
-        isHover: false
+        isHover: false,
         }),
-
-        methods:() => ({
-        })    
+        methods:{
+            scrollMeTo(refName){
+                console.log('entrou')
+                this.$parent.scrollMeTo(refName);
+            }
+        }
     }
 </script>
 
