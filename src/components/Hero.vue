@@ -6,6 +6,8 @@
 
 <style>
     #hero{
+        display: flex;
+        justify-content: center;
         width: 100%;
         height: 316px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(252, 252, 252, 0.213542) 21.35%, rgba(251, 251, 251, 0.302083) 30.21%, rgba(248, 248, 248, 0.557292) 55.73%, rgba(244, 244, 244, 0.848958) 84.9%, #F2F2F2 100%), url(../assets/HeroImage.png); 
@@ -22,11 +24,9 @@
         
     }
 
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 760px){
         #logo-hero{
-            display: block;
-            width: auto;
-            height: 175px;
+            width: 60%;
         }
         #hero{
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(252, 252, 252, 0.213542) 21.35%, rgba(251, 251, 251, 0.302083) 30.21%, rgba(248, 248, 248, 0.557292) 55.73%, rgba(244, 244, 244, 0.848958) 84.9%, #F2F2F2 100%), url(../assets/HeroImage.png); 
@@ -37,4 +37,9 @@
         background-size: cover;
         }
     }
+     @media screen and (max-width: 1140px) and (min-width: 761px){
+         #logo-hero{
+            width: 70%;
+        }
+     }
 </style>

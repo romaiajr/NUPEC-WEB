@@ -20,6 +20,7 @@
 }
 body {
     margin: 0;
+    padding-top: 92px;
     font-family: -apple-system, BlinkMacSystemFont,'IBM Plex Sans', 'IBM Plex serif', 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
@@ -27,6 +28,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
 h2{
+    margin: 0;
     font-family: IBM Plex Sans;
     font-style: normal;
     font-weight: 600;
@@ -35,6 +37,7 @@ h2{
 }
 
 h3{
+    margin: 0;
     font-family: IBM Plex Sans;
     font-style: normal;
     font-weight: 600;
@@ -43,6 +46,7 @@ h3{
 }
 
 h4{
+    margin: 0;
     font-family: IBM Plex Sans;
     font-style: normal;
     font-weight: 600;
@@ -51,14 +55,16 @@ h4{
 }
 
 h5{
+    margin: 0;
     font-family: IBM Plex Sans;
     font-style: normal;
-    font-weight: 600;
+    font-weight: normal;
     font-size: 28px;
     line-height: 120%;
 }
 
 h6{
+    margin: 0;
     font-family: IBM Plex Sans;
     font-style: normal;
     font-weight: normal;
@@ -67,9 +73,23 @@ h6{
 }
 
 p{
+    margin: 0;
     font-family: IBM Plex Serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 150%;
+}
+
+small{
+    font-family: IBM Plex Serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 150%;
+}
+@media screen and (max-width: 600px) {
+    body{
+        padding-top: 66px;
+    }
 }
