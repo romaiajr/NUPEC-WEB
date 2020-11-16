@@ -189,7 +189,6 @@ export default {
     .wrimagecard-topimage_title {
         padding: 8px 24px;
         height: 80px;
-        padding-bottom: 0.75rem;
         position: relative;
     }
     .wrimagecard-topimage a {
@@ -341,8 +340,14 @@ export default {
             width: 30% !important;
             height: 50px;
         }
+        #materiais{
+            padding-bottom: 16px;
+        }
         #materiais br, #quem-somos br, #nossa-equipe br{
             display: none !important;
+        }
+        .wrimagecard-topimage_title h6 {
+            font-size: 21px !important;
         }
     }
     @media screen and (max-width: 1140px) and (min-width: 761px){
