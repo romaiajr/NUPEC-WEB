@@ -29,6 +29,70 @@
                     <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </h5>
                 </div>
             </div>
+            <div class="row m-0" id="card-container">
+                <div class="col-md-3 col-sm-4">
+                    <div class="wrimagecard wrimagecard-topimage">
+                        <a href="#">
+                        <div class="wrimagecard-topimage_header">
+                            <center><i class="fa fa-file-text-o" style="color:RGB(59, 89, 153)"></i></center>
+                            <!-- fa-pencil-square-o -->
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h6>Artigos</h6>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <div class="wrimagecard wrimagecard-topimage">
+                        <a href="#">
+                        <div class="wrimagecard-topimage_header">
+                            <center><i class = "fa fa-book" style="color:#1fa67b"></i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h6>Livros</h6>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="wrimagecard wrimagecard-topimage">
+                    <a href="#">
+                    <div class="wrimagecard-topimage_header">
+                        <center><i class="fa fa-bookmark-o" style="color:#dc3546"> </i></center>
+                    </div>
+                    <div class="wrimagecard-topimage_title" >
+                        <h6>Cap. Livro</h6>
+                    </div>
+                    </a>
+                </div>
+            </div>
+                <div class="col-md-3 col-sm-4">
+                    <div class="wrimagecard wrimagecard-topimage">
+                        <a href="#">
+                        <div class="wrimagecard-topimage_header">
+                            <center><i class="fa  fa-plus-square-o" style="color:#ff9a00"> </i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h6>Atividades Extras</h6>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="col-md-3 col-sm-4">
+                    <div class="wrimagecard wrimagecard-topimage">
+                        <a href="#">
+                        <div class="wrimagecard-topimage_header">
+                            <center><i class="fa fa-info-circle" style="color:#fabc09"> </i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h5>Information</h5>
+                        </div>
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
         </div>
     </div>
     <div id="nossa-equipe" ref="nossa-equipe">
@@ -46,6 +110,10 @@
         </div>
     </div>
     <div id="social-media">
+        <div class="container">
+            <div id="buttons_social">
+            </div>
+        </div>
     </div>
     <div id="rodapé">
         <div class="container">
@@ -64,7 +132,6 @@
         </div>
     </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -90,6 +157,48 @@ export default {
     /* .content-home{
         padding-top:90px;
     } */
+    #card-container{
+        padding-top: 24px;
+    }
+
+    .wrimagecard{	
+	margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    background: #fff;
+    box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    }
+    .wrimagecard .fa{
+        position: relative;
+        font-size: 70px;
+    }
+    .wrimagecard-topimage_header{
+    padding: 20px;
+    }
+    a.wrimagecard:hover, .wrimagecard-topimage:hover {
+        box-shadow: 2px 4px 8px 0px rgba(46,61,73,0.2);
+    }
+    .wrimagecard-topimage a {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .wrimagecard-topimage_title {
+        padding: 8px 24px;
+        height: 80px;
+        padding-bottom: 0.75rem;
+        position: relative;
+    }
+    .wrimagecard-topimage a {
+        border-bottom: none;
+        text-decoration: none;
+        color: #525c65;
+        transition: color 0.3s ease;
+    }
+
     #box{
         position: absolute;
         left: 0;
@@ -100,20 +209,21 @@ export default {
         color: var(--secondary-dark-color) !important;
     }
     #quem-somos{
+        padding: 64px 0px;
         box-sizing: border-box;
         display: flex;
         align-items: center;
         width: 100%;
-        height: 280px;
         background-color: #f2f2f2;
     }
     
     #materiais{
         box-sizing: border-box;
+        padding: 64px 0px;
         display: flex;
         align-items: center;
         width: 100%;
-        height: 320px;
+        height: auto;
         background-color: white;
     }
     #nossa-equipe{
@@ -121,7 +231,7 @@ export default {
         display: flex;
         align-items: center;
         width: 100%;
-        height: 280px;
+        padding: 64px 0px;
         background-color: #f2f2f2;
     }
     #social-media{
@@ -130,12 +240,17 @@ export default {
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 80px;
+        padding: 36px 0px;
         background-color: var(--secondary-color);
+    }
+    #buttons_social{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     #rodapé{
         width: 100%;
-        height: 240px;
+        padding: 24px 0px;
         display: flex;
         align-items: center;
         text-align: center;
@@ -202,7 +317,7 @@ export default {
 
     @media screen and (max-width: 760px) {
         #box{
-            width: 25px;
+            width: 15px;
         }
         h2{
             font-size: 32px !important;
@@ -232,7 +347,7 @@ export default {
     }
     @media screen and (max-width: 1140px) and (min-width: 761px){
         #box{
-            width: 35px;
+            width: 25px;
         }
         h2{
             font-size: 45px !important;

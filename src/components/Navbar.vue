@@ -10,7 +10,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item @click="scrollMeTo('quem-somos')">Quem Somos</b-nav-item>
-        <b-nav-item-dropdown class="disabled" text="Materiais" right id="item-dropdown" @click="scrollMeTo('materiais')" >
+        <b-nav-item-dropdown text="Materiais" right id="item-dropdown" @click="scrollMeTo('materiais')" >
           <b-dropdown-item href="#">Artigos</b-dropdown-item>
           <b-dropdown-item href="#">Livros</b-dropdown-item>
           <b-dropdown-item href="#">Atividades Extras</b-dropdown-item>
@@ -107,7 +107,7 @@
     } 
 
     /* DROPDOWN */
-    .dropdown-item,
+    /* .dropdown-item,
     .dropdown-item:after,
     .dropdown-item:before {
         transition: all .5s;    
@@ -136,10 +136,6 @@
         width: 100%;
     }
 
-    /* .dropdown-item {
-        transition: all 1s;
-    } */
-
     .dropdown-item:after {
         text-align: left;
         content: '.';
@@ -154,12 +150,12 @@
         z-index: -10;
         animation: fill 1s forwards;
         opacity: 1;
-    }
-/* 
+    } */
+
     .dropdown-item:hover{
         color: white;
         background-color: var(--primary-dark-color);
-    } */
+    } 
     @media screen and (max-width: 600px) {
         #logo-nav{
             width: 90px;
