@@ -47,7 +47,7 @@
                     <div class="wrimagecard wrimagecard-topimage">
                         <a href="#">
                         <div class="wrimagecard-topimage_header">
-                            <center><i class = "fa fa-book" style="color:#1fa67b"></i></center>
+                            <center><i class='bx bx-book' style="color:#1fa67b"></i></center>
                         </div>
                         <div class="wrimagecard-topimage_title">
                             <h6>Livros</h6>
@@ -112,6 +112,23 @@
     <div id="social-media">
         <div class="container">
             <div id="buttons_social">
+                <vs-button
+                    icon
+                    color="facebook">
+                    <i class='bx bxl-facebook-square'></i>
+                </vs-button>
+                 <vs-button
+                    icon
+                    href="https://www.youtube.com/channel/UCXw_d0NO8M11GlB1-tEFgtQ"
+                    blank
+                    color="youtube">
+                    <i class='bx bxl-youtube'></i>
+                </vs-button>
+                <vs-button
+                    icon
+                    color="slack">
+                    <i class='bx bxl-instagram'></i>
+                </vs-button>
             </div>
         </div>
     </div>
@@ -171,7 +188,7 @@ export default {
     border-radius: 4px;
     transition: all 0.3s ease;
     }
-    .wrimagecard .fa{
+    .wrimagecard .fa, .wrimagecard .bx{
         position: relative;
         font-size: 70px;
     }
@@ -235,17 +252,20 @@ export default {
     }
     #social-media{
         box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100%;
-        padding: 36px 0px;
-        background-color: var(--secondary-color);
+        padding: 12px 0px;
+        background: var(--secondary-light-color);
     }
     #buttons_social{
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    #buttons_social .bx{
+        font-size: 48px !important;
+    }
+    #buttons_social button{
+        margin:0px 16px !important;
     }
     #rodapé{
         width: 100%;
@@ -348,6 +368,12 @@ export default {
         }
         .wrimagecard-topimage_title h6 {
             font-size: 21px !important;
+        }
+        #buttons_social .bx{
+        font-size: 36px !important;
+        }
+        #buttons_social button{
+            margin: 0 8px !important;
         }
     }
     @media screen and (max-width: 1140px) and (min-width: 761px){
