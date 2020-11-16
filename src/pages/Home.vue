@@ -265,7 +265,7 @@ export default {
         font-size: 48px !important;
     }
     #buttons_social button{
-        margin:0px 16px !important;
+        margin:0px 8px !important;
     }
     #rodapé{
         width: 100%;
