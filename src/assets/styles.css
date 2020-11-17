@@ -1,98 +1,98 @@
 :root {
-    --primary-light-color: #99DCE2;
-    --primary-color:#5BC7CA;
-    --primary-dark-color:#36BBC0;
+  --primary-light-color: #99dce2;
+  --primary-color: #5bc7ca;
+  --primary-dark-color: #36bbc0;
 
-    --secondary-light-color: #F587C9;
-    --secondary-color: #F53DAC;
-    --secondary-dark-color: #F50C99;
+  --secondary-light-color: #f587c9;
+  --secondary-color: #f53dac;
+  --secondary-dark-color: #f50c99;
 
-    --dark-light-color: #464545;
-    --dark-color: #100F0F;
+  --dark-light-color: #464545;
+  --dark-color: #100f0f;
 
-    --light-color:#FAFAFA;
+  --light-color: #fafafa;
 
-    --danger-color: #EF2222;
-    --success-color: #57D74C;
+  --danger-color: #ef2222;
+  --success-color: #57d74c;
 
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-family: 'IBM Plex Serif', serif;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "IBM Plex Serif", serif;
 }
-html{
-    scroll-behavior: smooth;
- }
+html {
+  scroll-behavior: smooth;
+}
 body {
-    margin: 0;
-    padding-top: 92px;
-    font-family: -apple-system, BlinkMacSystemFont,'IBM Plex Sans', 'IBM Plex serif', 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-h2{
-    margin: 0;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 67px;
-    line-height: 110%;
+  margin: 0;
+  padding-top: 92px;
+  font-family: -apple-system, BlinkMacSystemFont, "IBM Plex Sans",
+    "IBM Plex serif", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h2 {
+  margin: 0;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 67px;
+  line-height: 110%;
 }
 
-h3{
-    margin: 0;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 50px;
-    line-height: 110%;
+h3 {
+  margin: 0;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 110%;
 }
 
-h4{
-    margin: 0;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 37px;
-    line-height: 120%;
+h4 {
+  margin: 0;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 37px;
+  line-height: 120%;
 }
 
-h5{
-    margin: 0;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 120%;
+h5 {
+  margin: 0;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 120%;
 }
 
-h6{
-    margin: 0;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 21px;
-    line-height: 120%;
+h6 {
+  margin: 0;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 120%;
 }
 
-p{
-    margin: 0;
-    font-family: IBM Plex Serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 150%;
+p {
+  margin: 0;
+  font-family: IBM Plex Serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
 }
 
-small{
-    font-family: IBM Plex Serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 150%;
+small {
+  font-family: IBM Plex Serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 150%;
 }
 @media screen and (max-width: 600px) {
-    body{
-        padding-top: 66px;
-    }
+  body {
+    padding-top: 66px;
+  }
 }
