@@ -14,233 +14,71 @@
           </h5>
         </div>
       </div>
-      <div id="carousel-section">
-        <div class="row m-0" id="carousel-cards">
-          <div class="col-sm-12">
-            <div
-              id="carousel-desktop"
-              class="carousel slide"
-              data-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-lg-3">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h5 class="card-title">Nome 1</h5>
-                            <h6 class="card-text">
-                              Cargo
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  href="#carousel-desktop"
-                  class="carousel-control-prev"
-                  data-slide="prev"
-                >
-                  <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a
-                  href="#carousel-desktop"
-                  class="carousel-control-next"
-                  data-slide="next"
-                >
-                  <span class="carousel-control-next-icon"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row m-0" id="carousel-cards-mobile">
-          <div class="col-sm-12">
-            <div
-              id="carousel-mobile"
-              class="carousel slide"
-              data-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h4 class="card-title">Nome 1</h4>
-                            <p class="card-text">
-                              Cargo
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="card">
-                          <img
-                            class="card-img-top img-fluid"
-                            src="http://placehold.it/800x600/f44242/fff"
-                            alt="Card image cap"
-                          />
-                          <div class="card-body">
-                            <h4 class="card-title">Nome</h4>
-                            <h5 class="card-text">
-                              Cargo
-                            </h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+      <div
+        class="row m-0"
+        id="carousel"
+        style="width:100%;margin:20px auto;height:400px"
+      >
+        <slider ref="slider" :options="options">
+          <!-- slideritem wrapped package with the components you need -->
+          <!-- <slideritem
+            v-for="(item, index) in someList"
+            :key="index"
+            :style="item.style"
+            >{{ item.html }}</slideritem
+          > -->
+          <slideritem>
+            <div class="row">
+              <div class="col-md-4 col-sm-6">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://placehold.it/400x300/f44242/fff"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Nome 1</h5>
+                    <h6 class="card-text">
+                      Cargo
+                    </h6>
                   </div>
                 </div>
               </div>
-              <a
-                href="#carousel-mobile"
-                class="carousel-control-prev"
-                data-slide="prev"
-              >
-                <span class="carousel-control-prev-icon"></span>
-              </a>
-              <a
-                href="#carousel-mobile"
-                class="carousel-control-next"
-                data-slide="next"
-              >
-                <span class="carousel-control-next-icon"></span>
-              </a>
+              <div class="col-md-4 col-sm-6">
+                <div class="card">
+                  <img
+                    class="card-img-top img-fluid"
+                    src="http://placehold.it/800x600/f44242/fff"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Nome 1</h5>
+                    <h6 class="card-text">
+                      Cargo
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-md-4 col-sm-6">
+                <div class="card">
+                  <img
+                    class="card-img-top img-fluid"
+                    src="http://placehold.it/800x600/f44242/fff"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Nome 1</h5>
+                    <h6 class="card-text">
+                      Cargo
+                    </h6>
+                  </div>
+                </div>
+              </div> -->
             </div>
-          </div>
-        </div>
+          </slideritem>
+          <!-- Customizable loading -->
+          <div slot="loading">loading...</div>
+        </slider>
       </div>
       <div id="button-section">
         <a
@@ -255,7 +93,7 @@
             <h5 class="not-margin">Nossa Equipe</h5>
           </template>
           <div class="row">
-            <div class="col-10 col-lg-4">
+            <div class="col-6 col-lg-4">
               <div class="card">
                 <img
                   class="card-img-top img-fluid"
@@ -270,7 +108,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-10 col-lg-4">
+            <div class="col-6 col-lg-4">
               <div class="card">
                 <img
                   class="card-img-top img-fluid"
@@ -285,7 +123,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-10 col-lg-4">
+            <div class="col-6 col-lg-4">
               <div class="card">
                 <img
                   class="card-img-top img-fluid"
@@ -300,112 +138,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-10 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-lg-4">
+            <div class="col-6 col-lg-4">
               <div class="card">
                 <img
                   class="card-img-top img-fluid"
@@ -427,9 +160,38 @@
   </div>
 </template>
 <script>
+import { slider, slideritem } from "vue-concise-slider";
 export default {
+  components: {
+    slider,
+    slideritem,
+  },
   data: () => ({
     equipeDialog: false,
+    someList: [
+      {
+        html: "slide1",
+        style: {
+          background: "#1bbc9b",
+        },
+      },
+      {
+        html: "slide2",
+        style: {
+          background: "#4bbfc3",
+        },
+      },
+      {
+        html: "slide3",
+        style: {
+          background: "#7baabe",
+        },
+      },
+    ],
+    //Slider configuration [obj]
+    options: {
+      currentPage: 0,
+    },
   }),
   methods: {
     openEquipe() {
@@ -451,18 +213,18 @@ export default {
 .card-body {
   text-align: center;
 }
+.card-title {
+  color: black;
+}
+.card-text {
+  color: black;
+}
 #carousel-section {
   padding-top: 24px;
 }
 #carousel-cards-mobile {
   display: none;
 }
-/* .carousel-control-next-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-}
-.carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-} */
 
 #button-section {
   padding-top: 32px;
@@ -506,23 +268,23 @@ export default {
     display: block;
     margin: 0.4em auto;
   }
-  #carousel-cards {
+  /* #carousel-cards {
     display: none !important;
-  }
-  #carousel-cards-mobile {
+  } */
+  /* #carousel-cards-mobile {
     display: block !important;
-  }
+  } */
 }
 
 @media screen and (max-width: 1140px) and (min-width: 761px) {
   #nossa-equipe br {
     display: none !important;
   }
-  #carousel-cards {
+  /* #carousel-cards {
     display: none !important;
-  }
-  #carousel-cards-mobile {
+  } */
+  /* #carousel-cards-mobile {
     display: block !important;
-  }
+  } */
 }
 </style>

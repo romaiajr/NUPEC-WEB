@@ -9,12 +9,15 @@
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-8">
           <h5>
-            O Núcleo Integrado de Estudos e Pesquisas sobre o Cuidar/Cuidado foi
+            <!-- O Núcleo Integrado de Estudos e Pesquisas sobre o Cuidar/Cuidado foi
             criado em 2010 com o objetivo de ampliar a discussão acerca do
             cuidado no processo saúde-doença do indivíduo, família e grupos da
             comunidade, a partir de um diálogo com referenciais
             teórico-metodológicos das ciências sociais e humanas e da saúde
-            coletiva.
+            coletiva. -->
+            O Núcleo Integrado de Estudos e Pesquisas sobre o Cuidar/Cuidado
+            (NUPEC) foi criado em 2010 com o objetivo de ampliar a discussão
+            acerca do cuidado no processo saúde-doença.
           </h5>
         </div>
       </div>

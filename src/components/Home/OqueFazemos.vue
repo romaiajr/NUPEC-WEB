@@ -9,76 +9,54 @@
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-8">
           <h5>
-            O NUPEC trabalha com estudos e intervenções que tem como eixos a
+            <!-- O NUPEC trabalha com estudos e intervenções que tem como eixos a
             promoção da saúde, proteção específica, reabilitação e cura, com
             enfoque no adoecimento agudo e crônico no contexto individual,
             familiar e de grupos, tendo como recorte os itinerários terapêuticos
             e as dimensões da produção do cuidado nos campos da clínica, da
             saúde coletiva e da saúde mental, privilegiando o trabalho com
-            narrativas autobiográficas.
+            narrativas autobiográficas. -->
+            O NUPEC trabalha com estudos e intervenções voltados para a promoção
+            da saúde, proteção específica, reabilitação e cura.
           </h5>
         </div>
       </div>
       <div class="row m-0" id="card-container">
         <div class="col-md-3 col-sm-4">
-          <div class="wrimagecard wrimagecard-topimage">
-            <router-link to="/materias/artigos">
-              <div class="wrimagecard-topimage_header">
-                <center>
-                  <i
-                    class="fa fa-file-text-o"
-                    style="color:RGB(59, 89, 153)"
-                  ></i>
-                </center>
-                <!-- fa-pencil-square-o -->
-              </div>
-              <div class="wrimagecard-topimage_title">
-                <h6>Artigos</h6>
-              </div>
-            </router-link>
-          </div>
+          <CardMaterial
+            link="/materiais/artigos"
+            icone="fa fa-file-text-o"
+            cor="color:RGB(59, 89, 153)"
+            nome="Artigos"
+          >
+          </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
-          <div class="wrimagecard wrimagecard-topimage">
-            <router-link to="/">
-              <div class="wrimagecard-topimage_header">
-                <center>
-                  <i class="bx bx-book" style="color:#1fa67b"></i>
-                </center>
-              </div>
-              <div class="wrimagecard-topimage_title">
-                <h6>Livros</h6>
-              </div>
-            </router-link>
-          </div>
+          <CardMaterial
+            link="/materiais/livros"
+            icone="bx bx-book"
+            cor="color:#1fa67b"
+            nome="Livros"
+          >
+          </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
-          <div class="wrimagecard wrimagecard-topimage">
-            <router-link to="/">
-              <div class="wrimagecard-topimage_header">
-                <center>
-                  <i class="fa fa-bookmark-o" style="color:#dc3546"> </i>
-                </center>
-              </div>
-              <div class="wrimagecard-topimage_title">
-                <h6>Cap. Livro</h6>
-              </div>
-            </router-link>
-          </div>
+          <CardMaterial
+            link="/materiais/projeto-extensao"
+            icone="fa fa-laptop"
+            cor="color:#dc3546"
+            nome="Projeto de Extensão"
+          >
+          </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
-          <div class="wrimagecard wrimagecard-topimage">
-            <router-link to="/">
-              <div class="wrimagecard-topimage_header">
-                <center>
-                  <i class="fa  fa-plus-square-o" style="color:#ff9a00"> </i>
-                </center>
-              </div>
-              <div class="wrimagecard-topimage_title">
-                <h6>Atividades Extras</h6>
-              </div>
-            </router-link>
-          </div>
+          <CardMaterial
+            link="/materiais/atividades-complementares"
+            icone="fa fa-plus-square-o"
+            cor="color:#ff9a00"
+            nome="Atividades Complementares"
+          >
+          </CardMaterial>
         </div>
       </div>
       <div id="button-section">
@@ -91,7 +69,12 @@
     </div>
   </div>
 </template>
-
+<script>
+import CardMaterial from "../reutilizavel/CardMaterial";
+export default {
+  components: { CardMaterial: CardMaterial },
+};
+</script>
 <style>
 a {
   text-decoration: none !important;
@@ -109,7 +92,7 @@ a {
 #card-container {
   padding-top: 24px;
 }
-.wrimagecard {
+/* .wrimagecard {
   margin-top: 0;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -146,7 +129,7 @@ a.wrimagecard:hover,
   text-decoration: none;
   color: #525c65;
   transition: color 0.3s ease;
-}
+} */
 #button-section {
   padding-top: 32px;
   display: flex;
@@ -181,9 +164,9 @@ a.wrimagecard:hover,
   #materiais br {
     display: none !important;
   }
-  .wrimagecard-topimage_title h6 {
+  /* .wrimagecard-topimage_title h6 {
     font-size: 21px !important;
-  }
+  } */
   .a-button {
     display: block;
     margin: 0.4em auto;

@@ -41,13 +41,13 @@
 </template>
 
 <script>
-import Navbar from "../components/Reutilizaveis/Navbar";
-import Hero from "../components//Home/Hero";
-import QuemSomos from "../components/Home/QuemSomos";
-import OqueFazemos from "../components/Home/OqueFazemos";
-import Equipe from "../components/Home/Equipe";
-import SocialMedia from "../components/Home/SocialMedia";
-import Footer from "../components/Reutilizaveis/Footer";
+import Navbar from "../components/reutilizavel/Navbar";
+import Hero from "../components/home/Hero";
+import QuemSomos from "../components/home/QuemSomos";
+import OqueFazemos from "../components/home/OqueFazemos";
+import Equipe from "../components/home/Equipe";
+import SocialMedia from "../components/home/SocialMedia";
+import Footer from "../components/reutilizavel/Footer";
 export default {
   components: {
     Navbar,
