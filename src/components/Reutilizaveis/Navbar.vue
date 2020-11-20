@@ -4,7 +4,7 @@
       <div class="container">
         <b-navbar-brand>
           <router-link to="/">
-            <img id="logo-nav" src="../assets/Logo.png" />
+            <img id="logo-nav" src="../../assets/img/Logo.png" />
           </router-link>
         </b-navbar-brand>
 
@@ -13,7 +13,7 @@
         <b-collapse id="nav-collapse" is-nav>
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item @click="scrollMeTo('quem-somos')"
+            <!-- <b-nav-item @click="scrollMeTo('quem-somos')"
               >Quem Somos</b-nav-item
             >
             <b-nav-item-dropdown
@@ -31,7 +31,8 @@
             </b-nav-item-dropdown>
             <b-nav-item @click="scrollMeTo('nossa-equipe')"
               >Nossa Equipe</b-nav-item
-            >
+            > -->
+            <slot></slot>
           </b-navbar-nav>
         </b-collapse>
       </div>

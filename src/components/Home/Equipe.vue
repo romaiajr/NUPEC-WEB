@@ -2,7 +2,7 @@
   <div id="nossa-equipe" ref="nossa-equipe">
     <div class="container">
       <div class="row m-0">
-        <img src="../assets/box.png" id="box" />
+        <img src="../../assets/img/box.png" id="box" />
         <div class="col-12 col-md-3">
           <h2 class="title-section">NOSSA <br />EQUIPE</h2>
         </div>

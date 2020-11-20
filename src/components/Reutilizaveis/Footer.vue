@@ -2,7 +2,7 @@
   <div id="rodapé">
     <div class="container">
       <div class="row m-0 justify-content-center">
-        <img src="../assets/Logo.png" alt="logo" id="logo-rodapé" />
+        <img src="../../assets/img/Logo.png" alt="logo" id="logo-rodapé" />
         <div class="row m-0 justify-content-center" style="padding-top: 8px">
           <h6>
             NUPEC | NÚCLEO DE ESTUDOS E PESQUISA SOBRE O CUIDAR/CUIDADO

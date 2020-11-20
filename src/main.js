@@ -5,20 +5,20 @@ Vue.use(VueRouter);
 import Router from "vue-router";
 Vue.use(Router);
 import Home from "./pages/Home.vue";
-import Navbar from "./components/Navbar.vue";
+import Materiais from "./pages/Materiais.vue";
 const router = new Router({
   mode: "history",
   routes: [
     { path: "/", component: Home },
     {
       path: "/materiais",
-      component: Navbar,
-      children: [
-        { path: "/artigos", component: Navbar },
-        { path: "/livros", component: Navbar },
-        { path: "/capitulos", component: Navbar },
-        { path: "/atividades_complementares", component: Navbar },
-      ],
+      component: Materiais,
+      // children: [
+      //   { path: "/artigos", component: Navbar },
+      //   { path: "/livros", component: Navbar },
+      //   { path: "/capitulos", component: Navbar },
+      //   { path: "/atividades_complementares", component: Navbar },
+      // ],
     },
   ],
 });

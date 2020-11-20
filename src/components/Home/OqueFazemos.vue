@@ -2,7 +2,7 @@
   <div id="materiais" ref="materiais">
     <div class="container">
       <div class="row m-0">
-        <img src="../assets/box.png" id="box" />
+        <img src="../../assets/img/box.png" id="box" />
         <div class="col-12 col-md-3">
           <h2 class="title-section">O QUE <br />FAZEMOS</h2>
         </div>
@@ -22,7 +22,7 @@
       <div class="row m-0" id="card-container">
         <div class="col-md-3 col-sm-4">
           <div class="wrimagecard wrimagecard-topimage">
-            <a href="#">
+            <router-link to="/materias/artigos">
               <div class="wrimagecard-topimage_header">
                 <center>
                   <i
@@ -35,12 +35,12 @@
               <div class="wrimagecard-topimage_title">
                 <h6>Artigos</h6>
               </div>
-            </a>
+            </router-link>
           </div>
         </div>
         <div class="col-md-3 col-sm-4">
           <div class="wrimagecard wrimagecard-topimage">
-            <a href="#">
+            <router-link to="/">
               <div class="wrimagecard-topimage_header">
                 <center>
                   <i class="bx bx-book" style="color:#1fa67b"></i>
@@ -49,12 +49,12 @@
               <div class="wrimagecard-topimage_title">
                 <h6>Livros</h6>
               </div>
-            </a>
+            </router-link>
           </div>
         </div>
         <div class="col-md-3 col-sm-4">
           <div class="wrimagecard wrimagecard-topimage">
-            <a href="#">
+            <router-link to="/">
               <div class="wrimagecard-topimage_header">
                 <center>
                   <i class="fa fa-bookmark-o" style="color:#dc3546"> </i>
@@ -63,12 +63,12 @@
               <div class="wrimagecard-topimage_title">
                 <h6>Cap. Livro</h6>
               </div>
-            </a>
+            </router-link>
           </div>
         </div>
         <div class="col-md-3 col-sm-4">
           <div class="wrimagecard wrimagecard-topimage">
-            <a href="#">
+            <router-link to="/">
               <div class="wrimagecard-topimage_header">
                 <center>
                   <i class="fa  fa-plus-square-o" style="color:#ff9a00"> </i>
@@ -77,7 +77,7 @@
               <div class="wrimagecard-topimage_title">
                 <h6>Atividades Extras</h6>
               </div>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -93,6 +93,10 @@
 </template>
 
 <style>
+a {
+  text-decoration: none !important;
+  color: #525c65 !important;
+}
 #materiais {
   box-sizing: border-box;
   padding: 32px 0px;

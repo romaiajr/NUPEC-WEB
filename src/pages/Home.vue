@@ -1,12 +1,31 @@
 <template>
   <div>
+    <Navbar>
+      <b-nav-item @click="scrollMeTo('quem-somos')">Quem Somos</b-nav-item>
+      <b-nav-item-dropdown
+        text="Materiais"
+        right
+        id="item-dropdown"
+        @click="scrollMeTo('materiais')"
+      >
+        <b-dropdown-item>
+          Artigos
+        </b-dropdown-item>
+        <b-dropdown-item>Livros</b-dropdown-item>
+        <b-dropdown-item>Cap. de Livros</b-dropdown-item>
+        <b-dropdown-item>Atividades Extras</b-dropdown-item>
+      </b-nav-item-dropdown>
+      <b-nav-item @click="scrollMeTo('nossa-equipe')"
+        >Nossa Equipe</b-nav-item
+      ></Navbar
+    >
     <div class="content-home">
       <Hero />
       <div ref="quem-somos">
         <QuemSomos />
       </div>
       <div ref="materiais">
-        <Materiais />
+        <OqueFazemos />
       </div>
       <div ref="nossa-equipe">
         <Equipe />
@@ -22,17 +41,19 @@
 </template>
 
 <script>
-import Hero from "../components/Hero";
-import QuemSomos from "../components/QuemSomos";
-import Materiais from "../components/Materiais";
-import Equipe from "../components/Equipe";
-import SocialMedia from "../components/SocialMedia";
-import Footer from "../components/Footer";
+import Navbar from "../components/Reutilizaveis/Navbar";
+import Hero from "../components//Home/Hero";
+import QuemSomos from "../components/Home/QuemSomos";
+import OqueFazemos from "../components/Home/OqueFazemos";
+import Equipe from "../components/Home/Equipe";
+import SocialMedia from "../components/Home/SocialMedia";
+import Footer from "../components/Reutilizaveis/Footer";
 export default {
   components: {
+    Navbar,
     Hero,
     QuemSomos,
-    Materiais,
+    OqueFazemos,
     Equipe,
     SocialMedia,
     Footer,
