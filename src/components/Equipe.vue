@@ -17,7 +17,11 @@
       <div id="carousel-section">
         <div class="row m-0" id="carousel-cards">
           <div class="col-sm-12">
-            <div id="inam" class="carousel slide" data-ride="carousel">
+            <div
+              id="carousel-desktop"
+              class="carousel slide"
+              data-ride="carousel"
+            >
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="container">
@@ -151,10 +155,18 @@
                     </div>
                   </div>
                 </div>
-                <a href="#inam" class="carousel-control-prev" data-slide="prev">
+                <a
+                  href="#carousel-desktop"
+                  class="carousel-control-prev"
+                  data-slide="prev"
+                >
                   <span class="carousel-control-prev-icon"></span>
                 </a>
-                <a href="#inam" class="carousel-control-next" data-slide="next">
+                <a
+                  href="#carousel-desktop"
+                  class="carousel-control-next"
+                  data-slide="next"
+                >
                   <span class="carousel-control-next-icon"></span>
                 </a>
               </div>
@@ -163,7 +175,11 @@
         </div>
         <div class="row m-0" id="carousel-cards-mobile">
           <div class="col-sm-12">
-            <div id="inam1" class="carousel slide" data-ride="carousel">
+            <div
+              id="carousel-mobile"
+              class="carousel slide"
+              data-ride="carousel"
+            >
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="container">
@@ -208,10 +224,18 @@
                   </div>
                 </div>
               </div>
-              <a href="#inam1" class="carousel-control-prev" data-slide="prev">
+              <a
+                href="#carousel-mobile"
+                class="carousel-control-prev"
+                data-slide="prev"
+              >
                 <span class="carousel-control-prev-icon"></span>
               </a>
-              <a href="#inam1" class="carousel-control-next" data-slide="next">
+              <a
+                href="#carousel-mobile"
+                class="carousel-control-next"
+                data-slide="next"
+              >
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
@@ -221,7 +245,7 @@
       <div id="button-section">
         <a
           ><button class="a-button" @click="openEquipe">
-            <h6>VEJA TODA a EQUIPE</h6>
+            <h6>VEJA TODA A EQUIPE</h6>
           </button></a
         >
       </div>
@@ -433,12 +457,12 @@ export default {
 #carousel-cards-mobile {
   display: none;
 }
-.carousel-control-next-icon {
+/* .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
+} */
 
 #button-section {
   padding-top: 32px;
