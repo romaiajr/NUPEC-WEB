@@ -221,7 +221,7 @@
       <div id="button-section">
         <a
           ><button class="a-button" @click="openEquipe">
-            <h6>VEJA TODA A EQUIPE</h6>
+            <h6>VEJA TODA a EQUIPE</h6>
           </button></a
         >
       </div>
