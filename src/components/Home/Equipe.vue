@@ -16,66 +16,60 @@
       </div>
       <div
         class="row m-0"
-        id="carousel"
-        style="width:100%;margin:20px auto;height:400px"
+        id="carousel-desktop"
+        style="width:100%;margin:10px auto;height: 450px"
       >
-        <slider ref="slider" :options="options">
+        <slider ref="slider-desktop" :options="optionsDesktop">
           <!-- slideritem wrapped package with the components you need -->
-          <!-- <slideritem
+          <slideritem
             v-for="(item, index) in someList"
             :key="index"
-            :style="item.style"
-            >{{ item.html }}</slideritem
-          > -->
-          <slideritem>
-            <div class="row">
-              <div class="col-md-4 col-sm-6">
-                <div class="card">
-                  <img
-                    class="card-img-top"
-                    src="http://placehold.it/400x300/f44242/fff"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">Nome 1</h5>
-                    <h6 class="card-text">
-                      Cargo
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="card">
-                  <img
-                    class="card-img-top img-fluid"
-                    src="http://placehold.it/800x600/f44242/fff"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">Nome 1</h5>
-                    <h6 class="card-text">
-                      Cargo
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="col-md-4 col-sm-6">
-                <div class="card">
-                  <img
-                    class="card-img-top img-fluid"
-                    src="http://placehold.it/800x600/f44242/fff"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">Nome 1</h5>
-                    <h6 class="card-text">
-                      Cargo
-                    </h6>
-                  </div>
-                </div>
-              </div> -->
-            </div>
-          </slideritem>
+            :style="styleDesktop"
+            ><CardEquipe
+              imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
+              nome="Roberto Maia"
+              cargo="Desenvolvedor"
+          /></slideritem>
+          <!-- Customizable loading -->
+          <div slot="loading">loading...</div>
+        </slider>
+      </div>
+      <div
+        class="row m-0"
+        id="carousel-mobile"
+        style="width:100%;margin:10px auto;height: 500px"
+      >
+        <slider ref="slider-desktop" :options="optionsMobile">
+          <!-- slideritem wrapped package with the components you need -->
+          <slideritem
+            v-for="(item, index) in someList"
+            :key="index"
+            :style="styleMobile"
+            ><CardEquipe
+              imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
+              nome="Roberto Maia"
+              cargo="Desenvolvedor"
+          /></slideritem>
+          <!-- Customizable loading -->
+          <div slot="loading">loading...</div>
+        </slider>
+      </div>
+      <div
+        class="row m-0"
+        id="carousel-medium"
+        style="width:100%;margin:10px auto;height: 450px"
+      >
+        <slider ref="slider-desktop" :options="optionsMobile">
+          <!-- slideritem wrapped package with the components you need -->
+          <slideritem
+            v-for="(item, index) in someList"
+            :key="index"
+            :style="styleMedium"
+            ><CardEquipe
+              imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
+              nome="Roberto Maia"
+              cargo="Desenvolvedor"
+          /></slideritem>
           <!-- Customizable loading -->
           <div slot="loading">loading...</div>
         </slider>
@@ -87,6 +81,7 @@
           </button></a
         >
       </div>
+
       <div class="center">
         <vs-dialog blur v-model="equipeDialog" id="dialog-equipe">
           <template #header>
@@ -94,64 +89,11 @@
           </template>
           <div class="row">
             <div class="col-6 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-lg-4">
-              <div class="card">
-                <img
-                  class="card-img-top img-fluid"
-                  src="http://placehold.it/800x600/f44242/fff"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h6 class="card-title">Nome 1</h6>
-                  <p class="card-text">
-                    Cargo
-                  </p>
-                </div>
-              </div>
+              <CardEquipe
+                imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
+                nome="Roberto Maia"
+                cargo="Desenvolvedor"
+              />
             </div>
           </div>
         </vs-dialog>
@@ -161,36 +103,57 @@
 </template>
 <script>
 import { slider, slideritem } from "vue-concise-slider";
+import CardEquipe from "../reutilizavel/CardEquipe";
 export default {
   components: {
     slider,
     slideritem,
+    CardEquipe,
   },
   data: () => ({
     equipeDialog: false,
+    styleDesktop: {
+      height: "auto",
+      width: "23.5%",
+      "margin-right": "2%",
+    },
+    styleMobile: {
+      height: "auto",
+      width: "98%",
+      "margin-right": "2%",
+    },
+    styleMedium: {
+      height: "auto",
+      width: "49%",
+      "margin-right": "2%",
+    },
     someList: [
       {
         html: "slide1",
-        style: {
-          background: "#1bbc9b",
-        },
       },
       {
         html: "slide2",
-        style: {
-          background: "#4bbfc3",
-        },
       },
       {
         html: "slide3",
-        style: {
-          background: "#7baabe",
-        },
+      },
+      {
+        html: "slide4",
+      },
+      {
+        html: "slide5",
       },
     ],
     //Slider configuration [obj]
-    options: {
+    optionsDesktop: {
       currentPage: 0,
+      slidesToScroll: 2,
+      thresholdDistance: "50",
+    },
+    optionsMobile: {
+      currentPage: 0,
+      slidesToScroll: 1,
+      thresholdDistance: "50",
     },
   }),
   methods: {
@@ -201,6 +164,13 @@ export default {
 };
 </script>
 <style>
+#carousel-mobile {
+  display: none;
+}
+#carousel-medium {
+  display: none;
+}
+
 #nossa-equipe {
   box-sizing: border-box;
   display: flex;
@@ -209,21 +179,6 @@ export default {
   width: 100%;
   padding: 64px 0px 32px 0;
   background-color: #f2f2f2;
-}
-.card-body {
-  text-align: center;
-}
-.card-title {
-  color: black;
-}
-.card-text {
-  color: black;
-}
-#carousel-section {
-  padding-top: 24px;
-}
-#carousel-cards-mobile {
-  display: none;
 }
 
 #button-section {
@@ -268,23 +223,29 @@ export default {
     display: block;
     margin: 0.4em auto;
   }
-  /* #carousel-cards {
+  #carousel-desktop {
     display: none !important;
-  } */
-  /* #carousel-cards-mobile {
+  }
+  #carousel-mobile {
     display: block !important;
-  } */
+  }
+  #carousel-medium {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 1140px) and (min-width: 761px) {
   #nossa-equipe br {
     display: none !important;
   }
-  /* #carousel-cards {
+  #carousel-desktop {
     display: none !important;
-  } */
-  /* #carousel-cards-mobile {
+  }
+  #carousel-mobile {
+    display: none !important;
+  }
+  #carousel-medium {
     display: block !important;
-  } */
+  }
 }
 </style>
