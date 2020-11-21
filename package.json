@@ -7,7 +7,8 @@
     "db": "json-server --watch db.json --static ./",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "serve": "concurrently -r -k \"yarn run db\" \"yarn run dev\" "
+    "serve": "concurrently -r -k \"yarn run db\" \"yarn run dev\" ",
+    "heroku-postbuild": "\"yarn run db\""
   },
   "dependencies": {
     "axios": "^0.21.0",
