@@ -39,16 +39,16 @@
         id="carousel-mobile"
         style="width:100%;margin:10px auto;height: 500px"
       >
-        <slider ref="slider-desktop" :options="optionsMobile">
+        <slider ref="slider-mobile" :options="optionsMobile">
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
-            v-for="(item, index) in someList"
+            v-for="(membro, index) in equipe"
             :key="index"
             :style="styleMobile"
             ><CardEquipe
-              imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
-              nome="Roberto Maia"
-              cargo="Desenvolvedor"
+              :imagem="membro.imagem"
+              :nome="membro.nome"
+              :cargo="membro.cargo"
           /></slideritem>
           <!-- Customizable loading -->
           <div slot="loading">loading...</div>
@@ -59,16 +59,16 @@
         id="carousel-medium"
         style="width:100%;margin:10px auto;height: 450px"
       >
-        <slider ref="slider-desktop" :options="optionsMobile">
+        <slider ref="slider-medium" :options="optionsMobile">
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
-            v-for="(item, index) in someList"
+            v-for="(membro, index) in equipe"
             :key="index"
             :style="styleMedium"
             ><CardEquipe
-              imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
-              nome="Roberto"
-              cargo="Desenvolvedor"
+              :imagem="membro.imagem"
+              :nome="membro.nome"
+              :cargo="membro.cargo"
           /></slideritem>
           <!-- Customizable loading -->
           <div slot="loading">loading...</div>
@@ -88,11 +88,15 @@
             <h5 class="not-margin">Nossa Equipe</h5>
           </template>
           <div class="row">
-            <div class="col-6 col-lg-6">
+            <div
+              class="col-6 col-md-4"
+              v-for="membro in equipe"
+              :key="membro.nome"
+            >
               <CardEquipe
-                imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
-                nome="Roberto Maia"
-                cargo="Desenvolvedor"
+                :imagem="membro.imagem"
+                :nome="membro.nome"
+                :cargo="membro.cargo"
               />
             </div>
           </div>
@@ -155,6 +159,32 @@ export default {
       slidesToScroll: 1,
       thresholdDistance: "50",
     },
+    equipe: [
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+    ],
   }),
   methods: {
     openEquipe() {
