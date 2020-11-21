@@ -88,7 +88,7 @@
             <h5 class="not-margin">Nossa Equipe</h5>
           </template>
           <div class="row">
-            <div class="col-6 col-lg-4">
+            <div class="col-6 col-lg-6">
               <CardEquipe
                 imagem="https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
                 nome="Roberto Maia"
