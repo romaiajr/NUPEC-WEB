@@ -42,11 +42,11 @@
 
 <script>
 import Navbar from "../components/reutilizavel/Navbar";
-import Hero from "../components/home/Hero";
-import QuemSomos from "../components/home/QuemSomos";
-import OqueFazemos from "../components/home/OqueFazemos";
-import Equipe from "../components/home/Equipe";
-import SocialMedia from "../components/home/SocialMedia";
+import Hero from "../components/homepage/Hero";
+import QuemSomos from "../components/homepage/QuemSomos";
+import OqueFazemos from "../components/homepage/OqueFazemos";
+import Equipe from "../components/homepage/Equipe";
+import SocialMedia from "../components/homepage/SocialMedia";
 import Footer from "../components/reutilizavel/Footer";
 export default {
   components: {
