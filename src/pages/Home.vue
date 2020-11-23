@@ -8,12 +8,19 @@
         id="item-dropdown"
         @click="scrollMeTo('materiais')"
       >
-        <b-dropdown-item>
+        <b-dropdown-item to="materiais/artigos" exact>
           Artigos
         </b-dropdown-item>
-        <b-dropdown-item>Livros</b-dropdown-item>
-        <b-dropdown-item>Cap. de Livros</b-dropdown-item>
-        <b-dropdown-item>Atividades Extras</b-dropdown-item>
+        <b-dropdown-item to="materiais/livros" exact>Livros</b-dropdown-item>
+        <b-dropdown-item to="materiais/capitulos-de-livros" exact
+          >Cap. de Livros</b-dropdown-item
+        >
+        <b-dropdown-item to="materiais/projetos-de-extensao" exact
+          >Projetos de Extensão</b-dropdown-item
+        >
+        <b-dropdown-item to="materiais/atividades-complementares" exact
+          >Atividades Complementares</b-dropdown-item
+        >
       </b-nav-item-dropdown>
       <b-nav-item @click="scrollMeTo('nossa-equipe')"
         >Nossa Equipe</b-nav-item

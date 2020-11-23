@@ -1,6 +1,6 @@
 <template>
   <div class="wrimagecard wrimagecard-topimage">
-    <router-link v-bind:to="link">
+    <router-link v-bind:to="link" exact>
       <div class="wrimagecard-topimage_header">
         <center>
           <i v-bind:class="icone" v-bind:style="cor"></i>

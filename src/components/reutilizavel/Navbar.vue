@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" class="navbar" fixed="top">
       <div class="container">
         <b-navbar-brand>
-          <router-link to="/">
+          <router-link to="/" exact>
             <img id="logo-nav" src="../../assets/img/Logo.png" />
           </router-link>
         </b-navbar-brand>

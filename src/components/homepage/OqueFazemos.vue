@@ -32,20 +32,22 @@
           </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
-          <CardMaterial
-            link="/materiais/livros"
-            icone="bx bx-book"
-            cor="color:#1fa67b"
-            nome="Livros"
-          >
-          </CardMaterial>
+          <router-link to="materiais/livros"
+            ><CardMaterial
+              link="/materiais/livros"
+              icone="bx bx-book"
+              cor="color:#1fa67b"
+              nome="Livros"
+            >
+            </CardMaterial
+          ></router-link>
         </div>
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/materiais/projeto-extensao"
+            link="/materiais/projetos-de-extensao"
             icone="fa fa-laptop"
             cor="color:#dc3546"
-            nome="Projeto de Extensão"
+            nome="Projetos de Extensão"
           >
           </CardMaterial>
         </div>
@@ -60,7 +62,7 @@
         </div>
       </div>
       <div id="button-section">
-        <router-link to="/materiais">
+        <router-link to="/materiais" exact>
           <button class="a-button">
             <h6>VEJA TODOS OS MATERIAIS</h6>
           </button>

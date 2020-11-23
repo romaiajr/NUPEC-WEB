@@ -4,8 +4,15 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import Router from "vue-router";
 Vue.use(Router);
+
 import Home from "./pages/Home.vue";
-import Materiais from "./pages/Materiais.vue";
+import Materiais from "./pages/materiais/Materiais.vue";
+import Artigos from "./pages/materiais/Artigos.vue";
+import Livros from "./pages/materiais/Livros.vue";
+import CapLivro from "./pages/materiais/CapLivro.vue";
+import ProjetosExtensao from "./pages/materiais/ProjetosExtensao.Vue";
+import AtividadesComplementares from "./pages/materiais/AtividadesComplementares.vue";
+
 const router = new Router({
   mode: "history",
   routes: [
@@ -13,13 +20,15 @@ const router = new Router({
     {
       path: "/materiais",
       component: Materiais,
-      // children: [
-      //   { path: "/artigos", component: Navbar },
-      //   { path: "/livros", component: Navbar },
-      //   { path: "/capitulos", component: Navbar },
-      //   { path: "/atividades_complementares", component: Navbar },
-      // ],
     },
+    { path: "/materiais/artigos", component: Artigos },
+    { path: "/materiais/livros", component: Livros },
+    { path: "/materiais/capitulos-de-livros", component: CapLivro },
+    {
+      path: "/materiais/atividades-complementares",
+      component: AtividadesComplementares,
+    },
+    { path: "/materiais/projetos-de-extensao", component: ProjetosExtensao },
   ],
 });
 
