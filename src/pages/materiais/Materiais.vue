@@ -1,15 +1,22 @@
 <template>
   <div>
     <Navbar>
-      <b-nav-item class="mobile-nav" to="artigos" exact>Artigos</b-nav-item>
-      <b-nav-item class="mobile-nav" to="livros" exact>Livros</b-nav-item>
-      <b-nav-item class="mobile-nav" to="capitulos-de-livros" exact
+      <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
+        >Artigos</b-nav-item
+      >
+      <b-nav-item class="mobile-nav" to="/materiais/livros" exact
+        >Livros</b-nav-item
+      >
+      <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="projetos-de-extensao" exact
+      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="atividades-complementares" exact
+      <b-nav-item
+        class="mobile-nav"
+        to="/materiais/atividades-complementares"
+        exact
         >Atividades Complementares</b-nav-item
       >
     </Navbar>
@@ -18,7 +25,63 @@
         <div class="col-md-2 col-0 border-right" id="sidebar">
           <Sidebar active="0" />
         </div>
-        <div class="col-md-10 col-12" id="table-section"></div>
+        <div class="col-md-10 col-12" id="table-section">
+          <div id="title">
+            <div class="container">
+              <h4>
+                Materiais
+                <!-- <b-badge>{{ conteudo.length }}</b-badge> -->
+              </h4>
+            </div>
+          </div>
+          <div class="row m-0" id="card-container">
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/artigos"
+                icone="fa fa-file-text-o"
+                cor="color:RGB(59, 89, 153)"
+                nome="Artigos"
+              >
+              </CardMaterial>
+            </div>
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/livros"
+                icone="bx bx-book"
+                cor="color:#1fa67b"
+                nome="Livros"
+              >
+              </CardMaterial>
+            </div>
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/capitulos-de-livros"
+                icone="bx bx-bookmark"
+                cor="color:#993399"
+                nome="Capítulos de Livros"
+              >
+              </CardMaterial>
+            </div>
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/projetos-de-extensao"
+                icone="fa fa-laptop"
+                cor="color:#dc3546"
+                nome="Projetos de Extensão"
+              >
+              </CardMaterial>
+            </div>
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/atividades-complementares"
+                icone="fa fa-plus-square-o"
+                cor="color:#ff9a00"
+                nome="Atividades Complementares"
+              >
+              </CardMaterial>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -26,10 +89,12 @@
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
 import Sidebar from "../../components/manager/Sidebar";
+import CardMaterial from "../../components/reutilizavel/CardMaterial";
 export default {
   components: {
     Navbar,
     Sidebar,
+    CardMaterial,
   },
   data: () => ({
     sortBy: "Nome",

@@ -32,15 +32,13 @@
           </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
-          <router-link to="materiais/livros"
-            ><CardMaterial
-              link="/materiais/livros"
-              icone="bx bx-book"
-              cor="color:#1fa67b"
-              nome="Livros"
-            >
-            </CardMaterial
-          ></router-link>
+          ><CardMaterial
+            link="/materiais/livros"
+            icone="bx bx-book"
+            cor="color:#1fa67b"
+            nome="Livros"
+          >
+          </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
           <CardMaterial
