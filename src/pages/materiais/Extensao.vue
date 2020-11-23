@@ -1,5 +1,5 @@
 <template>
-  <div id="materiais-manager">
+  <div>
     <Navbar>
       <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
         >Artigos</b-nav-item
@@ -10,9 +10,7 @@
       <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
-        >Projetos de Extensão</b-nav-item
-      >
+      <b-nav-item class="mobile-nav">Projetos de Extensão</b-nav-item>
       <b-nav-item
         class="mobile-nav"
         to="/materiais/atividades-complementares"
@@ -23,64 +21,14 @@
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
         <div class="col-md-2 col-0 border-right" id="sidebar">
-          <Sidebar active="0" />
+          <Sidebar active="4" />
         </div>
         <div class="col-md-10 col-12" id="table-section">
-          <div id="title">
-            <div class="container">
-              <h4>
-                Materiais
-                <!-- <b-badge>{{ conteudo.length }}</b-badge> -->
-              </h4>
-            </div>
-          </div>
-          <div class="row m-0" id="card-container">
-            <div class="col-md-3 col-sm-4">
-              <CardMaterial
-                link="/materiais/artigos"
-                icone="fa fa-file-text-o"
-                cor="color:RGB(59, 89, 153)"
-                nome="Artigos"
-              >
-              </CardMaterial>
-            </div>
-            <div class="col-md-3 col-sm-4">
-              <CardMaterial
-                link="/materiais/livros"
-                icone="bx bx-book"
-                cor="color:#1fa67b"
-                nome="Livros"
-              >
-              </CardMaterial>
-            </div>
-            <div class="col-md-3 col-sm-4">
-              <CardMaterial
-                link="/materiais/capitulos-de-livros"
-                icone="bx bx-bookmark"
-                cor="color:#993399"
-                nome="Capítulos de Livros"
-              >
-              </CardMaterial>
-            </div>
-            <div class="col-md-3 col-sm-4">
-              <CardMaterial
-                link="/materiais/projetos-de-extensao"
-                icone="fa fa-laptop"
-                cor="color:#dc3546"
-                nome="Projetos de Extensão"
-              >
-              </CardMaterial>
-            </div>
-            <div class="col-md-3 col-sm-4">
-              <CardMaterial
-                link="/materiais/atividades-complementares"
-                icone="fa fa-plus-square-o"
-                cor="color:#ff9a00"
-                nome="Atividades Complementares"
-              >
-              </CardMaterial>
-            </div>
-          </div>
+          <Management
+            :conteudo="items"
+            nome="Projetos de Extensão"
+            sortBy="nome"
+          />
         </div>
       </div>
     </div>
@@ -88,13 +36,13 @@
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
+import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
-import CardMaterial from "../../components/reutilizavel/CardMaterial";
 export default {
   components: {
     Navbar,
+    Management,
     Sidebar,
-    CardMaterial,
   },
   data: () => ({
     sortBy: "Nome",
@@ -149,19 +97,19 @@ export default {
         Link: "http://www.",
       },
     ],
-    style: "display: block !important",
-    // style2: "display: block !important",
-    // style3: "display: block !important",
-    // style4: "display: block !important",
   }),
 };
 </script>
 <style>
-.mobile-nav {
-  display: none;
-}
 #sidebar {
   padding: 8px 8px 0 8px;
+}
+#sidebar .active {
+  border: 1px solid var(--primary-dark-color) !important;
+
+  color: white !important;
+
+  background-color: var(--primary-dark-color);
 }
 
 @media screen and (max-width: 760px) {

@@ -32,7 +32,7 @@
           </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
-          ><CardMaterial
+          <CardMaterial
             link="/materiais/livros"
             icone="bx bx-book"
             cor="color:#1fa67b"

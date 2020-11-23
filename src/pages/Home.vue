@@ -2,12 +2,7 @@
   <div>
     <Navbar>
       <b-nav-item @click="scrollMeTo('quem-somos')">Quem Somos</b-nav-item>
-      <b-nav-item-dropdown
-        text="Materiais"
-        right
-        id="item-dropdown"
-        @click="scrollMeTo('materiais')"
-      >
+      <b-nav-item-dropdown text="Materiais" right id="item-dropdown">
         <b-dropdown-item to="materiais/artigos" exact>
           Artigos
         </b-dropdown-item>

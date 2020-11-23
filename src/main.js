@@ -10,7 +10,7 @@ import Materiais from "./pages/materiais/Materiais.vue";
 import Artigos from "./pages/materiais/Artigos.vue";
 import Livros from "./pages/materiais/Livros.vue";
 import CapLivro from "./pages/materiais/CapLivro.vue";
-import ProjetosExtensao from "./pages/materiais/ProjetosExtensao.Vue";
+import Extensao from "./pages/materiais/Extensao.vue";
 import AtividadesComplementares from "./pages/materiais/AtividadesComplementares.vue";
 
 const router = new Router({
@@ -28,7 +28,7 @@ const router = new Router({
       path: "/materiais/atividades-complementares",
       component: AtividadesComplementares,
     },
-    { path: "/materiais/projetos-de-extensao", component: ProjetosExtensao },
+    { path: "/materiais/projetos-de-extensao", component: Extensao },
   ],
 });
 
