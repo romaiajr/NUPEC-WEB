@@ -115,7 +115,10 @@ export default {
   }),
   methods: {
     onSubmit() {
-      console.log(this.form);
+      const user = JSON.parse(sessionStorage.getItem("login"));
+      if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
+        console.log(this.form);
+      }
     },
     onReset() {
       console.log("cancelou");
