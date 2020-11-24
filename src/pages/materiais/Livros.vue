@@ -111,10 +111,7 @@ export default {
   }),
   methods: {
     onSubmit() {
-      const user = JSON.parse(sessionStorage.getItem("login"));
-      if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
-        console.log(this.form);
-      }
+      console.log(this.form);
     },
     onReset() {
       this.form.titulo = "";
