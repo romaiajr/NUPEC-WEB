@@ -16,7 +16,9 @@
           </div>
           <div class="col-md-6 col-2 p-0" />
           <div class="col-md-2 col-4 p-0">
-            <b-button block v-b-modal.modal-1><p>Adicionar</p></b-button>
+            <div v-show="isLogged">
+              <b-button block v-b-modal.modal-1><p>Adicionar</p></b-button>
+            </div>
           </div>
         </div>
       </div>
@@ -64,6 +66,12 @@
 </template>
 <script>
 export default {
+  mounted() {
+    const user = JSON.parse(sessionStorage.getItem("login"));
+    if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
+      this.isLogged = true;
+    }
+  },
   props: {
     conteudo: {
       type: Array,
@@ -82,6 +90,7 @@ export default {
   data: () => ({
     perPage: 6,
     currentPage: 1,
+    isLogged: false,
   }),
   methods: {
     redirect(row) {
@@ -140,6 +149,7 @@ export default {
 #inputs button {
   background-color: var(--secondary-color) !important;
   border: none !important;
+  margin: 0 !important;
 }
 
 #inputs button:hover {

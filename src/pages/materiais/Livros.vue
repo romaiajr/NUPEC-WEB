@@ -38,10 +38,8 @@
     </div>
     <b-modal
       id="modal-1"
+      ref="modal-livros"
       title="Adicionar Novo Livro"
-      ok-title="Salvar"
-      cancel-title="Cancelar"
-      cancel-variant="danger"
       @hide="onReset"
       hide-footer
       ><b-form @submit="onSubmit" @reset="onReset">
@@ -120,6 +118,7 @@ export default {
       this.form.autor = "";
       this.form.livro = "";
       this.form.link = "";
+      this.$refs["modal-livros"].hide();
     },
   },
 };

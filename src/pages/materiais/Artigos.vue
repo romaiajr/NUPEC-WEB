@@ -38,10 +38,11 @@
     </div>
     <b-modal
       id="modal-1"
+      ref="modal-artigos"
       title="Adicionar Novo Artigo"
       hide-footer
       @hide="onReset"
-      ><b-form>
+      ><b-form @submit="onSubmit" @reset="onReset">
         <b-form-text> Título do Artigo </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
         <b-form-text> Nome do(s) Autor(es) </b-form-text>
@@ -63,6 +64,7 @@
 import Navbar from "../../components/reutilizavel/Navbar";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
+
 export default {
   components: {
     Navbar,
@@ -70,6 +72,8 @@ export default {
     Sidebar,
   },
   data: () => ({
+    isLogged: false,
+    text: "",
     fields: [
       {
         key: "titulo",
@@ -118,6 +122,7 @@ export default {
       this.form.titulo = "";
       this.form.autor = "";
       this.form.link = "";
+      this.$refs["modal-artigos"].hide();
     },
   },
 };

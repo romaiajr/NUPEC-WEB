@@ -11,54 +11,73 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-          <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <!-- <b-nav-item @click="scrollMeTo('quem-somos')"
-              >Quem Somos</b-nav-item
-            >
-            <b-nav-item-dropdown
-              text="Materiais"
-              right
-              id="item-dropdown"
-              @click="scrollMeTo('materiais')"
-            >
-              <b-dropdown-item>
-                Artigos
-              </b-dropdown-item>
-              <b-dropdown-item>Livros</b-dropdown-item>
-              <b-dropdown-item>Cap. de Livros</b-dropdown-item>
-              <b-dropdown-item>Atividades Extras</b-dropdown-item>
-            </b-nav-item-dropdown>
-            <b-nav-item @click="scrollMeTo('nossa-equipe')"
-              >Nossa Equipe</b-nav-item
-            > -->
             <slot></slot>
+            <div v-show="!isLogged">
+              <b-button v-b-modal.modal-login squared>Login</b-button>
+            </div>
           </b-navbar-nav>
         </b-collapse>
       </div>
     </b-navbar>
+    <b-modal id="modal-login" ref="modal-login" hide-footer title="Login">
+      <b-form @submit="onLogin">
+        <b-form-text> Usuário </b-form-text>
+        <b-form-input required v-model="form.user"></b-form-input>
+        <b-form-text> Senha </b-form-text>
+        <b-form-input
+          type="password"
+          required
+          v-model="form.senha"
+        ></b-form-input>
+        <div id="button-modal">
+          <b-button id="btn-login" type="submit" block variant="primary"
+            >Realizar Login</b-button
+          >
+        </div>
+      </b-form>
+    </b-modal>
   </div>
 </template>
 
 <script>
 export default {
+  mounted() {
+    const user = JSON.parse(sessionStorage.getItem("login"));
+    if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
+      this.isLogged = true;
+    }
+  },
   data: () => ({
-    page: "",
     isHover: false,
+    isLogged: false,
+    form: {
+      user: "",
+      senha: "",
+    },
   }),
   methods: {
     scrollMeTo(refName) {
       this.$parent.scrollMeTo(refName);
     },
-    onChange(event) {
-      this.page = event.target.value;
-      console.log(this.page);
+    onLogin() {
+      console.log(this.form);
+      sessionStorage.setItem(
+        "login",
+        JSON.stringify({
+          user: this.form.user,
+          senha: this.form.senha,
+        })
+      );
     },
   },
 };
 </script>
 
 <style>
+#btn-login {
+  margin: 0px !important;
+}
 .navbar {
   background-color: var(--light-color);
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
@@ -125,11 +144,23 @@ export default {
   display: block;
 }
 
+.navbar .btn {
+  color: white !important;
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+.navbar .btn:hover {
+  background-color: var(--secondary-dark-color) !important;
+  color: white !important;
+  border-color: var(--secondary-dark-color) !important;
+}
+
 /* DROPDOWN */
 /* .dropdown-item,
     .dropdown-item:after,
     .dropdown-item:before {
-        transition: all .5s;    
+        transition: all .5s;
     }
     .dropdown-item:hover{
         color: white !important;
@@ -184,6 +215,9 @@ export default {
   background-color: var(--primary-dark-color) !important;
 }
 @media screen and (max-width: 600px) {
+  .navbar .btn {
+    margin: 0 !important;
+  }
   #logo-nav {
     width: 90px;
   }

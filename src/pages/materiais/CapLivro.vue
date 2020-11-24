@@ -38,6 +38,7 @@
     </div>
     <b-modal
       id="modal-1"
+      ref="modal-caplivro"
       title="Adicionar Novo Capítulo"
       ok-title="Salvar"
       cancel-title="Cancelar"
@@ -115,6 +116,7 @@ export default {
       this.form.autor = "";
       this.form.livro = "";
       this.form.link = "";
+      this.$refs["modal-caplivro"].hide();
     },
   },
 };
