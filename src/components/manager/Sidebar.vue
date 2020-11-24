@@ -13,14 +13,14 @@
       exact
       :active="active == 2"
       :disabled="active == 2"
-      >Livro</b-list-group-item
+      >Livros</b-list-group-item
     >
     <b-list-group-item
       to="/materiais/capitulos-de-livros"
       exact
       :active="active == 3"
       :disabled="active == 3"
-      >Capítulo de Livros</b-list-group-item
+      >Capítulos de Livros</b-list-group-item
     >
     <b-list-group-item
       to="/materiais/projetos-de-extensao"
@@ -35,6 +35,13 @@
       :active="active == 5"
       :disabled="active == 5"
       >Atividades Complementares</b-list-group-item
+    >
+    <b-list-group-item
+      to="/materiais/iniciacao-cientifica"
+      exact
+      :active="active == 6"
+      :disabled="active == 6"
+      >Iniciação Científica</b-list-group-item
     >
   </b-list-group>
 </template>

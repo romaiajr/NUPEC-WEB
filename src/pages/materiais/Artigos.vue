@@ -17,6 +17,9 @@
         exact
         >Atividades Complementares</b-nav-item
       >
+      <b-nav-item class="mobile-nav" to="/materiais/iniciacao-cientifica"
+        >Iniciação Científica</b-nav-item
+      >
     </Navbar>
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
@@ -24,10 +27,36 @@
           <Sidebar active="1" />
         </div>
         <div class="col-md-10 col-12" id="table-section">
-          <Management :conteudo="items" nome="Artigos" sortBy="nome" />
+          <Management
+            :conteudo="items"
+            nome="Artigos"
+            sortBy="Nome"
+            :fields="fields"
+          />
         </div>
       </div>
     </div>
+    <b-modal
+      id="modal-1"
+      title="Adicionar Novo Artigo"
+      hide-footer
+      @hide="onReset"
+      ><b-form>
+        <b-form-text> Título do Artigo </b-form-text>
+        <b-form-input required v-model="form.titulo"></b-form-input>
+        <b-form-text> Nome do(s) Autor(es) </b-form-text>
+        <b-form-input required v-model="form.autor"></b-form-input>
+        <b-form-text> Link para Acesso </b-form-text>
+        <b-form-input required v-model="form.link"></b-form-input>
+        <b-form-text id="password-help-block">
+          O link para acesso deve seguir o exemplo: "http://www.uefs.br/"
+        </b-form-text>
+        <div id="button-modal">
+          <b-button type="reset" variant="danger">Cancelar</b-button>
+          <b-button type="submit" variant="primary">Salvar</b-button>
+        </div>
+      </b-form>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -41,62 +70,65 @@ export default {
     Sidebar,
   },
   data: () => ({
-    sortBy: "Nome",
+    fields: [
+      {
+        key: "titulo",
+        label: "Título do Artigo",
+        sortable: true,
+        sortDirection: "asc",
+      },
+      {
+        key: "autor",
+        label: "Autor(es)",
+        sortable: true,
+        sortDirection: "asc",
+      },
+      { key: "Link", label: "Link" },
+    ],
+    form: {
+      titulo: "",
+      autor: "",
+      link: "",
+    },
+
     items: [
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        titulo: "Interface Visual PBL Office",
+        autor: "Roberto Maia",
+        link: "https://ambientewebv3.vercel.app/#/",
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        titulo: "O Cuidado nas Feiras",
+        autor: "Jorgina Mendes",
+        link: "https://nupec-uefs.vercel.app/",
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link:
-          "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional",
-      },
-      {
-        Nome: "Artigo 2",
-        Autor: "Larsen",
-        Data: "30/05/2001",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 3",
-        Autor: "Geneva",
-        Data: "07/11/2000",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 4",
-        Autor: "Jami",
-        Data: "17/10/2020",
-        Link: "http://www.",
+        titulo: "Colegiado de Engenharia da Computação",
+        autor: "Ecompjr",
+        link: "http://www.ecomp.uefs.br/",
       },
     ],
   }),
+  methods: {
+    onSubmit() {
+      console.log(this.form);
+    },
+    onReset() {
+      console.log("cancelou");
+      this.form.titulo = "";
+      this.form.autor = "";
+      this.form.link = "";
+    },
+  },
 };
 </script>
 <style>
+#button-modal {
+  padding-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
 #sidebar {
   padding: 8px 8px 0 8px;
 }

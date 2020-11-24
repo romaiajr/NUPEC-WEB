@@ -1,7 +1,7 @@
 <template>
   <div class="wrimagecard wrimagecard-topimage">
     <router-link v-bind:to="link" exact>
-      <div class="wrimagecard-topimage_header">
+      <div class="wrimagecard-topimage_header" :style="imagem">
         <center>
           <i v-bind:class="icone" v-bind:style="cor"></i>
         </center>
@@ -20,6 +20,7 @@ export default {
     icone: String,
     cor: String,
     nome: String,
+    imagem: String,
   },
 };
 </script>

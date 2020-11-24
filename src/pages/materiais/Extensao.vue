@@ -17,6 +17,9 @@
         exact
         >Atividades Complementares</b-nav-item
       >
+      <b-nav-item class="mobile-nav" to="/materiais/iniciacao-cientifica"
+        >Iniciação Científica</b-nav-item
+      >
     </Navbar>
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
@@ -24,11 +27,24 @@
           <Sidebar active="4" />
         </div>
         <div class="col-md-10 col-12" id="table-section">
-          <Management
-            :conteudo="items"
-            nome="Projetos de Extensão"
-            sortBy="nome"
-          />
+          <div id="title">
+            <div class="container">
+              <h4>
+                Projetos de Extensão
+                <!-- <b-badge>{{ conteudo.length }}</b-badge> -->
+              </h4>
+            </div>
+          </div>
+          <div class="row m-0" id="card-container">
+            <div
+              class="col-md-3 col-sm-4"
+              v-for="projeto in items"
+              :key="projeto.Nome"
+            >
+              <CardMaterial link="/materiais/artigos" :nome="projeto.Nome">
+              </CardMaterial>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -36,65 +52,20 @@
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
-import Management from "../../components/manager/Management";
+import CardMaterial from "../../components/reutilizavel/CardMaterial";
 import Sidebar from "../../components/manager/Sidebar";
 export default {
   components: {
     Navbar,
-    Management,
+    CardMaterial,
     Sidebar,
   },
   data: () => ({
-    sortBy: "Nome",
     items: [
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link:
-          "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional",
-      },
-      {
-        Nome: "Artigo 2",
-        Autor: "Larsen",
-        Data: "30/05/2001",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 3",
-        Autor: "Geneva",
-        Data: "07/11/2000",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 4",
-        Autor: "Jami",
-        Data: "17/10/2020",
-        Link: "http://www.",
+        Nome: "Extensão 1",
+        Aluno: "Roberto Maia",
+        Orientador: "Claudia Pinto",
       },
     ],
   }),

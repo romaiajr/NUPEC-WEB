@@ -12,6 +12,7 @@ import Livros from "./pages/materiais/Livros.vue";
 import CapLivro from "./pages/materiais/CapLivro.vue";
 import Extensao from "./pages/materiais/Extensao.vue";
 import AtividadesComplementares from "./pages/materiais/AtividadesComplementares.vue";
+import IniciacaoCientifica from "./pages/materiais/IniciacaoCientifica.vue";
 
 const router = new Router({
   mode: "history",
@@ -29,6 +30,7 @@ const router = new Router({
       component: AtividadesComplementares,
     },
     { path: "/materiais/projetos-de-extensao", component: Extensao },
+    { path: "/materiais/iniciacao-cientifica", component: IniciacaoCientifica },
   ],
 });
 

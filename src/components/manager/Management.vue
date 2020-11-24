@@ -11,12 +11,12 @@
     <div id="inputs">
       <div class="container">
         <div class="row m-0">
-          <div class="col-md-3 col-4 p-0">
+          <div class="col-md-4 col-6 p-0">
             <b-form-input v-model="text" placeholder="Pesquisar"></b-form-input>
           </div>
-          <div class="col-md-7 col-4 p-0" />
+          <div class="col-md-6 col-2 p-0" />
           <div class="col-md-2 col-4 p-0">
-            <b-button block><p>Adicionar</p></b-button>
+            <b-button block v-b-modal.modal-1><p>Adicionar</p></b-button>
           </div>
         </div>
       </div>
@@ -33,11 +33,11 @@
             striped
             hover
             sort-icon-left
-            responsive="sm"
+            responsive
             :items="conteudo"
             :fields="fields"
           >
-            <template #cell(Link)="row">
+            <template #cell(link)="row">
               <b-button
                 size="sm"
                 variant="primary"
@@ -75,19 +75,13 @@ export default {
     sortBy: {
       type: String,
     },
+    fields: {
+      type: Array,
+    },
   },
   data: () => ({
     perPage: 6,
     currentPage: 1,
-    fields: [
-      { key: "Nome", label: "Nome", sortable: true, sortDirection: "asc" },
-      { key: "Autor", label: "Autor", sortable: true, sortDirection: "asc" },
-      {
-        key: "Data",
-        label: "Data de Publicação",
-      },
-      { key: "Link", label: "Link" },
-    ],
   }),
   methods: {
     redirect(row) {
