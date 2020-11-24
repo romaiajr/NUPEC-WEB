@@ -84,7 +84,7 @@ export default {
         sortable: true,
         sortDirection: "asc",
       },
-      { key: "Link", label: "Link" },
+      { key: "link", label: "Link" },
     ],
     form: {
       titulo: "",
