@@ -135,7 +135,8 @@ export default {
 }
 
 #sidebar {
-  padding: 8px 8px 0 8px;
+  /* margin-top: 8px; */
+  /* padding: 0px 8px 0 8px; */
 }
 #sidebar .active {
   border: 1px solid var(--primary-dark-color) !important;

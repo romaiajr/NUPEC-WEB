@@ -65,9 +65,6 @@ export default {
   border-color: var(--primary-dark-color) !important;
   color: white !important;
 }
-#sidebar {
-  padding: 8px 8px 0 8px;
-}
 
 @media screen and (max-width: 760px) {
   #sidebar {

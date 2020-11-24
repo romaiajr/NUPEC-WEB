@@ -101,6 +101,10 @@ export default {
 };
 </script>
 <style>
+#sidebar {
+  margin-top: 8px;
+  padding: 0px 8px 0px 8px;
+}
 #pagination {
   display: flex;
   align-items: center;
@@ -126,6 +130,7 @@ export default {
   background-color: var(--primary-dark-color);
   color: white;
   width: 100%;
+  margin-top: 8px;
 }
 
 #inputs {

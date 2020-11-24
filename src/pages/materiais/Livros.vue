@@ -130,9 +130,9 @@ export default {
   justify-content: flex-end;
 }
 
-#sidebar {
+/* #sidebar {
   padding: 8px 8px 0 8px;
-}
+} */
 #sidebar .active {
   border: 1px solid var(--primary-dark-color) !important;
 

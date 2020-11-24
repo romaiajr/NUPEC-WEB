@@ -132,9 +132,9 @@ export default {
   margin-left: 12px !important;
 }
 
-#sidebar {
+/* #sidebar {
   padding: 8px 8px 0 8px;
-}
+} */
 #sidebar .active {
   border: 1px solid var(--primary-dark-color) !important;
 

@@ -160,9 +160,9 @@ export default {
 .mobile-nav {
   display: none;
 }
-#sidebar {
+/* #sidebar {
   padding: 8px 8px 0 8px;
-}
+} */
 
 @media screen and (max-width: 760px) {
   .mobile-nav {
