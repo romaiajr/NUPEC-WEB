@@ -107,8 +107,8 @@ export default {
     this.getCapitulos();
   },
   methods: {
-    onSubmit() {
-      console.log(this.form);
+    async onSubmit() {
+      await capituloService.addCapitulo(this.form);
     },
     onReset() {
       this.form.titulo = "";
@@ -123,6 +123,10 @@ export default {
         loading.close();
         this.items = response.data;
       });
+    },
+    async onDelete(id) {
+      await capituloService.removeCapitulo(id);
+      this.getCapitulos();
     },
   },
 };

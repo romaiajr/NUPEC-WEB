@@ -99,8 +99,9 @@ export default {
     this.getLivros();
   },
   methods: {
-    onSubmit() {
-      console.log(this.form);
+    async onSubmit() {
+      console.log("entrou");
+      await livroService.addLivro(this.form);
     },
     onReset() {
       this.form.titulo = "";
@@ -115,6 +116,10 @@ export default {
         loading.close();
         this.items = response.data;
       });
+    },
+    async onDelete(id) {
+      await livroService.removeLivro(id);
+      this.getLivros();
     },
   },
 };

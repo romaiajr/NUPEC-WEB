@@ -35,7 +35,7 @@
     </div>
     <b-modal
       id="modal-1"
-      ref="modal-livros"
+      ref="modal-ic"
       title="Adicionar Novo Livro"
       @hide="onReset"
       hide-footer
@@ -108,15 +108,15 @@ export default {
     this.getIcs();
   },
   methods: {
-    onSubmit() {
-      console.log(this.form);
+    async onSubmit() {
+      await icService.addIc(this.form);
     },
     onReset() {
       this.form.titulo = "";
       this.form.autor = "";
-      this.form.livro = "";
-      this.form.link = "";
-      this.$refs["modal-livros"].hide();
+      this.form.orientador = "";
+      this.form.data = "";
+      this.$refs["modal-ic"].hide();
     },
     getIcs() {
       const loading = this.$vs.loading();
@@ -124,6 +124,10 @@ export default {
         loading.close();
         this.items = response.data;
       });
+    },
+    async onDelete(id) {
+      await icService.removeIc(id);
+      this.getIcs();
     },
   },
 };

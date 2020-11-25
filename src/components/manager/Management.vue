@@ -110,7 +110,7 @@ export default {
       window.open(row.value);
     },
     remove(row) {
-      console.log(row.item);
+      this.$parent.onDelete(row.item.id);
     },
   },
 };

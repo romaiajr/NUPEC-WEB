@@ -103,8 +103,8 @@ export default {
     this.getArtigos();
   },
   methods: {
-    onSubmit() {
-      console.log(this.form);
+    async onSubmit() {
+      await artigoService.addArtigo(this.form);
     },
     onReset() {
       console.log("cancelou");
@@ -116,9 +116,13 @@ export default {
     getArtigos() {
       const loading = this.$vs.loading();
       artigoService.getArtigos().then((response) => {
-        loading.close();
         this.items = response.data;
+        loading.close();
       });
+    },
+    async onDelete(id) {
+      await artigoService.removeArtigo(id);
+      this.getArtigos();
     },
   },
 };
