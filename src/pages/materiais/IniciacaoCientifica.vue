@@ -63,6 +63,7 @@
 import Navbar from "../../components/reutilizavel/Navbar";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
+import icService from "../../services/icService";
 export default {
   components: {
     Navbar,
@@ -101,57 +102,11 @@ export default {
       },
       { key: "remove", label: "" },
     ],
-    items: [
-      {
-        titulo: "Artigo 1",
-        aluno: "Aluno 1",
-        orientador: "Orientador",
-        data: "31/09/2020",
-      },
-      {
-        titulo: "Artigo 2",
-        aluno: "Aluno 2",
-        orientador: "Orientador",
-        data: "31/09/2020",
-      },
-      {
-        titulo: "Título IC 3",
-        aluno: "Aluno 3",
-        orientador: "Orientador",
-        data: "DD/MM/AA",
-      },
-      {
-        titulo: "Título IC 4",
-        aluno: "Aluno 4",
-        orientador: "Orientador",
-        data: "DD/MM/AA",
-      },
-      {
-        titulo: "Título IC 5",
-        aluno: "Aluno 5",
-        orientador: "Orientador",
-        data: "DD/MM/AA",
-      },
-      {
-        titulo: "Título IC 6",
-        aluno: "Aluno 6",
-        orientador: "Orientador",
-        data: "DD/MM/AA",
-      },
-      {
-        titulo: "Título IC 7",
-        aluno: "Aluno 7",
-        orientador: "Orientador",
-        data: "DD/MM/AA",
-      },
-      {
-        titulo: "Título IC 8",
-        aluno: "Aluno 8",
-        orientador: "Orientador",
-        data: "DD/MM/AA",
-      },
-    ],
+    items: [],
   }),
+  created() {
+    this.getIcs();
+  },
   methods: {
     onSubmit() {
       console.log(this.form);
@@ -162,6 +117,13 @@ export default {
       this.form.livro = "";
       this.form.link = "";
       this.$refs["modal-livros"].hide();
+    },
+    getIcs() {
+      const loading = this.$vs.loading();
+      icService.getIcs().then((response) => {
+        loading.close();
+        this.items = response.data;
+      });
     },
   },
 };

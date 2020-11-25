@@ -69,6 +69,8 @@
 import Navbar from "../../components/reutilizavel/Navbar";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
+import capituloService from "../../services/capituloService";
+
 export default {
   components: {
     Navbar,
@@ -99,15 +101,11 @@ export default {
       livro: "",
       link: "",
     },
-    items: [
-      {
-        titulo: "Capítulo 1",
-        autor: "Roberto Maia",
-        livro: "Interface NUPEC",
-        link: "https://nupec-uefs.vercel.app/",
-      },
-    ],
+    items: [],
   }),
+  created() {
+    this.getCapitulos();
+  },
   methods: {
     onSubmit() {
       console.log(this.form);
@@ -118,6 +116,13 @@ export default {
       this.form.livro = "";
       this.form.link = "";
       this.$refs["modal-caplivro"].hide();
+    },
+    getCapitulos() {
+      const loading = this.$vs.loading();
+      capituloService.getCapitulos().then((response) => {
+        loading.close();
+        this.items = response.data;
+      });
     },
   },
 };

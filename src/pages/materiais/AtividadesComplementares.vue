@@ -24,77 +24,76 @@
           <Sidebar active="5" />
         </div>
         <div class="col-md-10 col-12" id="table-section">
-          <Management
-            :conteudo="items"
-            nome="Atividades Complementares"
-            sortBy="nome"
-          />
+          <div id="title">
+            <div class="container">
+              <h4>
+                Atividades Complementares
+                <b-badge>{{ items.length }}</b-badge>
+              </h4>
+            </div>
+          </div>
+          <div class="row m-0" id="card-container">
+            <div
+              class="col-md-3 col-sm-4"
+              v-for="atividade in items"
+              :key="atividade.nome"
+            >
+              <CardExtensao v-b-modal.modal-1 :nome="atividade.nome">
+              </CardExtensao>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <b-modal id="modal-1" hide-footer title="Atividade Complementar">
+      <p class="my-4">Hello from modal!</p>
+    </b-modal>
   </div>
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
-import Management from "../../components/manager/Management";
+import CardExtensao from "../../components/reutilizavel/CardExtensao";
 import Sidebar from "../../components/manager/Sidebar";
 export default {
   components: {
     Navbar,
-    Management,
+    CardExtensao,
     Sidebar,
   },
   data: () => ({
-    sortBy: "Nome",
+    atv_selected: "",
     items: [
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        nome: "Feira do Sobradinho",
+        imagens: [
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+        ],
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        nome: "Feira da Cidade Nova",
+        imagens: [
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+        ],
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        nome: "Centro de Abastecimento",
+        imagens: [
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+        ],
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link:
-          "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional",
-      },
-      {
-        Nome: "Artigo 2",
-        Autor: "Larsen",
-        Data: "30/05/2001",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 3",
-        Autor: "Geneva",
-        Data: "07/11/2000",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 4",
-        Autor: "Jami",
-        Data: "17/10/2020",
-        Link: "http://www.",
+        nome: "Feira do Caseb",
+        imagens: [
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+          { link: "", descricao: "", data: "" },
+        ],
       },
     ],
   }),

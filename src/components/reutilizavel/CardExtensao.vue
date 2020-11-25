@@ -1,15 +1,14 @@
 <template>
   <div class="wrimagecard wrimagecard-topimage">
-    <router-link v-bind:to="link" exact>
-      <div class="wrimagecard-topimage_header">
-        <center>
-          <i v-bind:class="icone" v-bind:style="cor"></i>
-        </center>
-      </div>
-      <div class="wrimagecard-topimage_title">
-        <h6>{{ nome }}</h6>
-      </div>
-    </router-link>
+    <div class="wrimagecard-topimage_header" :style="background">
+      <center>
+        <i v-bind:class="icone" v-bind:style="cor"></i>
+        <slot id="icone"></slot>
+      </center>
+    </div>
+    <div class="wrimagecard-topimage_title">
+      <p>{{ nome }}</p>
+    </div>
   </div>
 </template>
 <script>
@@ -20,6 +19,7 @@ export default {
     icone: String,
     cor: String,
     nome: String,
+    background: String,
   },
 };
 </script>
@@ -45,6 +45,7 @@ export default {
 a.wrimagecard:hover,
 .wrimagecard-topimage:hover {
   box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
+  cursor: pointer;
 }
 .wrimagecard-topimage a {
   width: 100%;

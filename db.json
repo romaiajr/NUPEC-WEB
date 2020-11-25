@@ -35,5 +35,97 @@
       "cargo": "Desenvolvedor",
       "imagem": "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4"
     }
+  ],
+  "artigos": [
+    {
+      "titulo": "Interface Visual PBL Office",
+      "autor": "Roberto Maia",
+      "link": "https://ambientewebv3.vercel.app/#/"
+    },
+    {
+      "titulo": "O Cuidado nas Feiras",
+      "autor": "Jorgina Mendes",
+      "link": "https://nupec-uefs.vercel.app/"
+    },
+    {
+      "titulo": "Colegiado de Engenharia da Computação",
+      "autor": "Ecompjr",
+      "link": "http://www.ecomp.uefs.br/"
+    }
+  ],
+  "livros": [
+    {
+      "titulo": "Vue Handbook",
+      "autor": "Flavio Copes",
+      "link": "https://flaviocopes.com/page/vue-handbook/"
+    },
+    {
+      "titulo": "Design de Interfaces: O Guia Definitivo",
+      "autor": "Gabriel Silvestri",
+      "link": "https://design.gabrielsilvestri.com.br/ebook-ui"
+    },
+    {
+      "titulo": "Boostrap 4",
+      "autor": "Casa do Código",
+      "link": "https://www.casadocodigo.com.br/products/livro-bootstrap4"
+    }
+  ],
+  "capitulos": [
+    {
+      "titulo": "Capítulo 1",
+      "autor": "Roberto Maia",
+      "livro": "Interface NUPEC",
+      "link": "https://nupec-uefs.vercel.app/"
+    }
+  ],
+  "iniciacao_cientifica": [
+    {
+      "titulo": "Artigo 1",
+      "aluno": "Aluno 1",
+      "orientador": "Orientador",
+      "data": "31/09/2020"
+    },
+    {
+      "titulo": "Artigo 2",
+      "aluno": "Aluno 2",
+      "orientador": "Orientador",
+      "data": "31/09/2020"
+    },
+    {
+      "titulo": "Título IC 3",
+      "aluno": "Aluno 3",
+      "orientador": "Orientador",
+      "data": "DD/MM/AA"
+    },
+    {
+      "titulo": "Título IC 4",
+      "aluno": "Aluno 4",
+      "orientador": "Orientador",
+      "data": "DD/MM/AA"
+    },
+    {
+      "titulo": "Título IC 5",
+      "aluno": "Aluno 5",
+      "orientador": "Orientador",
+      "data": "DD/MM/AA"
+    },
+    {
+      "titulo": "Título IC 6",
+      "aluno": "Aluno 6",
+      "orientador": "Orientador",
+      "data": "DD/MM/AA"
+    },
+    {
+      "titulo": "Título IC 7",
+      "aluno": "Aluno 7",
+      "orientador": "Orientador",
+      "data": "DD/MM/AA"
+    },
+    {
+      "titulo": "Título IC 8",
+      "aluno": "Aluno 8",
+      "orientador": "Orientador",
+      "data": "DD/MM/AA"
+    }
   ]
 }

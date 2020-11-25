@@ -64,6 +64,7 @@
 import Navbar from "../../components/reutilizavel/Navbar";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
+import artigoService from "../../services/artigoService";
 
 export default {
   components: {
@@ -96,24 +97,11 @@ export default {
       link: "",
     },
 
-    items: [
-      {
-        titulo: "Interface Visual PBL Office",
-        autor: "Roberto Maia",
-        link: "https://ambientewebv3.vercel.app/#/",
-      },
-      {
-        titulo: "O Cuidado nas Feiras",
-        autor: "Jorgina Mendes",
-        link: "https://nupec-uefs.vercel.app/",
-      },
-      {
-        titulo: "Colegiado de Engenharia da Computação",
-        autor: "Ecompjr",
-        link: "http://www.ecomp.uefs.br/",
-      },
-    ],
+    items: [],
   }),
+  created() {
+    this.getArtigos();
+  },
   methods: {
     onSubmit() {
       console.log(this.form);
@@ -125,6 +113,13 @@ export default {
       this.form.link = "";
       this.$refs["modal-artigos"].hide();
     },
+    getArtigos() {
+      const loading = this.$vs.loading();
+      artigoService.getArtigos().then((response) => {
+        loading.close();
+        this.items = response.data;
+      });
+    },
   },
 };
 </script>
@@ -135,10 +130,6 @@ export default {
   justify-content: flex-end;
 }
 
-#sidebar {
-  /* margin-top: 8px; */
-  /* padding: 0px 8px 0 8px; */
-}
 #sidebar .active {
   border: 1px solid var(--primary-dark-color) !important;
 

@@ -39,10 +39,15 @@
             <div
               class="col-md-3 col-sm-4"
               v-for="projeto in items"
-              :key="projeto.Nome"
+              :key="projeto.nome"
             >
-              <CardMaterial link="/materiais/artigos" :nome="projeto.Nome">
-              </CardMaterial>
+              <CardExtensao
+                link="/materiais/artigos"
+                :nome="projeto.nome"
+                background=" background-color: #f1f1f1"
+              >
+                <img class="img-projeto" :src="projeto.logo" />
+              </CardExtensao>
             </div>
           </div>
         </div>
@@ -52,20 +57,21 @@
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
-import CardMaterial from "../../components/reutilizavel/CardMaterial";
+import CardExtensao from "../../components/reutilizavel/CardExtensao";
 import Sidebar from "../../components/manager/Sidebar";
 export default {
   components: {
     Navbar,
-    CardMaterial,
+    CardExtensao,
     Sidebar,
   },
   data: () => ({
     items: [
       {
-        Nome: "Extensão 1",
-        Aluno: "Roberto Maia",
-        Orientador: "Claudia Pinto",
+        nome: "Boas Práticas na Manipulação de Alimentos",
+        aluno: "Roberto Maia",
+        orientador: "Claudia Pinto",
+        logo: "https://imgur.com/igfYFqG.png",
       },
     ],
   }),
@@ -81,6 +87,10 @@ export default {
   color: white !important;
 
   background-color: var(--primary-dark-color);
+}
+
+.img-projeto {
+  width: 200px;
 }
 
 @media screen and (max-width: 760px) {

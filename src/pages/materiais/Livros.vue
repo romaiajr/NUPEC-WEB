@@ -64,6 +64,7 @@
 import Navbar from "../../components/reutilizavel/Navbar";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
+import livroService from "../../services/livroService";
 export default {
   components: {
     Navbar,
@@ -92,24 +93,11 @@ export default {
       autor: "",
       link: "",
     },
-    items: [
-      {
-        titulo: "Vue Handbook",
-        autor: "Flavio Copes",
-        link: "https://flaviocopes.com/page/vue-handbook/",
-      },
-      {
-        titulo: "Design de Interfaces: O Guia Definitivo",
-        autor: "Gabriel Silvestri",
-        link: "https://design.gabrielsilvestri.com.br/ebook-ui",
-      },
-      {
-        titulo: "Boostrap 4",
-        autor: "Casa do Código",
-        link: "https://www.casadocodigo.com.br/products/livro-bootstrap4",
-      },
-    ],
+    items: [],
   }),
+  created() {
+    this.getLivros();
+  },
   methods: {
     onSubmit() {
       console.log(this.form);
@@ -120,6 +108,13 @@ export default {
       this.form.livro = "";
       this.form.link = "";
       this.$refs["modal-livros"].hide();
+    },
+    getLivros() {
+      const loading = this.$vs.loading();
+      livroService.getLivros().then((response) => {
+        loading.close();
+        this.items = response.data;
+      });
     },
   },
 };
