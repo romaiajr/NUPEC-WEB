@@ -85,6 +85,7 @@ export default {
         sortDirection: "asc",
       },
       { key: "link", label: "Link" },
+      { key: "remove", label: "" },
     ],
     form: {
       titulo: "",
@@ -130,9 +131,6 @@ export default {
   justify-content: flex-end;
 }
 
-/* #sidebar {
-  padding: 8px 8px 0 8px;
-} */
 #sidebar .active {
   border: 1px solid var(--primary-dark-color) !important;
 

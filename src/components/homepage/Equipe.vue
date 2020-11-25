@@ -108,7 +108,7 @@
 <script>
 import { slider, slideritem } from "vue-concise-slider";
 import CardEquipe from "../reutilizavel/CardEquipe";
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   components: {
@@ -144,22 +144,65 @@ export default {
       slidesToScroll: 1,
       thresholdDistance: "50",
     },
-    equipe: [],
+    equipe: [
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+      {
+        nome: "Roberto Maia",
+        cargo: "Desenvolvedor",
+        imagem:
+          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
+      },
+    ],
   }),
   methods: {
     openEquipe() {
       this.equipeDialog = true;
     },
   },
-  async created() {
-    try {
-      const res = await axios.get(`http://localhost:3000/todos`);
-      console.log(res);
-      this.equipe = res.data;
-    } catch (e) {
-      console.error(e);
-    }
-  },
+  // async created() {
+  //   try {
+  //     const res = await axios.get(`http://localhost:3000/todos`);
+  //     console.log(res);
+  //     this.equipe = res.data;
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // },
 };
 </script>
 <style>

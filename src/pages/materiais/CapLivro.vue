@@ -91,6 +91,7 @@ export default {
         sortDirection: "asc",
       },
       { key: "link", label: "Link" },
+      { key: "remove", label: "" },
     ],
     form: {
       titulo: "",

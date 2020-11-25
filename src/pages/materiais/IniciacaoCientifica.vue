@@ -25,6 +25,7 @@
         </div>
         <div class="col-md-10 col-12" id="table-section">
           <Management
+            :fields="fields"
             :conteudo="items"
             nome="Iniciação Científica"
             sortBy="nome"
@@ -32,6 +33,30 @@
         </div>
       </div>
     </div>
+    <b-modal
+      id="modal-1"
+      ref="modal-livros"
+      title="Adicionar Novo Livro"
+      @hide="onReset"
+      hide-footer
+      ><b-form @submit="onSubmit" @reset="onReset">
+        <b-form-text> Título da IC </b-form-text>
+        <b-form-input required v-model="form.titulo"></b-form-input>
+        <b-form-text> Nome do(s) Bolsista(as) </b-form-text>
+        <b-form-input required v-model="form.aluno"></b-form-input>
+        <b-form-text> Nome do(s) Orientador(es) </b-form-text>
+        <b-form-input required v-model="form.orientador"></b-form-input>
+        <b-form-text> Data de Conclusão </b-form-text>
+        <b-form-input required v-model="form.data"></b-form-input>
+        <b-form-text id="password-help-block">
+          A data de conclusão deve estar no formato DD/MM/AAAA: "07/11/2000"
+        </b-form-text>
+        <div id="button-modal">
+          <b-button type="reset" variant="danger">Cancelar</b-button>
+          <b-button type="submit" variant="primary">Salvar</b-button>
+        </div>
+      </b-form>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -45,65 +70,103 @@ export default {
     Sidebar,
   },
   data: () => ({
-    sortBy: "Nome",
+    form: {
+      titulo: "",
+      aluno: "",
+      orientador: "",
+      data: "",
+    },
+    fields: [
+      {
+        key: "titulo",
+        label: "Título da IC",
+        sortable: true,
+        sortDirection: "asc",
+      },
+      {
+        key: "aluno",
+        label: "Aluno",
+        sortDirection: "asc",
+      },
+      {
+        key: "orientador",
+        label: "Orientador",
+        sortDirection: "asc",
+      },
+      {
+        key: "data",
+        label: "Data de Conclusão",
+        sortable: true,
+        sortDirection: "asc",
+      },
+      { key: "remove", label: "" },
+    ],
     items: [
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        titulo: "Artigo 1",
+        aluno: "Aluno 1",
+        orientador: "Orientador",
+        data: "31/09/2020",
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        titulo: "Artigo 2",
+        aluno: "Aluno 2",
+        orientador: "Orientador",
+        data: "31/09/2020",
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        titulo: "Título IC 3",
+        aluno: "Aluno 3",
+        orientador: "Orientador",
+        data: "DD/MM/AA",
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
+        titulo: "Título IC 4",
+        aluno: "Aluno 4",
+        orientador: "Orientador",
+        data: "DD/MM/AA",
       },
       {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link:
-          "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional",
+        titulo: "Título IC 5",
+        aluno: "Aluno 5",
+        orientador: "Orientador",
+        data: "DD/MM/AA",
       },
       {
-        Nome: "Artigo 2",
-        Autor: "Larsen",
-        Data: "30/05/2001",
-        Link: "http://www.",
+        titulo: "Título IC 6",
+        aluno: "Aluno 6",
+        orientador: "Orientador",
+        data: "DD/MM/AA",
       },
       {
-        Nome: "Artigo 3",
-        Autor: "Geneva",
-        Data: "07/11/2000",
-        Link: "http://www.",
+        titulo: "Título IC 7",
+        aluno: "Aluno 7",
+        orientador: "Orientador",
+        data: "DD/MM/AA",
       },
       {
-        Nome: "Artigo 4",
-        Autor: "Jami",
-        Data: "17/10/2020",
-        Link: "http://www.",
+        titulo: "Título IC 8",
+        aluno: "Aluno 8",
+        orientador: "Orientador",
+        data: "DD/MM/AA",
       },
     ],
   }),
+  methods: {
+    onSubmit() {
+      console.log(this.form);
+    },
+    onReset() {
+      this.form.titulo = "";
+      this.form.autor = "";
+      this.form.livro = "";
+      this.form.link = "";
+      this.$refs["modal-livros"].hide();
+    },
+  },
 };
 </script>
 <style>
-/* #sidebar {
-  padding: 8px 8px 0 8px;
-} */
 #sidebar .active {
   border: 1px solid var(--primary-dark-color) !important;
 

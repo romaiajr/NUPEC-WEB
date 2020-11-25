@@ -49,8 +49,20 @@
                 <i class="bx bx-link"></i>
                 Acessar</b-button
               >
-            </template></b-table
-          >
+            </template>
+            <template #cell(remove)="row">
+              <b-button
+                v-show="isLogged"
+                size="sm"
+                variant="danger"
+                squared
+                @click="remove(row)"
+              >
+                <i class="bx bx-trash"></i>
+                Excluir</b-button
+              >
+            </template>
+          </b-table>
           <div id="pagination">
             <b-pagination
               v-model="currentPage"
@@ -96,6 +108,9 @@ export default {
     redirect(row) {
       console.log(row.value);
       window.open(row.value);
+    },
+    remove(row) {
+      console.log(row.item);
     },
   },
 };
