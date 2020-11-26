@@ -1,7 +1,11 @@
 <template>
   <div>
     <Navbar>
-      <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
+      <b-nav-item class="mobile-nav">Iniciação Científica</b-nav-item>
+      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
+        >Projetos de Extensão</b-nav-item
+      >
+      <b-nav-item class="mobile-nav" to="/materiais/artigos"
         >Artigos</b-nav-item
       >
       <b-nav-item class="mobile-nav" to="/materiais/livros" exact
@@ -10,18 +14,18 @@
       <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
-        >Projetos de Extensão</b-nav-item
-      >
-      <b-nav-item class="mobile-nav" to="/materiais/atividades-complementares"
+
+      <b-nav-item
+        class="mobile-nav"
+        to="/materiais/atividades-complementares"
+        exact
         >Atividades Complementares</b-nav-item
       >
-      <b-nav-item class="mobile-nav">Iniciação Científica</b-nav-item>
     </Navbar>
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
         <div class="col-md-2 col-0 border-right" id="sidebar">
-          <Sidebar active="6" />
+          <Sidebar active="1" />
         </div>
         <div class="col-md-10 col-12" id="table-section">
           <Management

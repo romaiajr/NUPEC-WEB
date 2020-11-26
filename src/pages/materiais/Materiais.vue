@@ -1,6 +1,12 @@
 <template>
   <div id="materiais-manager">
     <Navbar>
+      <b-nav-item class="mobile-nav" to="/materiais/iniciacao-cientifica"
+        >Iniciação Científica</b-nav-item
+      >
+      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
+        >Projetos de Extensão</b-nav-item
+      >
       <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
         >Artigos</b-nav-item
       >
@@ -10,9 +16,7 @@
       <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
-        >Projetos de Extensão</b-nav-item
-      >
+
       <b-nav-item
         class="mobile-nav"
         to="/materiais/atividades-complementares"
@@ -29,12 +33,30 @@
           <div id="title">
             <div class="container">
               <h4>
-                Materiais
+                Produções
                 <!-- <b-badge>{{ conteudo.length }}</b-badge> -->
               </h4>
             </div>
           </div>
           <div class="row m-0" id="card-container">
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/artigos"
+                icone="bx bx-atom"
+                cor="color:RGB(59, 89, 153)"
+                nome="Iniciação Científica"
+              >
+              </CardMaterial>
+            </div>
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/projetos-de-extensao"
+                icone="fa fa-laptop"
+                cor="color:#dc3546"
+                nome="Projetos de Extensão"
+              >
+              </CardMaterial>
+            </div>
             <div class="col-md-3 col-sm-4">
               <CardMaterial
                 link="/materiais/artigos"
@@ -62,15 +84,7 @@
               >
               </CardMaterial>
             </div>
-            <div class="col-md-3 col-sm-4">
-              <CardMaterial
-                link="/materiais/projetos-de-extensao"
-                icone="fa fa-laptop"
-                cor="color:#dc3546"
-                nome="Projetos de Extensão"
-              >
-              </CardMaterial>
-            </div>
+
             <div class="col-md-3 col-sm-4">
               <CardMaterial
                 link="/materiais/atividades-complementares"

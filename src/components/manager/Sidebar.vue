@@ -1,47 +1,48 @@
 <template>
   <b-list-group>
     <b-list-group-item
-      to="/materiais/artigos"
+      to="/materiais/iniciacao-cientifica"
       exact
       :active="active == 1"
       :disabled="active == 1"
+      >Iniciação Científica</b-list-group-item
+    >
+    <b-list-group-item
+      to="/materiais/projetos-de-extensao"
+      exact
+      :active="active == 2"
+      :disabled="active == 2"
+      >Projetos de Extensão</b-list-group-item
+    >
+    <b-list-group-item
+      to="/materiais/artigos"
+      exact
+      :active="active == 3"
+      :disabled="active == 3"
     >
       Artigos</b-list-group-item
     >
     <b-list-group-item
       to="/materiais/livros"
       exact
-      :active="active == 2"
-      :disabled="active == 2"
+      :active="active == 4"
+      :disabled="active == 4"
       >Livros</b-list-group-item
     >
     <b-list-group-item
       to="/materiais/capitulos-de-livros"
       exact
-      :active="active == 3"
-      :disabled="active == 3"
+      :active="active == 5"
+      :disabled="active == 5"
       >Capítulos de Livros</b-list-group-item
     >
-    <b-list-group-item
-      to="/materiais/projetos-de-extensao"
-      exact
-      :active="active == 4"
-      :disabled="active == 4"
-      >Projetos de Extensão</b-list-group-item
-    >
+
     <b-list-group-item
       to="/materiais/atividades-complementares"
       exact
-      :active="active == 5"
-      :disabled="active == 5"
-      >Atividades Complementares</b-list-group-item
-    >
-    <b-list-group-item
-      to="/materiais/iniciacao-cientifica"
-      exact
       :active="active == 6"
       :disabled="active == 6"
-      >Iniciação Científica</b-list-group-item
+      >Atividades Complementares</b-list-group-item
     >
   </b-list-group>
 </template>
