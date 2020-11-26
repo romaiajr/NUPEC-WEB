@@ -3,16 +3,20 @@
     <Navbar>
       <b-nav-item @click="scrollMeTo('quem-somos')">Quem Somos</b-nav-item>
       <b-nav-item-dropdown text="Materiais" right id="item-dropdown">
+        <b-dropdown-item to="materiais/iniciacao-cientifica" exact
+          >Iniciação Científica</b-dropdown-item
+        >
+        <b-dropdown-item to="materiais/projetos-de-extensao" exact
+          >Projetos de Extensão</b-dropdown-item
+        >
         <b-dropdown-item to="materiais/artigos" exact>
           Artigos
         </b-dropdown-item>
         <b-dropdown-item to="materiais/livros" exact>Livros</b-dropdown-item>
         <b-dropdown-item to="materiais/capitulos-de-livros" exact
-          >Cap. de Livros</b-dropdown-item
+          >Capítulos de Livros</b-dropdown-item
         >
-        <b-dropdown-item to="materiais/projetos-de-extensao" exact
-          >Projetos de Extensão</b-dropdown-item
-        >
+
         <b-dropdown-item to="materiais/atividades-complementares" exact
           >Atividades Complementares</b-dropdown-item
         >
