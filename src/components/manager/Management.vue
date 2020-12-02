@@ -52,6 +52,7 @@
             </template>
             <template #cell(remove)="row">
               <b-button
+                v-b-modal.modal-remover
                 v-show="isLogged"
                 size="sm"
                 variant="danger"
@@ -103,14 +104,14 @@ export default {
     perPage: 6,
     currentPage: 1,
     isLogged: false,
+    removeId: "",
   }),
   methods: {
     redirect(row) {
-      console.log(row.value);
       window.open(row.value);
     },
     remove(row) {
-      this.$parent.onDelete(row.item.id);
+      this.$parent.itemRemove(row.item.id);
     },
   },
 };

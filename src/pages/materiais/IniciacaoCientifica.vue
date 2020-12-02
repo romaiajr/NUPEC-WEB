@@ -43,7 +43,7 @@
       title="Adicionar Novo Livro"
       @hide="onReset"
       hide-footer
-      ><b-form @submit="onSubmit" @reset="onReset">
+      ><b-form @submit.prevent="onSubmit" @reset="onReset">
         <b-form-text> Título da IC </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
         <b-form-text> Nome do(s) Bolsista(as) </b-form-text>
@@ -60,6 +60,17 @@
           <b-button type="submit" variant="primary">Salvar</b-button>
         </div>
       </b-form>
+    </b-modal>
+    <b-modal
+      id="modal-remover"
+      title="Confirmar Remoção"
+      ok-variant="success"
+      cancel-variant="danger"
+      ok-title="Confirmar"
+      cancel-title="Cancelar"
+      @ok="onDelete"
+    >
+      <p>Deseja realmente remover este item?</p>
     </b-modal>
   </div>
 </template>
@@ -80,6 +91,7 @@ export default {
       aluno: "",
       orientador: "",
       data: "",
+      deleteId: "",
     },
     fields: [
       {
@@ -113,7 +125,23 @@ export default {
   },
   methods: {
     async onSubmit() {
-      await icService.addIc(this.form);
+      try {
+        await icService.addIc(this.form);
+        this.$vs.notification({
+          color: "success",
+          title: "Adicionar Iniciação Científica",
+          text: "Iniciação Científica adicionada com sucesso!",
+        });
+
+        this.$refs["modal-ic"].hide();
+        this.getIcs();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Adicionar Iniciação Científica",
+          text: "Houve um erro ao tentar adicionar a nova Iniciação Científica",
+        });
+      }
     },
     onReset() {
       this.form.titulo = "";
@@ -129,9 +157,25 @@ export default {
         this.items = response.data;
       });
     },
-    async onDelete(id) {
-      await icService.removeIc(id);
-      this.getIcs();
+    itemRemove(id) {
+      this.deleteId = id;
+    },
+    async onDelete() {
+      try {
+        await icService.removeIc(this.deleteId);
+        this.$vs.notification({
+          color: "success",
+          title: "Remover Iniciação Científica",
+          text: "Iniciação Científica removida com sucesso!",
+        });
+        this.getIcs();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Remover Iniciação Científica",
+          text: "Houve um erro ao tentar remover a Iniciação Científica",
+        });
+      }
     },
   },
 };

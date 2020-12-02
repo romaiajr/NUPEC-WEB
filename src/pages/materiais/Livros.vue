@@ -43,7 +43,7 @@
       title="Adicionar Novo Livro"
       @hide="onReset"
       hide-footer
-      ><b-form @submit="onSubmit" @reset="onReset">
+      ><b-form @submit.prevent="onSubmit" @reset="onReset">
         <b-form-text> Título do Livro </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
         <b-form-text> Nome do(s) Autor(es) </b-form-text>
@@ -58,6 +58,17 @@
           <b-button type="submit" variant="primary">Salvar</b-button>
         </div>
       </b-form>
+    </b-modal>
+    <b-modal
+      id="modal-remover"
+      title="Confirmar Remoção"
+      ok-variant="success"
+      cancel-variant="danger"
+      ok-title="Confirmar"
+      cancel-title="Cancelar"
+      @ok="onDelete"
+    >
+      <p>Deseja realmente remover este item?</p>
     </b-modal>
   </div>
 </template>
@@ -101,8 +112,23 @@ export default {
   },
   methods: {
     async onSubmit() {
-      console.log("entrou");
-      await livroService.addLivro(this.form);
+      try {
+        await livroService.addLivro(this.form);
+        this.$vs.notification({
+          color: "success",
+          title: "Adicionar Livro",
+          text: "Livro adicionado com sucesso!",
+        });
+
+        this.$refs["modal-livros"].hide();
+        this.getLivros();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Adicionar Livro",
+          text: "Houve um erro ao tentar adicionar o novo Livro",
+        });
+      }
     },
     onReset() {
       this.form.titulo = "";
@@ -118,9 +144,25 @@ export default {
         this.items = response.data;
       });
     },
-    async onDelete(id) {
-      await livroService.removeLivro(id);
-      this.getLivros();
+    itemRemove(id) {
+      this.deleteId = id;
+    },
+    async onDelete() {
+      try {
+        await livroService.removeLivro(this.deleteId);
+        this.$vs.notification({
+          color: "success",
+          title: "Remover Livro",
+          text: "Livro removido com sucesso!",
+        });
+        this.getLivros();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Remover Livro",
+          text: "Houve um erro ao tentar remover o livro",
+        });
+      }
     },
   },
 };

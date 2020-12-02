@@ -46,7 +46,7 @@
       cancel-variant="danger"
       @hide="onReset"
       hide-footer
-      ><b-form @submit="onSubmit" @reset="onReset">
+      ><b-form @submit.prevent="onSubmit" @reset="onReset">
         <b-form-text> Título do Capítulo </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
         <b-form-text> Nome do Livro </b-form-text>
@@ -63,6 +63,17 @@
           <b-button type="submit" variant="primary">Salvar</b-button>
         </div>
       </b-form>
+    </b-modal>
+    <b-modal
+      id="modal-remover"
+      title="Confirmar Remoção"
+      ok-variant="success"
+      cancel-variant="danger"
+      ok-title="Confirmar"
+      cancel-title="Cancelar"
+      @ok="onDelete"
+    >
+      <p>Deseja realmente remover este item?</p>
     </b-modal>
   </div>
 </template>
@@ -103,13 +114,30 @@ export default {
       link: "",
     },
     items: [],
+    deleteId: "",
   }),
   created() {
     this.getCapitulos();
   },
   methods: {
     async onSubmit() {
-      await capituloService.addCapitulo(this.form);
+      try {
+        await capituloService.addCapitulo(this.form);
+        this.$vs.notification({
+          color: "success",
+          title: "Adicionar Capítulo",
+          text: "Capítulo adicionado com sucesso!",
+        });
+        this.getCapitulos();
+        this.$refs["modal-caplivro"].hide();
+      } catch (e) {
+        console.log(e);
+        this.$vs.notification({
+          color: "danger",
+          title: "Adicionar Capítulo",
+          text: "Houve um erro ao tentar adicionar o novo capítulo",
+        });
+      }
     },
     onReset() {
       this.form.titulo = "";
@@ -125,9 +153,25 @@ export default {
         this.items = response.data;
       });
     },
-    async onDelete(id) {
-      await capituloService.removeCapitulo(id);
-      this.getCapitulos();
+    itemRemove(id) {
+      this.deleteId = id;
+    },
+    async onDelete() {
+      try {
+        await capituloService.removeCapitulo(this.deleteId);
+        this.$vs.notification({
+          color: "success",
+          title: "Remover Capítulo",
+          text: "Capítulo removido com sucesso!",
+        });
+        this.getCapitulos();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Remover Capítulo",
+          text: "Houve um erro ao tentar remover o capítulo",
+        });
+      }
     },
   },
 };

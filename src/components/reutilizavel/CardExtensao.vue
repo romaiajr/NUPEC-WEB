@@ -1,25 +1,29 @@
 <template>
-  <div class="wrimagecard wrimagecard-topimage">
-    <div class="wrimagecard-topimage_header" :style="background">
-      <center>
-        <i v-bind:class="icone" v-bind:style="cor"></i>
-        <slot id="icone"></slot>
-      </center>
-    </div>
-    <div class="wrimagecard-topimage_title">
-      <p>{{ nome }}</p>
+  <div class="col-md-3 col-sm-4">
+    <div class="wrimagecard wrimagecard-topimage" @click="loadInfo(id)">
+      <div class="wrimagecard-topimage_header" :style="background">
+        <center>
+          <slot id="icone"></slot>
+        </center>
+      </div>
+      <div class="wrimagecard-topimage_title">
+        <p>{{ nome }}</p>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "CardMaterial",
+  name: "CardExtensao",
   props: {
-    link: String,
-    icone: String,
-    cor: String,
     nome: String,
+    id: Number,
     background: String,
+  },
+  methods: {
+    loadInfo(id) {
+      this.$parent.loadInfo(id);
+    },
   },
 };
 </script>

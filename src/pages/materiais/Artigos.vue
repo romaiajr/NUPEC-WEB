@@ -43,7 +43,7 @@
       title="Adicionar Novo Artigo"
       hide-footer
       @hide="onReset"
-      ><b-form @submit="onSubmit" @reset="onReset">
+      ><b-form @submit.prevent="onSubmit" @reset="onReset">
         <b-form-text> Título do Artigo </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
         <b-form-text> Nome do(s) Autor(es) </b-form-text>
@@ -58,6 +58,18 @@
           <b-button type="submit" variant="primary">Salvar</b-button>
         </div>
       </b-form>
+    </b-modal>
+    <!-- MODAL REMOVER -->
+    <b-modal
+      id="modal-remover"
+      title="Confirmar Remoção"
+      ok-variant="success"
+      cancel-variant="danger"
+      ok-title="Confirmar"
+      cancel-title="Cancelar"
+      @ok="onDelete"
+    >
+      <p>Deseja realmente remover este item?</p>
     </b-modal>
   </div>
 </template>
@@ -76,6 +88,7 @@ export default {
   data: () => ({
     isLogged: false,
     text: "",
+    deleteId: "",
     fields: [
       {
         key: "titulo",
@@ -105,7 +118,22 @@ export default {
   },
   methods: {
     async onSubmit() {
-      await artigoService.addArtigo(this.form);
+      try {
+        await artigoService.addArtigo(this.form);
+        this.$vs.notification({
+          color: "success",
+          title: "Adicionar Artigo",
+          text: "Artigo adicionado com sucesso!",
+        });
+        this.getArtigos();
+        this.$refs["modal-artigos"].hide();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Adicionar Artigo",
+          text: "Houve um erro ao tentar adicionar o novo artigo",
+        });
+      }
     },
     onReset() {
       console.log("cancelou");
@@ -121,9 +149,25 @@ export default {
         loading.close();
       });
     },
-    async onDelete(id) {
-      await artigoService.removeArtigo(id);
-      this.getArtigos();
+    itemRemove(id) {
+      this.deleteId = id;
+    },
+    async onDelete() {
+      try {
+        await artigoService.removeArtigo(this.deleteId);
+        this.$vs.notification({
+          color: "success",
+          title: "Remover Artigo",
+          text: "Artigo removido com sucesso!",
+        });
+        this.getArtigos();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Remover Artigo",
+          text: "Houve um erro ao tentar remover o artigo",
+        });
+      }
     },
   },
 };

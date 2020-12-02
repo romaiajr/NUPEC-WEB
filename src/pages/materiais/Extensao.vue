@@ -37,19 +37,15 @@
             </div>
           </div>
           <div class="row m-0" id="card-container">
-            <div
-              class="col-md-3 col-sm-4"
+            <CardExtensao
               v-for="projeto in items"
               :key="projeto.nome"
+              link="/materiais/artigos"
+              :nome="projeto.nome"
+              background=" background-color: #f1f1f1"
             >
-              <CardExtensao
-                link="/materiais/artigos"
-                :nome="projeto.nome"
-                background=" background-color: #f1f1f1"
-              >
-                <img class="img-projeto" :src="projeto.logo" />
-              </CardExtensao>
-            </div>
+              <img class="img-projeto" :src="projeto.logo" />
+            </CardExtensao>
           </div>
         </div>
       </div>
