@@ -71,7 +71,7 @@
           <div class="col-md-0 col-0"></div>
           <div v-show="isLogged" class="col-md-2 col-6">
             <b-button size="sm" block class="btn-form" v-b-modal.modal-addEvt
-              ><p>Nova Sessão</p></b-button
+              ><p>Novo Evento</p></b-button
             >
           </div>
           <div v-show="isLogged" class="col-md-2 col-6">
@@ -84,7 +84,6 @@
       <div v-for="evento in selected_atividade.eventos" :key="evento.id">
         <div class="event-title">
           <h5>{{ evento.titulo }}</h5>
-
           <b-button
             v-show="isLogged"
             v-b-modal.modal-remover
@@ -97,43 +96,37 @@
             Excluir</b-button
           >
         </div>
-        <div class="container-fluid">
-          <div class="row m-0" id="fotos-section">
-            <div
-              class="col-md-4
-          "
-              v-for="foto in evento.fotos"
-              :key="foto.id"
+        <div class="row m-0" id="fotos-section">
+          <div class="col-md-4" v-for="foto in evento.fotos" :key="foto.id">
+            <b-card
+              :img-src="foto.link"
+              img-alt="Foto Equipe"
+              img-top
+              style="max-width: 20rem;"
+              class="mb-2"
             >
-              <b-card
-                :img-src="foto.link"
-                img-alt="Foto Equipe"
-                img-top
-                style="max-width: 20rem;"
-                class="mb-2"
-              >
-                <b-card-text>
-                  {{ foto.legenda }}
-                </b-card-text>
-                <div id="action-card">
-                  <b-button
-                    v-show="isLogged"
-                    v-b-modal.modal-remover
-                    @click="removeId(2, foto.id)"
-                    size="sm"
-                    variant="danger"
-                    squared
-                  >
-                    <i class="bx bx-trash"></i>
-                    Excluir</b-button
-                  >
-                </div>
-              </b-card>
-            </div>
+              <b-card-text>
+                {{ foto.legenda }}
+              </b-card-text>
+              <div id="action-card">
+                <b-button
+                  v-show="isLogged"
+                  v-b-modal.modal-remover
+                  @click="removeId(2, foto.id)"
+                  size="sm"
+                  variant="danger"
+                  squared
+                >
+                  <i class="bx bx-trash"></i>
+                  Excluir</b-button
+                >
+              </div>
+            </b-card>
           </div>
         </div>
       </div>
     </b-modal>
+
     <!-- MODAL ADICIONAR ATIVIDADE -->
     <b-modal
       id="modal-addAtv"
@@ -352,28 +345,6 @@ export default {
         }
       }
     },
-    // async deleteFoto(id) {
-    //   try {
-    //     await atividadeService.deleteFoto(id);
-    //     this.$vs.notification({
-    //       color: "success",
-    //       title: "Remover Foto",
-    //       text: "Foto Removida com sucesso!",
-    //     });
-    //     this.loadInfo(this.selected_atividade.atividade.id);
-    //   } catch (e) {
-    //     this.$vs.notification({
-    //       color: "danger",
-    //       title: "Remover Foto",
-    //       text: "Houve um erro ao tentar remover a foto",
-    //     });
-    //   }
-    //   this.loadInfo(this.selected_atividade.atividade.id);
-    // },
-    // async deleteEvento(id) {
-    //   await atividadeService.deleteEvento(id);
-    //   this.loadInfo(this.selected_atividade.atividade.id);
-    // },
     resetForm(ref) {
       this.form = {};
       this.formEvento = {};
@@ -395,8 +366,8 @@ export default {
       this.selected_atividade.eventos.forEach(async (item) => {
         res = await atividadeService.getFotos(item.id);
         item.fotos = res.data;
-        loading.close();
       });
+      loading.close();
       this.$refs["modal-info"].show();
     },
   },

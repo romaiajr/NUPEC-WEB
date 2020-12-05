@@ -9,6 +9,7 @@
       <div class="wrimagecard-topimage_title">
         <p>{{ nome }}</p>
       </div>
+      <div></div>
     </div>
   </div>
 </template>

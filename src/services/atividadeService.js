@@ -1,18 +1,18 @@
 import api from "@/api";
 export default {
   getAtividades: () => {
-    return api.get("/atividades-complementares");
+    return api.get("/atividade-complementar");
   },
   addAtividade: (obj) => {
-    return api.post("/atividades-complementares", obj);
+    return api.post("/atividade-complementar", obj);
   },
   removeAtividade: (id) => {
-    var url = "/atividades-complementares";
+    var url = "/atividade-complementar";
     url = url.concat("/" + id);
     return api.delete(url);
   },
   findAtividade: async (id) => {
-    var url = "/atividades-complementares/";
+    var url = "/atividade-complementar/";
     url = url.concat(id);
     var atividade = await api.get(url);
     url = `/eventos/?idAtividade=` + id;

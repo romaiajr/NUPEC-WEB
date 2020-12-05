@@ -168,5 +168,17 @@
       "idEvento": 1,
       "id": 3
     }
+  ],
+  "projetos-extensao": [
+    {
+      "titulo": "Boas Práticas na Manipulação de Alimentos",
+      "descricao": "Projeto Jorgina",
+      "orientador": "Carmem",
+      "aluno": "Jorgina Mendes",
+      "logo": "https://imgur.com/igfYFqG.png",
+      "tabela": "",
+      "fotos": "",
+      "id": 3
+    }
   ]
 }
