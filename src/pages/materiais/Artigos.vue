@@ -143,10 +143,10 @@ export default {
       this.$refs["modal-artigos"].hide();
     },
     getArtigos() {
-      // const loading = this.$vs.loading();
+      const loading = this.$vs.loading();
       artigoService.getArtigos().then((response) => {
         this.items = response.data;
-        // loading.close();
+        loading.close();
       });
     },
     itemRemove(id) {
