@@ -96,13 +96,13 @@ export default {
     fields: [
       {
         key: "titulo",
-        label: "Título da IC",
+        label: "Tema de Pesquisa",
         sortable: true,
         sortDirection: "asc",
       },
       {
-        key: "aluno",
-        label: "Aluno",
+        key: "bolsista",
+        label: "Bolsista",
         sortDirection: "asc",
       },
       {
@@ -110,9 +110,10 @@ export default {
         label: "Orientador",
         sortDirection: "asc",
       },
+      { key: "tipo", label: "Orgão" },
       {
-        key: "data",
-        label: "Data de Conclusão",
+        key: "periodo",
+        label: "Período",
         sortable: true,
         sortDirection: "asc",
       },
@@ -154,7 +155,9 @@ export default {
       const loading = this.$vs.loading();
       icService.getIcs().then((response) => {
         loading.close();
-        this.items = response.data;
+        this.items = response.data.sort((a, b) => {
+          return a.titulo.localeCompare(b.titulo);
+        });
       });
     },
     itemRemove(obj) {

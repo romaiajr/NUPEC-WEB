@@ -394,11 +394,13 @@ export default {
       currentPage: 0,
       slidesToScroll: 2,
       thresholdDistance: "50",
+      pagination: false,
     },
     optionsMobile: {
       currentPage: 0,
       slidesToScroll: 1,
       thresholdDistance: "50",
+      pagination: false,
     },
   }),
   methods: {
@@ -506,7 +508,9 @@ export default {
     getAtividades() {
       const loading = this.$vs.loading();
       atividadeService.getAtividades().then((response) => {
-        this.items = response.data;
+        this.items = response.data.sort((a, b) => {
+          return a.titulo.localeCompare(b.titulo);
+        });
         loading.close();
       });
     },

@@ -14,12 +14,24 @@
           </h5>
         </div>
       </div>
+      <div id="buttons-equipe" v-show="isLogged" class="col-md-2 col-6">
+        <b-button size="sm" block class="btn-form" v-b-modal.modal-addEquipe
+          ><p>Adicionar Membro</p></b-button
+        >
+        <b-button size="sm" block class="btn-form" v-b-modal.modal-removeEquipe
+          ><p>Remover Membro</p></b-button
+        >
+      </div>
       <div
         class="row m-0"
         id="carousel-desktop"
         style="width:100%;margin:10px auto;height: 450px"
       >
-        <slider ref="slider-desktop" :options="optionsDesktop">
+        <slider
+          ref="slider-desktop"
+          :key="componentKey"
+          :options="optionsDesktop"
+        >
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
             v-for="(membro, index) in equipe"
@@ -29,7 +41,8 @@
               :imagem="membro.imagem"
               :nome="membro.nome"
               :cargo="membro.cargo"
-          /></slideritem>
+            ></CardEquipe
+          ></slideritem>
           <!-- Customizable loading -->
           <div slot="loading">loading...</div>
         </slider>
@@ -39,7 +52,11 @@
         id="carousel-mobile"
         style="width:100%;margin:10px auto;height: 500px"
       >
-        <slider ref="slider-mobile" :options="optionsMobile">
+        <slider
+          ref="slider-mobile"
+          :key="componentKey"
+          :options="optionsMobile"
+        >
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
             v-for="(membro, index) in equipe"
@@ -59,7 +76,11 @@
         id="carousel-medium"
         style="width:100%;margin:10px auto;height: 450px"
       >
-        <slider ref="slider-medium" :options="optionsMobile">
+        <slider
+          ref="slider-medium"
+          :key="componentKey"
+          :options="optionsMobile"
+        >
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
             v-for="(membro, index) in equipe"
@@ -87,11 +108,49 @@
           <template #header>
             <h5 class="not-margin">Nossa Equipe</h5>
           </template>
+          <div class="row m-0">
+            <h4>Professores</h4>
+          </div>
           <div class="row">
             <div
               class="col-6 col-md-4"
               v-for="membro in equipe"
-              :key="membro.nome"
+              v-show="membro.tipo == options[0]"
+              :key="membro._id"
+            >
+              <CardEquipe
+                :imagem="membro.imagem"
+                :nome="membro.nome"
+                :cargo="membro.cargo"
+              />
+            </div>
+          </div>
+          <div class="row m-0">
+            <h4>Bolsistas</h4>
+          </div>
+          <div class="row">
+            <div
+              class="col-6 col-md-4"
+              v-for="membro in equipe"
+              v-show="membro.tipo == options[1]"
+              :key="membro._id"
+            >
+              <CardEquipe
+                :imagem="membro.imagem"
+                :nome="membro.nome"
+                :cargo="membro.cargo"
+              />
+            </div>
+          </div>
+          <div class="row m-0">
+            <h4>Voluntários</h4>
+          </div>
+          <div class="row">
+            <div
+              class="col-6 col-md-4"
+              v-for="membro in equipe"
+              v-show="membro.tipo == options[2]"
+              :key="membro._id"
             >
               <CardEquipe
                 :imagem="membro.imagem"
@@ -103,12 +162,76 @@
         </vs-dialog>
       </div>
     </div>
+    <b-modal
+      id="modal-addEquipe"
+      ref="modal-add-equipe"
+      title="Adicionar Novo Membro da Equipe"
+      hide-footer
+      ><b-form @submit.prevent="onSubmit" @reset="resetForm">
+        <b-form-text> Nome do Membro </b-form-text>
+        <b-form-input required v-model="form.nome"></b-form-input>
+        <b-form-text> Tipo de Cargo </b-form-text>
+        <b-form-radio-group
+          v-model="form.tipo"
+          :options="options"
+          class="mb-3"
+          value-field="item"
+          text-field="name"
+          disabled-field="notEnabled"
+        ></b-form-radio-group>
+        <b-form-text> Cargo Exercido</b-form-text>
+        <b-form-input required v-model="form.cargo"></b-form-input>
+        <b-form-text> Link para Imagem </b-form-text>
+        <b-form-input required v-model="form.imagem"></b-form-input>
+        <b-form-text id="password-help-block">
+          O link para imagem deve seguir o exemplo: "http://www.uefs.br/"
+        </b-form-text>
+        <div id="button-modal">
+          <b-button type="reset" variant="danger">Cancelar</b-button>
+          <b-button type="submit" variant="primary">Salvar</b-button>
+        </div>
+      </b-form>
+    </b-modal>
+    <b-modal
+      id="modal-removeEquipe"
+      ref="modal-remove-equipe"
+      title="Remover Membro da Equipe"
+      hide-footer
+      ><b-form @reset="resetForm">
+        <b-form-text> Selecione o Membro a ser Removido</b-form-text>
+        <b-form-select v-model="removeId">
+          <b-form-select-option
+            v-for="membro in equipe"
+            :key="membro._id"
+            :value="membro._id"
+            >{{ membro.nome }}</b-form-select-option
+          ></b-form-select
+        >
+        <div id="button-modal">
+          <b-button type="reset" variant="danger">Cancelar</b-button>
+          <b-button v-b-modal.modal-confirmRemove variant="primary"
+            >Remover</b-button
+          >
+        </div>
+      </b-form>
+    </b-modal>
+    <b-modal
+      id="modal-confirmRemove"
+      ref="modal-confirm-remove"
+      title="Remover Membro da Equipe"
+      ok-title="Remover"
+      ok-variant="success"
+      cancel-variant="danger"
+      @ok="onDelete"
+    >
+    </b-modal>
   </div>
 </template>
 <script>
 import { slider, slideritem } from "vue-concise-slider";
 import equipeService from "@/services/equipeService";
 import CardEquipe from "../reutilizavel/CardEquipe";
+
 // import axios from "axios";
 
 export default {
@@ -139,13 +262,25 @@ export default {
       currentPage: 0,
       slidesToScroll: 2,
       thresholdDistance: "50",
+      pagination: false,
     },
     optionsMobile: {
       currentPage: 0,
       slidesToScroll: 1,
       thresholdDistance: "50",
+      pagination: false,
     },
     equipe: [],
+    form: {
+      nome: "",
+      cargo: "",
+      tipo: "",
+      imagem: "",
+    },
+    options: ["Professor", "Bolsista", "Voluntário"],
+    isLogged: false,
+    removeId: "",
+    componentKey: 0,
   }),
   methods: {
     openEquipe() {
@@ -156,13 +291,84 @@ export default {
         this.equipe = response.data;
       });
     },
+    async onSubmit() {
+      try {
+        await equipeService.addEquipe(this.form);
+        this.$vs.notification({
+          color: "success",
+          title: "Adicionar Membro",
+          text: "Membro adicionado com sucesso!",
+        });
+        this.getEquipe();
+        this.componentKey++;
+        this.$refs["modal-add-equipe"].hide();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Adicionar Membro",
+          text: "Houve um erro ao tentar adicionar o novo membro",
+        });
+      }
+    },
+    resetForm() {
+      this.form = {};
+      this.$refs["modal-add-equipe"].hide();
+    },
+    async onDelete() {
+      try {
+        await equipeService.removeEquipe(this.removeId);
+        this.$vs.notification({
+          color: "success",
+          title: "Remover Membro",
+          text: "Membro removido com sucesso!",
+        });
+        this.getEquipe();
+        this.$refs["modal-remove-equipe"].hide();
+        this.$refs["modal-confirm-remove"].hide();
+        this.componentKey++;
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Remover Membro",
+          text: "Houve um erro ao tentar remover o membro selecionado",
+        });
+      }
+    },
   },
   created() {
     this.getEquipe();
+    const user = JSON.parse(sessionStorage.getItem("login"));
+    if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
+      this.isLogged = true;
+    }
   },
 };
 </script>
 <style>
+#buttons-equipe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+  float: right;
+  width: 100%;
+}
+#buttons-equipe .btn-form {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  margin: 0 8px 0 0 !important;
+}
+/* #buttons-equipe .btn-form:first-of-type {
+  margin-right: 8px !important;
+} */
+#buttons-equipe .btn-form:focus {
+  background-color: var(--secondary-dark-color) !important;
+  box-shadow: 0px 0px 1px 2px var(--secondary-light-color) !important;
+}
+#buttons-equipe .btn-form:hover {
+  background-color: var(--secondary-dark-color) !important;
+}
+
 #carousel-mobile {
   display: none;
 }

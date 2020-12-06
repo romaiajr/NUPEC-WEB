@@ -145,8 +145,9 @@ export default {
     getArtigos() {
       const loading = this.$vs.loading();
       artigoService.getArtigos().then((response) => {
-        this.items = response.data;
-        console.log(this.items);
+        this.items = response.data.sort((a, b) => {
+          return a.titulo.localeCompare(b.titulo);
+        });
         loading.close();
       });
     },

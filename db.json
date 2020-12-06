@@ -180,5 +180,133 @@
       "fotos": "",
       "id": 3
     }
+  ],
+  "ics": [
+    {
+      "titulo": "Prevalência de Síndrome metabólica entre os trabalhadores feirantes do centro de abastecimento de Feira de Santana",
+      "orientador": "Geralda Aldina Dias Rodrigues",
+      "bolsista": "Paulo Henrique Marinho dos Santos",
+      "periodo": "2020-2021",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "Qualidade de vida de mulheres feirantes com doença crônica",
+      "orientador": "Márcia Sandra Fernandes dos Santos Lima",
+      "bolsista": "Náira Aparecida Soares Santos",
+      "periodo": "2020-2021",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "DOENÇAS CRÔNICAS EM MULHERES FEIRANTES: uma revisão integrativa",
+      "orientador": "Márcia Sandra Fernandes dos Santos Lima",
+      "bolsista": "Náira Aparecida Soares Santos",
+      "periodo": "2019-2020",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "O Cuidado de si de Mulheres Feirantes frente ao adoecimento crônico",
+      "orientador": "Márcia Sandra Fernandes dos Santos Lima",
+      "bolsista": "Náira Aparecida Soares Santos",
+      "periodo": "2018-2019",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "Praticas de Cuidado frente ao enfrentamento do Processo de Envelhecimento do Homem Idoso Feirante e a manutenção de sua capacidade funcional",
+      "orientador": "Rita da Cruz Amorim",
+      "bolsista": "Suzane de Almeida Santos Barbosa",
+      "periodo": "2020-2021",
+      "tipo": "PIBIC/CNPq"
+    },
+    {
+      "titulo": "Morbidades autorreferidas por feirantes homens no entreposto do centro de abastecimento de Feira de Santana-Ba",
+      "orientador": "Rita da Cruz Amorim",
+      "bolsista": "Laila da Silva Fortunato",
+      "periodo": "2020-2021",
+      "tipo": "PIBIC/CNPq"
+    },
+    {
+      "titulo": "Percepção de homens feirantes sobre os riscos das infecções sexualmente transmissíveis",
+      "orientador": "Caroline Barreto Freire Oliveira",
+      "bolsista": "Isabela Paixão de Jesus",
+      "periodo": "2020-2021",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "Praticas de cuidado de si de homens feirantes frente ao adoecimento crônico",
+      "orientador": "Caroline Barreto Freire Oliveira",
+      "bolsista": "Isabela Paixão de Jesus",
+      "periodo": "2019-2020",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "Trajetórias de vida, condições de trabalho e saúde-doença de homens feirantes",
+      "orientador": "Maria Geralda Gomes Aguiar",
+      "bolsista": "Weslly Bernardes de Oliveira",
+      "periodo": "2017-2018",
+      "tipo": "PIBIC"
+    },
+    {
+      "titulo": "Condições de trabalho e vulnerabilidade a saúde na narrativa de homens feirantes",
+      "orientador": "Rita da Cruz Amorim",
+      "bolsista": "Weslly Bernardes de Oliveira",
+      "periodo": "2019-2020",
+      "tipo": "FAPESB"
+    },
+    {
+      "titulo": "Itinerários terapêuticos de pessoas com anemia falciforme",
+      "orientador": "Maria Geralda Gomes Aguiar",
+      "bolsista": "Alenna Letícia Inácio Costa",
+      "periodo": "2015-2016",
+      "tipo": "PROBIC UEFS"
+    },
+    {
+      "titulo": "Itinerários terapêuticos de mães feirantes no processo de cuidar dos seus filhos",
+      "orientador": "Maria Geralda Gomes Aguiar",
+      "bolsista": "Alenna Letícia Inácio Costa",
+      "periodo": "2016-2017",
+      "tipo": "PIBIC FAPESB"
+    },
+    {
+      "titulo": "Condições de trabalho e concepções sobre saúde / doença nas narrativas de mulheres feirantes",
+      "orientador": "Maria Geralda Gomes Aguiar",
+      "bolsista": "Alenna Letícia Inácio Costa",
+      "periodo": "2017-2018",
+      "tipo": "PIBIC FAPESB"
+    },
+    {
+      "titulo": "O protagonismo de mulheres feirantes no cuidado de si e da família",
+      "orientador": "Rita da Cruz Amorim",
+      "bolsista": "Alenna Letícia Inácio Costa",
+      "periodo": "2019-2020",
+      "tipo": "PEVIC/UEFS"
+    },
+    {
+      "titulo": "Práticas de cuidado no cotidiano de feirantes em Feira de Santana – BA",
+      "orientador": "Rita da Cruz Amorim",
+      "bolsista": "Arlisson Silva Barreiros Oliveira",
+      "periodo": "2018-2019",
+      "tipo": "PIBIC/CNPq-Af"
+    },
+    {
+      "titulo": "Prevalência do alcoolismo em feirantes",
+      "orientador": "Tânia Costa",
+      "bolsista": "Guilherme de Jesús Santos",
+      "periodo": "2017-2018",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "Alcoolismo: percepção dos feirantes do impacto a saúde",
+      "orientador": "Tânia Costa",
+      "bolsista": "Guilherme de Jesús Santos",
+      "periodo": "2018-2019",
+      "tipo": "PROBIC-UEFS"
+    },
+    {
+      "titulo": "Perfil sociodemográfico de feirantes e o uso de bebidas alcoólicas no padrão de uso nocivo ou provável dependência, conforme AUDIT",
+      "orientador": " Rita da Cruz Amorim ",
+      "bolsista": "Guilherme de Jesús Santos",
+      "periodo": "2019-2020.",
+      "tipo": "PEVIC/UEFS"
+    }
   ]
 }

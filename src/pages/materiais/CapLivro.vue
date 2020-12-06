@@ -149,8 +149,10 @@ export default {
     getCapitulos() {
       const loading = this.$vs.loading();
       capituloService.getCapitulos().then((response) => {
+        this.items = response.data.sort((a, b) => {
+          return a.titulo.localeCompare(b.titulo);
+        });
         loading.close();
-        this.items = response.data;
       });
     },
     itemRemove(obj) {
