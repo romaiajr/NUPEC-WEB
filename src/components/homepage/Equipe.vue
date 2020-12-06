@@ -158,7 +158,7 @@ export default {
     },
   },
   created() {
-    getEquipe();
+    this.getEquipe();
   },
 };
 </script>
