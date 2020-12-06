@@ -1,14 +1,12 @@
 import api from "@/api";
 export default {
   getCapitulos: () => {
-    return api.get("/capitulos");
+    return api.post("/capitulos-get");
   },
   addCapitulo: (obj) => {
-    return api.post("/capitulos", obj);
+    return api.post("/capitulos-add", obj);
   },
-  removeCapitulo: (id) => {
-    var url = "/capitulos";
-    url = url.concat("/" + id);
-    return api.delete(url);
+  removeCapitulo: (obj) => {
+    return api.post("/capitulos-remove", { data: obj });
   },
 };

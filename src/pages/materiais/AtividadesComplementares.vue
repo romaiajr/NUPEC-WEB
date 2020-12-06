@@ -50,10 +50,10 @@
           <div class="row m-0" id="card-container">
             <CardExtensao
               v-for="atividade in items"
-              :key="atividade.id"
+              :key="atividade._id"
               :nome="atividade.titulo"
-              :id="atividade.id"
-              v-on:click="loadInfo(atividade.id)"
+              :id="atividade._id"
+              v-on:click="loadInfo(atividade._id)"
             >
             </CardExtensao>
           </div>
@@ -66,7 +66,7 @@
       <template #modal-title>
         <div class="row m-0">
           <div class="col-md-8 col-12">
-            {{ selected_atividade.atividade.titulo }}
+            {{ selected_atividade.atividade[0].titulo }}
           </div>
           <div class="col-md-0 col-0"></div>
           <div v-show="isLogged" class="col-md-2 col-6">
@@ -81,13 +81,13 @@
           </div>
         </div>
       </template>
-      <div v-for="evento in selected_atividade.eventos" :key="evento.id">
+      <div v-for="evento in selected_atividade.eventos" :key="evento._id">
         <div class="event-title">
           <h5>{{ evento.titulo }}</h5>
           <b-button
             v-show="isLogged"
             v-b-modal.modal-remover
-            @click="removeId(1, evento.id)"
+            @click="removeId(1, evento._id)"
             size="sm"
             variant="danger"
             squared
@@ -97,7 +97,7 @@
           >
         </div>
         <div class="row m-0" id="fotos-section">
-          <div class="col-md-4" v-for="foto in evento.fotos" :key="foto.id">
+          <!-- <div class="col-md-6" v-for="foto in evento.fotos" :key="foto._id">
             <b-card
               :img-src="foto.link"
               img-alt="Foto Equipe"
@@ -112,7 +112,7 @@
                 <b-button
                   v-show="isLogged"
                   v-b-modal.modal-remover
-                  @click="removeId(2, foto.id)"
+                  @click="removeId(2, foto._id)"
                   size="sm"
                   variant="danger"
                   squared
@@ -122,6 +122,129 @@
                 >
               </div>
             </b-card>
+          </div> -->
+          <div
+            class="row m-0"
+            id="carousel-desktop"
+            style="width:100%;margin:10px auto;height: 450px"
+          >
+            <slider ref="slider-desktop" :options="optionsDesktop">
+              <!-- slideritem wrapped package with the components you need -->
+              <slideritem
+                v-for="(foto, index) in evento.fotos"
+                :key="index"
+                :style="styleDesktop"
+              >
+                <b-card
+                  :img-src="foto.link"
+                  img-alt="Foto Equipe"
+                  img-top
+                  style="max-width: 20rem;"
+                  class="mb-2"
+                >
+                  <b-card-text>
+                    {{ foto.legenda }}
+                  </b-card-text>
+                  <div id="action-card">
+                    <b-button
+                      v-show="isLogged"
+                      v-b-modal.modal-remover
+                      @click="removeId(2, foto._id)"
+                      size="sm"
+                      variant="danger"
+                      squared
+                    >
+                      <i class="bx bx-trash"></i>
+                      Excluir</b-button
+                    >
+                  </div>
+                </b-card>
+              </slideritem>
+              <!-- Customizable loading -->
+              <div slot="loading">loading...</div>
+            </slider>
+          </div>
+          <div
+            class="row m-0"
+            id="carousel-mobile"
+            style="width:100%;margin:10px auto;height: 500px"
+          >
+            <slider ref="slider-mobile" :options="optionsMobile">
+              <!-- slideritem wrapped package with the components you need -->
+              <slideritem
+                v-for="(foto, index) in evento.fotos"
+                :key="index"
+                :style="styleMobile"
+              >
+                <b-card
+                  :img-src="foto.link"
+                  img-alt="Foto Equipe"
+                  img-top
+                  style="max-width: 20rem;"
+                  class="mb-2"
+                >
+                  <b-card-text>
+                    {{ foto.legenda }}
+                  </b-card-text>
+                  <div id="action-card">
+                    <b-button
+                      v-show="isLogged"
+                      v-b-modal.modal-remover
+                      @click="removeId(2, foto._id)"
+                      size="sm"
+                      variant="danger"
+                      squared
+                    >
+                      <i class="bx bx-trash"></i>
+                      Excluir</b-button
+                    >
+                  </div>
+                </b-card>
+              </slideritem>
+              <!-- Customizable loading -->
+              <div slot="loading">loading...</div>
+            </slider>
+          </div>
+          <div
+            class="row m-0"
+            id="carousel-medium"
+            style="width:100%;margin:10px auto;height: 450px"
+          >
+            <slider ref="slider-medium" :options="optionsMobile">
+              <!-- slideritem wrapped package with the components you need -->
+              <slideritem
+                v-for="(foto, index) in evento.fotos"
+                :key="index"
+                :style="styleMedium"
+              >
+                <b-card
+                  :img-src="foto.link"
+                  img-alt="Foto Equipe"
+                  img-top
+                  style="max-width: 20rem;"
+                  class="mb-2"
+                >
+                  <b-card-text>
+                    {{ foto.legenda }}
+                  </b-card-text>
+                  <div id="action-card">
+                    <b-button
+                      v-show="isLogged"
+                      v-b-modal.modal-remover
+                      @click="removeId(2, foto._id)"
+                      size="sm"
+                      variant="danger"
+                      squared
+                    >
+                      <i class="bx bx-trash"></i>
+                      Excluir</b-button
+                    >
+                  </div>
+                </b-card></slideritem
+              >
+              <!-- Customizable loading -->
+              <div slot="loading"></div>
+            </slider>
           </div>
         </div>
       </div>
@@ -170,8 +293,8 @@
         <b-form-select v-model="formFoto.idEvento">
           <b-form-select-option
             v-for="evento in selected_atividade.eventos"
-            :key="evento.id"
-            :value="evento.id"
+            :key="evento._id"
+            :value="evento._id"
             >{{ evento.titulo }}</b-form-select-option
           ></b-form-select
         >
@@ -208,11 +331,14 @@ import Navbar from "../../components/reutilizavel/Navbar";
 import CardExtensao from "../../components/reutilizavel/CardExtensao";
 import Sidebar from "../../components/manager/Sidebar";
 import atividadeService from "../../services/atividadeService";
+import { slider, slideritem } from "vue-concise-slider";
 export default {
   components: {
     Navbar,
     CardExtensao,
     Sidebar,
+    slider,
+    slideritem,
   },
   created() {
     this.getAtividades();
@@ -248,6 +374,32 @@ export default {
       legenda: "",
       idEvento: "",
     },
+    styleDesktop: {
+      height: "auto",
+      width: "31.3%",
+      "margin-right": "2%",
+    },
+    styleMobile: {
+      height: "auto",
+      width: "98%",
+      "margin-right": "2%",
+    },
+    styleMedium: {
+      height: "auto",
+      width: "49%",
+      "margin-right": "2%",
+    },
+    //Slider configuration [obj]
+    optionsDesktop: {
+      currentPage: 0,
+      slidesToScroll: 2,
+      thresholdDistance: "50",
+    },
+    optionsMobile: {
+      currentPage: 0,
+      slidesToScroll: 1,
+      thresholdDistance: "50",
+    },
   }),
   methods: {
     async addAtividade() {
@@ -270,7 +422,7 @@ export default {
       }
     },
     async addEvento() {
-      this.formEvento.idAtividade = this.selected_atividade.atividade.id;
+      this.formEvento.idAtividade = this.selected_atividade.atividade[0]._id;
       try {
         await atividadeService.addEvento(this.formEvento);
         this.$vs.notification({
@@ -278,7 +430,7 @@ export default {
           title: "Adicionar Evento",
           text: "Evento adicionado com sucesso!",
         });
-        this.loadInfo(this.selected_atividade.atividade.id);
+        this.loadInfo(this.selected_atividade.atividade[0]._id);
         this.$refs["modal-add-evento"].hide();
       } catch (e) {
         this.$vs.notification({
@@ -290,13 +442,13 @@ export default {
     },
     async addFoto() {
       try {
-        await atividadeService.addFoto(this.formFoto, this.formFoto.idEvento);
+        await atividadeService.addFoto(this.formFoto);
         this.$vs.notification({
           color: "success",
           title: "Adicionar Foto",
           text: "Foto adicionada com sucesso!",
         });
-        this.loadInfo(this.selected_atividade.atividade.id);
+        this.loadInfo(this.selected_atividade.atividade[0]._id);
         this.$refs["modal-add-foto"].hide();
       } catch (e) {
         this.$vs.notification({
@@ -306,9 +458,9 @@ export default {
         });
       }
     },
-    removeId(tipo, id) {
+    removeId(tipo, obj) {
       this.tipo = tipo;
-      this.deleteid = id;
+      this.deleteid = obj;
     },
     async onDelete() {
       try {
@@ -319,7 +471,7 @@ export default {
             title: "Remover Evento",
             text: "Evento Removido com sucesso!",
           });
-          this.loadInfo(this.selected_atividade.atividade.id);
+          this.loadInfo(this.selected_atividade.atividade[0]._id);
         } else {
           await atividadeService.deleteFoto(this.deleteid);
           this.$vs.notification({
@@ -327,7 +479,7 @@ export default {
             title: "Remover Foto",
             text: "Foto Removida com sucesso!",
           });
-          this.loadInfo(this.selected_atividade.atividade.id);
+          this.loadInfo(this.selected_atividade.atividade[0]._id);
         }
       } catch (e) {
         if (this.tipo == 1) {
@@ -364,7 +516,8 @@ export default {
       this.selected_atividade.atividade = res.atividade;
       this.selected_atividade.eventos = res.eventos;
       this.selected_atividade.eventos.forEach(async (item) => {
-        res = await atividadeService.getFotos(item.id);
+        res = await atividadeService.getFotos(item._id);
+        console.log("fotos: " + res.data);
         item.fotos = res.data;
       });
       loading.close();
@@ -374,6 +527,13 @@ export default {
 };
 </script>
 <style>
+#carousel-mobile {
+  display: none;
+}
+#carousel-medium {
+  display: none;
+}
+
 .event-title {
   width: 100%;
   /* background: var(--primary-light-color); */
@@ -430,6 +590,26 @@ export default {
 @media screen and (max-width: 760px) {
   .mobile-nav {
     display: block !important;
+  }
+  #carousel-desktop {
+    display: none !important;
+  }
+  #carousel-mobile {
+    display: block !important;
+  }
+  #carousel-medium {
+    display: none !important;
+  }
+  @media screen and (max-width: 1140px) and (min-width: 761px) {
+    #carousel-desktop {
+      display: none !important;
+    }
+    #carousel-mobile {
+      display: none !important;
+    }
+    #carousel-medium {
+      display: block !important;
+    }
   }
 
   #sidebar {

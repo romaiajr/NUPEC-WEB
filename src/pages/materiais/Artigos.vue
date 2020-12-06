@@ -146,11 +146,12 @@ export default {
       const loading = this.$vs.loading();
       artigoService.getArtigos().then((response) => {
         this.items = response.data;
+        console.log(this.items);
         loading.close();
       });
     },
-    itemRemove(id) {
-      this.deleteId = id;
+    itemRemove(obj) {
+      this.deleteId = obj;
     },
     async onDelete() {
       try {

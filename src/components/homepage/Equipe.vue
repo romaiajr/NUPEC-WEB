@@ -71,7 +71,7 @@
               :cargo="membro.cargo"
           /></slideritem>
           <!-- Customizable loading -->
-          <div slot="loading">loading...</div>
+          <div slot="loading"></div>
         </slider>
       </div>
       <div id="button-section">
@@ -107,6 +107,7 @@
 </template>
 <script>
 import { slider, slideritem } from "vue-concise-slider";
+import equipeService from "@/services/equipeService";
 import CardEquipe from "../reutilizavel/CardEquipe";
 // import axios from "axios";
 
@@ -144,65 +145,21 @@ export default {
       slidesToScroll: 1,
       thresholdDistance: "50",
     },
-    equipe: [
-      {
-        nome: "Roberto Maia",
-        cargo: "Professor",
-        imagem:
-          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
-      },
-      {
-        nome: "Roberto Maia",
-        cargo: "Desenvolvedor",
-        imagem:
-          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
-      },
-      {
-        nome: "Roberto Maia",
-        cargo: "Desenvolvedor",
-        imagem:
-          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
-      },
-      {
-        nome: "Roberto Maia",
-        cargo: "Desenvolvedor",
-        imagem:
-          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
-      },
-      {
-        nome: "Roberto Maia",
-        cargo: "Desenvolvedor",
-        imagem:
-          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
-      },
-      {
-        nome: "Roberto Maia",
-        cargo: "Desenvolvedor",
-        imagem:
-          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
-      },
-      {
-        nome: "Roberto Maia",
-        cargo: "Desenvolvedor",
-        imagem:
-          "https://avatars0.githubusercontent.com/u/59492898?s=460&u=dc1a72e0302a1b74dd9b429eedb48e078a1684ea&v=4",
-      },
-    ],
+    equipe: [],
   }),
   methods: {
     openEquipe() {
       this.equipeDialog = true;
     },
+    getEquipe() {
+      equipeService.getEquipe().then((response) => {
+        this.equipe = response.data;
+      });
+    },
   },
-  // async created() {
-  //   try {
-  //     const res = await axios.get(`http://localhost:3000/todos`);
-  //     console.log(res);
-  //     this.equipe = res.data;
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // },
+  created() {
+    getEquipe();
+  },
 };
 </script>
 <style>

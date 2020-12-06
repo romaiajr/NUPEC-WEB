@@ -1,14 +1,12 @@
 import api from "@/api";
 export default {
   getIcs: () => {
-    return api.get("/iniciacao_cientifica");
+    return api.post("/iniciacao-cientifica-get");
   },
   addIc: (obj) => {
-    return api.post("/iniciacao_cientifica", obj);
+    return api.post("/iniciacao-cientifica-add", obj);
   },
-  removeIc: (id) => {
-    var url = "/iniciacao_cientifica";
-    url = url.concat("/" + id);
-    return api.delete(url);
+  removeIc: (obj) => {
+    return api.post("/iniciacao-cientifica-remove", { data: obj });
   },
 };

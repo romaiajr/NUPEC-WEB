@@ -1,46 +1,41 @@
 import api from "@/api";
 export default {
   getAtividades: () => {
-    return api.get("/atividade-complementar");
+    return api.post("/atividade-complementar-get");
   },
   addAtividade: (obj) => {
-    return api.post("/atividade-complementar", obj);
+    return api.post("/atividade-complementar-add", obj);
   },
-  removeAtividade: (id) => {
-    var url = "/atividade-complementar";
-    url = url.concat("/" + id);
-    return api.delete(url);
+  removeAtividade: (obj) => {
+    return api.delete("/atividade-complementar-remove", { data: obj });
   },
   findAtividade: async (id) => {
-    var url = "/atividade-complementar/";
-    url = url.concat(id);
-    var atividade = await api.get(url);
-    url = `/eventos/?idAtividade=` + id;
-    var eventos = await api.get(url);
+    console.log("entrou");
+    var atividade = await api.post("/atividade-complementar-getOne", {
+      data: id,
+    });
+    var eventos = await api.post("/eventos-get", { data: id });
     var obj = {
       atividade: atividade.data,
       eventos: eventos.data,
     };
     return obj;
   },
-  addEvento: (obj, id) => {
-    var url = `/eventos/?idAtividade=` + id;
-    return api.post(url, obj);
+  addEvento: (obj) => {
+    return api.post("/eventos-add", obj);
   },
-  getFotos(id) {
-    var url = `/fotos/?idEvento=` + id;
-    return api.get(url);
+  deleteEvento: (obj) => {
+    console.log(obj);
+    return api.post("/eventos-remove", { data: obj });
   },
-  addFoto: (obj, id) => {
-    var url = `/fotos/?idEvento=` + id;
-    return api.post(url, obj);
+
+  getFotos(obj) {
+    return api.post("/fotos-get", { data: obj });
   },
-  deleteFoto: (id) => {
-    var url = `/fotos/` + id;
-    return api.delete(url);
+  addFoto: (obj) => {
+    return api.post("/fotos-add", obj);
   },
-  deleteEvento: (id) => {
-    var url = `/eventos/` + id;
-    return api.delete(url);
+  deleteFoto: (obj) => {
+    return api.post("/fotos-remove", { data: obj });
   },
 };

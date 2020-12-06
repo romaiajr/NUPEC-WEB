@@ -157,8 +157,8 @@ export default {
         this.items = response.data;
       });
     },
-    itemRemove(id) {
-      this.deleteId = id;
+    itemRemove(obj) {
+      this.deleteId = obj;
     },
     async onDelete() {
       try {

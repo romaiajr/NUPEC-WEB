@@ -111,58 +111,6 @@ export default {
     CardMaterial,
   },
   data: () => ({
-    sortBy: "Nome",
-    items: [
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 7",
-        Autor: "Dickerson",
-        Data: "17/10/2019",
-        Link:
-          "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional",
-      },
-      {
-        Nome: "Artigo 2",
-        Autor: "Larsen",
-        Data: "30/05/2001",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 3",
-        Autor: "Geneva",
-        Data: "07/11/2000",
-        Link: "http://www.",
-      },
-      {
-        Nome: "Artigo 4",
-        Autor: "Jami",
-        Data: "17/10/2020",
-        Link: "http://www.",
-      },
-    ],
     style: "display: block !important",
     // style2: "display: block !important",
     // style3: "display: block !important",

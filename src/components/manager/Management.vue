@@ -111,7 +111,7 @@ export default {
       window.open(row.value);
     },
     remove(row) {
-      this.$parent.itemRemove(row.item.id);
+      this.$parent.itemRemove(row.item);
     },
   },
 };

@@ -1,14 +1,12 @@
 import api from "@/api";
 export default {
   getLivros: () => {
-    return api.get("/livros");
+    return api.post("/livros-get");
   },
   addLivro: (obj) => {
-    return api.post("/livros", obj);
+    return api.post("/livros-add", obj);
   },
-  removeLivro: (id) => {
-    var url = "/livros";
-    url = url.concat("/" + id);
-    return api.delete(url);
+  removeLivro: (obj) => {
+    return api.post("/livros-remove", { data: obj });
   },
 };
