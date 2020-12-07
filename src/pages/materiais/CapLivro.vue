@@ -48,7 +48,7 @@
       hide-footer
       ><b-form @submit.prevent="onSubmit" @reset="onReset">
         <b-form-text> Título do Capítulo </b-form-text>
-        <b-form-input required v-model="form.titulo"></b-form-input>
+        <b-form-textarea required v-model="form.titulo"></b-form-textarea>
         <b-form-text> Nome do Livro </b-form-text>
         <b-form-input required v-model="form.livro"></b-form-input>
         <b-form-text> Nome do(s) Autor(es) </b-form-text>
@@ -121,6 +121,10 @@ export default {
   },
   methods: {
     async onSubmit() {
+      this.form.titulo.trim();
+      this.form.autor.trim();
+      this.form.livro.trim();
+      this.form.link.trim();
       try {
         await capituloService.addCapitulo(this.form);
         this.$vs.notification({

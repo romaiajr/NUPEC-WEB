@@ -131,10 +131,7 @@ export default {
       }
     },
     onReset() {
-      this.form.titulo = "";
-      this.form.autor = "";
-      this.form.livro = "";
-      this.form.link = "";
+      this.form = {};
       this.$refs["modal-livros"].hide();
     },
     getLivros() {
@@ -150,6 +147,10 @@ export default {
       this.deleteId = obj;
     },
     async onDelete() {
+      this.form.titulo.trim();
+      this.form.autor.trim();
+      this.form.livro.trim();
+      this.form.link.trim();
       try {
         await livroService.removeLivro(this.deleteId);
         this.$vs.notification({

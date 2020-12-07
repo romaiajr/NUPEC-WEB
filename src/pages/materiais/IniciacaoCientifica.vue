@@ -40,20 +40,22 @@
     <b-modal
       id="modal-1"
       ref="modal-ic"
-      title="Adicionar Novo Livro"
+      title="Adicionar Nova Iniciação Científica"
       @hide="onReset"
       hide-footer
       ><b-form @submit.prevent="onSubmit" @reset="onReset">
         <b-form-text> Título da IC </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
+        <b-form-text> Tipo de Bolsa </b-form-text>
+        <b-form-input required v-model="form.tipo"></b-form-input>
         <b-form-text> Nome do(s) Bolsista(as) </b-form-text>
         <b-form-input required v-model="form.aluno"></b-form-input>
         <b-form-text> Nome do(s) Orientador(es) </b-form-text>
         <b-form-input required v-model="form.orientador"></b-form-input>
-        <b-form-text> Data de Conclusão </b-form-text>
+        <b-form-text> Período de Vigência </b-form-text>
         <b-form-input required v-model="form.data"></b-form-input>
         <b-form-text id="password-help-block">
-          A data de conclusão deve estar no formato DD/MM/AAAA: "07/11/2000"
+          O Período de Vigência deve estar no formato AAAA-AAAA: "2020-2021"
         </b-form-text>
         <div id="button-modal">
           <b-button type="reset" variant="danger">Cancelar</b-button>
@@ -90,9 +92,10 @@ export default {
       titulo: "",
       aluno: "",
       orientador: "",
-      data: "",
-      deleteId: "",
+      periodo: "",
+      tipo: "",
     },
+    deleteId: "",
     fields: [
       {
         key: "titulo",
@@ -103,14 +106,16 @@ export default {
       {
         key: "bolsista",
         label: "Bolsista",
+        sortable: true,
         sortDirection: "asc",
       },
       {
         key: "orientador",
         label: "Orientador",
+        sortable: true,
         sortDirection: "asc",
       },
-      { key: "tipo", label: "Orgão" },
+      { key: "tipo", label: "Orgão", sortable: true, sortDirection: "asc" },
       {
         key: "periodo",
         label: "Período",
@@ -126,6 +131,11 @@ export default {
   },
   methods: {
     async onSubmit() {
+      this.form.titulo.trim();
+      this.form.aluno.trim();
+      this.form.orientador.trim();
+      this.form.tipo.trim();
+      this.form.periodo.trim();
       try {
         await icService.addIc(this.form);
         this.$vs.notification({
@@ -145,10 +155,7 @@ export default {
       }
     },
     onReset() {
-      this.form.titulo = "";
-      this.form.autor = "";
-      this.form.orientador = "";
-      this.form.data = "";
+      this.form = {};
       this.$refs["modal-ic"].hide();
     },
     getIcs() {

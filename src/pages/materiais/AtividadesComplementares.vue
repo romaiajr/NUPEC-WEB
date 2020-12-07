@@ -144,6 +144,13 @@
                 >
                   <b-card-text>
                     {{ foto.legenda }}
+                    <div v-if="foto.linkExterno != undefined">
+                      <small
+                        @click="redirect(foto.linkExterno)"
+                        class="linkExterno"
+                        >Acessar</small
+                      >
+                    </div>
                   </b-card-text>
                   <div id="action-card">
                     <b-button
@@ -185,6 +192,13 @@
                 >
                   <b-card-text>
                     {{ foto.legenda }}
+                    <div v-if="foto.linkExterno != undefined">
+                      <small
+                        @click="redirect(foto.linkExterno)"
+                        class="linkExterno"
+                        >Acessar</small
+                      >
+                    </div>
                   </b-card-text>
                   <div id="action-card">
                     <b-button
@@ -226,6 +240,13 @@
                 >
                   <b-card-text>
                     {{ foto.legenda }}
+                    <div v-if="foto.linkExterno != undefined">
+                      <small
+                        @click="redirect(foto.linkExterno)"
+                        class="linkExterno"
+                        >Acessar</small
+                      >
+                    </div>
                   </b-card-text>
                   <div id="action-card">
                     <b-button
@@ -255,6 +276,7 @@
       id="modal-addAtv"
       ref="modal-add-atividade"
       title="Adicionar Nova Atividade Complementar"
+      @hide="resetForm"
       hide-footer
       ><b-form @submit.prevent="addAtividade" @reset="resetForm">
         <b-form-text> Título da Atividade Complementar </b-form-text>
@@ -271,6 +293,7 @@
       id="modal-addEvt"
       ref="modal-add-evento"
       title="Adicionar Novo Evento"
+      @hide="resetForm"
       hide-footer
       ><b-form @submit.prevent="addEvento" @reset="resetForm">
         <b-form-text> Título do Evento </b-form-text>
@@ -287,6 +310,7 @@
       id="modal-addFt"
       ref="modal-add-foto"
       title="Adicionar Nova Foto"
+      @hide="resetForm"
       hide-footer
       ><b-form @submit.prevent="addFoto" @reset="resetForm">
         <b-form-text>Sessão da Foto</b-form-text>
@@ -305,6 +329,8 @@
         <b-form-text id="password-help-block">
           O link para acesso deve seguir o exemplo: "http://www.uefs.br/"
         </b-form-text>
+        <b-form-text>Link para Acesso Externo</b-form-text>
+        <b-form-input required v-model="formFoto.linkExterno"></b-form-input>
         <div id="button-modal">
           <b-button type="reset" variant="danger">Cancelar</b-button>
           <b-button type="submit" variant="primary">Salvar</b-button>
@@ -373,6 +399,7 @@ export default {
       link: "",
       legenda: "",
       idEvento: "",
+      linkExterno: "",
     },
     styleDesktop: {
       height: "auto",
@@ -405,6 +432,7 @@ export default {
   }),
   methods: {
     async addAtividade() {
+      this.form.titulo.trim();
       try {
         await atividadeService.addAtividade(this.form);
         this.$vs.notification({
@@ -424,6 +452,7 @@ export default {
       }
     },
     async addEvento() {
+      this.formEvento.titulo.trim();
       this.formEvento.idAtividade = this.selected_atividade.atividade[0]._id;
       try {
         await atividadeService.addEvento(this.formEvento);
@@ -443,6 +472,8 @@ export default {
       }
     },
     async addFoto() {
+      this.formFoto.link.trim();
+      this.formFoto.legenda.trim();
       try {
         await atividadeService.addFoto(this.formFoto);
         this.$vs.notification({
@@ -527,10 +558,66 @@ export default {
       loading.close();
       this.$refs["modal-info"].show();
     },
+    redirect(row) {
+      window.open(row);
+    },
   },
 };
 </script>
 <style>
+.linkExterno {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.linkExterno,
+.linkExterno:after,
+.linkExterno:before {
+  transition: all 0.5s;
+}
+.linkExterno:hover {
+  color: var(--secondary-dark-color) !important;
+}
+/* stroke */
+.linkExterno {
+  position: relative;
+}
+.linkExterno:after,
+.linkExterno:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: ".";
+  color: transparent;
+  background: var(--primary-dark-color);
+  height: 2px !important;
+}
+.linkExterno:hover:after {
+  width: 100%;
+}
+
+.linkExterno {
+  transition: all 1s;
+}
+
+.linkExterno:after {
+  text-align: left;
+  content: ".";
+  margin: 0;
+  opacity: 0;
+}
+.linkExterno:hover {
+  color: var(--primary-dark-color);
+  z-index: 1;
+}
+.linkExterno:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  opacity: 1;
+}
 #carousel-mobile {
   display: none;
 }

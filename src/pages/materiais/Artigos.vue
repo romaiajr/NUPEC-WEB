@@ -118,6 +118,9 @@ export default {
   },
   methods: {
     async onSubmit() {
+      this.form.titulo.trim();
+      this.form.autor.trim();
+      this.form.link.trim();
       try {
         await artigoService.addArtigo(this.form);
         this.$vs.notification({
@@ -136,10 +139,7 @@ export default {
       }
     },
     onReset() {
-      console.log("cancelou");
-      this.form.titulo = "";
-      this.form.autor = "";
-      this.form.link = "";
+      this.form = {};
       this.$refs["modal-artigos"].hide();
     },
     getArtigos() {

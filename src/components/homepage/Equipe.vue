@@ -38,6 +38,7 @@
             :key="index"
             :style="styleDesktop"
             ><CardEquipe
+              class="card-equipe"
               :imagem="membro.imagem"
               :nome="membro.nome"
               :cargo="membro.cargo"
@@ -63,6 +64,7 @@
             :key="index"
             :style="styleMobile"
             ><CardEquipe
+              class="card-equipe"
               :imagem="membro.imagem"
               :nome="membro.nome"
               :cargo="membro.cargo"
@@ -87,6 +89,7 @@
             :key="index"
             :style="styleMedium"
             ><CardEquipe
+              class="card-equipe"
               :imagem="membro.imagem"
               :nome="membro.nome"
               :cargo="membro.cargo"
@@ -119,6 +122,7 @@
               :key="membro._id"
             >
               <CardEquipe
+                class="card-toda-equipe"
                 :imagem="membro.imagem"
                 :nome="membro.nome"
                 :cargo="membro.cargo"
@@ -136,6 +140,7 @@
               :key="membro._id"
             >
               <CardEquipe
+                class="card-toda-equipe"
                 :imagem="membro.imagem"
                 :nome="membro.nome"
                 :cargo="membro.cargo"
@@ -153,6 +158,7 @@
               :key="membro._id"
             >
               <CardEquipe
+                class="card-toda-equipe"
                 :imagem="membro.imagem"
                 :nome="membro.nome"
                 :cargo="membro.cargo"
@@ -166,6 +172,7 @@
       id="modal-addEquipe"
       ref="modal-add-equipe"
       title="Adicionar Novo Membro da Equipe"
+      @hide="resetForm"
       hide-footer
       ><b-form @submit.prevent="onSubmit" @reset="resetForm">
         <b-form-text> Nome do Membro </b-form-text>
@@ -184,7 +191,7 @@
         <b-form-text> Link para Imagem </b-form-text>
         <b-form-input required v-model="form.imagem"></b-form-input>
         <b-form-text id="password-help-block">
-          O link para imagem deve seguir o exemplo: "http://www.uefs.br/"
+          A imagem deverá está no formato quadrado (1x1)
         </b-form-text>
         <div id="button-modal">
           <b-button type="reset" variant="danger">Cancelar</b-button>
@@ -224,6 +231,7 @@
       cancel-variant="danger"
       @ok="onDelete"
     >
+      Deseja Remover o Membro Selecionado?
     </b-modal>
   </div>
 </template>
@@ -292,6 +300,9 @@ export default {
       });
     },
     async onSubmit() {
+      this.form.nome.trim();
+      this.form.cargo.trim();
+      this.form.imagem.trim();
       try {
         await equipeService.addEquipe(this.form);
         this.$vs.notification({
