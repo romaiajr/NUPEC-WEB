@@ -31,6 +31,7 @@
           ref="slider-desktop"
           :key="componentKey"
           :options="optionsDesktop"
+          v-show="equipe.length != 0"
         >
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
@@ -45,8 +46,17 @@
             ></CardEquipe
           ></slideritem>
           <!-- Customizable loading -->
-          <div slot="loading">loading...</div>
         </slider>
+        <div
+          v-show="equipe.length == 0 && loading > 0"
+          style="width: 100% !important;"
+        >
+          <b-alert show variant="warning">
+            <h6>
+              Ainda não foram inseridas fotos nesta sessão
+            </h6></b-alert
+          >
+        </div>
       </div>
       <div
         class="row m-0"
@@ -57,6 +67,7 @@
           ref="slider-mobile"
           :key="componentKey"
           :options="optionsMobile"
+          v-show="equipe.length != 0"
         >
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
@@ -70,8 +81,17 @@
               :cargo="membro.cargo"
           /></slideritem>
           <!-- Customizable loading -->
-          <div slot="loading">loading...</div>
         </slider>
+        <div
+          v-show="equipe.length == 0 && loading > 0"
+          style="width: 100% !important;"
+        >
+          <b-alert show variant="warning">
+            <h6>
+              Ainda não foram inseridas fotos nesta sessão
+            </h6></b-alert
+          >
+        </div>
       </div>
       <div
         class="row m-0"
@@ -82,6 +102,7 @@
           ref="slider-medium"
           :key="componentKey"
           :options="optionsMobile"
+          v-show="equipe.length != 0"
         >
           <!-- slideritem wrapped package with the components you need -->
           <slideritem
@@ -95,8 +116,18 @@
               :cargo="membro.cargo"
           /></slideritem>
           <!-- Customizable loading -->
-          <div slot="loading"></div>
+          <div class="container"></div>
         </slider>
+        <div
+          v-show="equipe.length == 0 && loading > 0"
+          style="width: 100% !important;"
+        >
+          <b-alert show variant="warning">
+            <h6>
+              Ainda não foram inseridos membros da equipe
+            </h6></b-alert
+          >
+        </div>
       </div>
       <div id="button-section">
         <a
@@ -129,7 +160,7 @@
               />
             </div>
           </div>
-          <div class="row m-0">
+          <div class="row m-0" style="margin-top: 36px !important;">
             <h4>Bolsistas</h4>
           </div>
           <div class="row">
@@ -147,7 +178,7 @@
               />
             </div>
           </div>
-          <div class="row m-0">
+          <div class="row m-0" style="margin-top: 36px !important;">
             <h4>Voluntários</h4>
           </div>
           <div class="row">
@@ -249,6 +280,7 @@ export default {
     CardEquipe,
   },
   data: () => ({
+    loading: 0,
     equipeDialog: false,
     styleDesktop: {
       height: "auto",
@@ -296,7 +328,18 @@ export default {
     },
     getEquipe() {
       equipeService.getEquipe().then((response) => {
-        this.equipe = response.data;
+        this.equipe = response.data.sort((a, b) => {
+          if (a.tipo == b.tipo) {
+            if (a.nome.includes("Rita")) return -1;
+            if (a.nome.includes("Márcia")) {
+              if (b.nome.includes("Rita")) return +1;
+              else return -1;
+            } else return a.nome.localeCompare(b.nome);
+          } else if (a.tipo == "Professor" && b.tipo != "Professor") return -1;
+          else if (a.tipo == "Bolsista" && b.tipo == "Voluntário") return -1;
+          else if (a.tipo == "Voluntário" && b.tipo != "Voluntário") return +1;
+        });
+        this.loading++;
       });
     },
     async onSubmit() {

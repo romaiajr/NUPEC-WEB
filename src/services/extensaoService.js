@@ -1,19 +1,15 @@
 import api from "@/api";
 export default {
   getProjetos: () => {
-    return api.get("/projetos-extensao");
+    return api.post("/projetos-get");
   },
   addProjeto: (obj) => {
-    return api.post("/projetos-extensao", obj);
+    return api.post("/projetos-add", obj);
   },
   removeProjeto: (id) => {
-    var url = "/projetos-extensao";
-    url = url.concat("/" + id);
-    console.log(url);
-    return api.delete(url);
+    return api.post("/projetos-remove", { data: id });
   },
   findProjeto: async (id) => {
-    var url = `/projetos-extensao/` + id;
-    return api.get(url);
+    return api.post("/projetos-getOne", { data: id });
   },
 };

@@ -53,11 +53,11 @@
           <div class="row m-0" id="card-container">
             <CardExtensao
               v-for="projeto in items"
-              :key="projeto.id"
+              :key="projeto._id"
               :nome="projeto.titulo"
-              :id="projeto.id"
+              :id="projeto._id"
               background=" background-color: #f1f1f1"
-              v-on:click="loadInfo(projeto.id)"
+              v-on:click="loadInfo(projeto._id)"
             >
               <img class="img-projeto" :src="projeto.logo" />
             </CardExtensao>
@@ -127,6 +127,7 @@ export default {
   data: () => ({
     isLogged: false,
     items: [],
+    fields: [],
     selected_projeto: "",
     form: {
       titulo: "",
@@ -146,6 +147,18 @@ export default {
         loading.close();
       });
     },
+    async loadInfo(id) {
+      const loading = this.$vs.loading();
+      const res = await extensaoService.findProjeto(id);
+      this.selected_projeto = res.data[0];
+      this.selected_projeto.fields.forEach((field, index) => {
+        this.fields.push({
+          key: field,
+          label: this.selected_projeto.labels[index],
+        });
+      });
+      loading.close();
+    },
     async addProjeto() {
       try {
         await extensaoService.addProjeto(this.form);
@@ -163,14 +176,6 @@ export default {
           text: "Houve um erro ao tentar adicionar o novo Projeto de Extensão",
         });
       }
-    },
-    async loadInfo(id) {
-      const loading = this.$vs.loading();
-      console.log(id);
-      var res = await extensaoService.findProjeto(id);
-      this.selected_projeto = res.data;
-      loading.close();
-      this.$refs["modal-info"].show();
     },
   },
 };

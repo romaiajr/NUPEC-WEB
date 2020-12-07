@@ -96,39 +96,17 @@
             Excluir</b-button
           >
         </div>
-        <div class="row m-0" id="fotos-section">
-          <!-- <div class="col-md-6" v-for="foto in evento.fotos" :key="foto._id">
-            <b-card
-              :img-src="foto.link"
-              img-alt="Foto Equipe"
-              img-top
-              style="max-width: 20rem;"
-              class="mb-2"
-            >
-              <b-card-text>
-                {{ foto.legenda }}
-              </b-card-text>
-              <div id="action-card">
-                <b-button
-                  v-show="isLogged"
-                  v-b-modal.modal-remover
-                  @click="removeId(2, foto._id)"
-                  size="sm"
-                  variant="danger"
-                  squared
-                >
-                  <i class="bx bx-trash"></i>
-                  Excluir</b-button
-                >
-              </div>
-            </b-card>
-          </div> -->
+        <div class="row m-0" id="fotos-section" :key="componentKey">
           <div
             class="row m-0"
             id="carousel-desktop"
             style="width:100%;margin:10px auto;height: 450px"
           >
-            <slider ref="slider-desktop" :options="optionsDesktop">
+            <slider
+              ref="slider-desktop"
+              :options="optionsDesktop"
+              v-if="evento.fotos.length != 0"
+            >
               <!-- slideritem wrapped package with the components you need -->
               <slideritem
                 v-for="(foto, index) in evento.fotos"
@@ -168,15 +146,25 @@
                 </b-card>
               </slideritem>
               <!-- Customizable loading -->
-              <div slot="loading">loading...</div>
             </slider>
+            <div v-else style="width: 100% !important;">
+              <b-alert show variant="warning">
+                <h6>
+                  Ainda não foram inseridas fotos nesta sessão
+                </h6></b-alert
+              >
+            </div>
           </div>
           <div
             class="row m-0"
             id="carousel-mobile"
             style="width:100%;margin:10px auto;height: 500px"
           >
-            <slider ref="slider-mobile" :options="optionsMobile">
+            <slider
+              ref="slider-mobile"
+              :options="optionsMobile"
+              v-if="evento.fotos.length != 0"
+            >
               <!-- slideritem wrapped package with the components you need -->
               <slideritem
                 v-for="(foto, index) in evento.fotos"
@@ -216,15 +204,25 @@
                 </b-card>
               </slideritem>
               <!-- Customizable loading -->
-              <div slot="loading">loading...</div>
             </slider>
+            <div v-else style="width: 100% !important;">
+              <b-alert show variant="warning">
+                <h6>
+                  Ainda não foram inseridas fotos nesta sessão
+                </h6></b-alert
+              >
+            </div>
           </div>
           <div
             class="row m-0"
             id="carousel-medium"
             style="width:100%;margin:10px auto;height: 450px"
           >
-            <slider ref="slider-medium" :options="optionsMobile">
+            <slider
+              ref="slider-medium"
+              :options="optionsMobile"
+              v-if="evento.fotos.length != 0"
+            >
               <!-- slideritem wrapped package with the components you need -->
               <slideritem
                 v-for="(foto, index) in evento.fotos"
@@ -264,8 +262,14 @@
                 </b-card></slideritem
               >
               <!-- Customizable loading -->
-              <div slot="loading"></div>
             </slider>
+            <div slot="loading" v-show="evento.fotos.length == 0">
+              <b-alert show variant="warning"
+                ><h6>
+                  Ainda não foram inseridas fotos nesta sessão
+                </h6></b-alert
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -429,6 +433,7 @@ export default {
       thresholdDistance: "50",
       pagination: false,
     },
+    componentKey: 0,
   }),
   methods: {
     async addAtividade() {
@@ -552,10 +557,12 @@ export default {
       this.selected_atividade.eventos = res.eventos;
       this.selected_atividade.eventos.forEach(async (item) => {
         res = await atividadeService.getFotos(item._id);
-        console.log("fotos: " + res.data);
         item.fotos = res.data;
+        this.componentKey++;
       });
+
       loading.close();
+
       this.$refs["modal-info"].show();
     },
     redirect(row) {
@@ -565,6 +572,9 @@ export default {
 };
 </script>
 <style>
+.spinner-border {
+  color: #255be2 !important;
+}
 .linkExterno {
   text-decoration: none;
   color: black;

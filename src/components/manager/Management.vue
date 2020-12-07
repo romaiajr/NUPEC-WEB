@@ -28,6 +28,7 @@
         <div class="overflow-auto">
           <b-table
             id="table"
+            :key="text"
             :per-page="perPage"
             :current-page="currentPage"
             small
@@ -79,11 +80,12 @@
 </template>
 <script>
 export default {
-  mounted() {
+  created() {
     const user = JSON.parse(sessionStorage.getItem("login"));
     if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
       this.isLogged = true;
     }
+    this.fetchItems();
   },
   props: {
     conteudo: {
@@ -101,17 +103,50 @@ export default {
     },
   },
   data: () => ({
+    text: "",
     perPage: 6,
     currentPage: 1,
     isLogged: false,
     removeId: "",
+    items: [],
   }),
+  watch: {
+    text() {
+      if (this.text != "") {
+        this.conteudo = this.items.filter((item) => {
+          var titulo =
+            item.titulo == undefined ? "" : item.titulo.toLowerCase();
+          var nome = item.autor == undefined ? "" : item.autor.toLowerCase();
+          var bolsista =
+            item.bolsista == undefined ? "" : item.bolsista.toLowerCase();
+          var orientador =
+            item.orientador == undefined ? "" : item.orientador.toLowerCase();
+          var orgão = item.tipo == undefined ? "" : item.tipo.toLowerCase();
+          var text = this.text.toLowerCase();
+          return (
+            titulo.includes(text) ||
+            nome.includes(text) ||
+            bolsista.includes(text) ||
+            orientador.includes(text) ||
+            orgão.includes(text)
+          );
+        });
+      } else {
+        this.conteudo = this.items;
+      }
+    },
+  },
   methods: {
     redirect(row) {
       window.open(row.value);
     },
     remove(row) {
       this.$parent.itemRemove(row.item);
+    },
+    fetchItems() {
+      setTimeout(() => {
+        this.items = this.conteudo;
+      }, 800);
     },
   },
 };
