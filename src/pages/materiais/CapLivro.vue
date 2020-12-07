@@ -92,7 +92,7 @@ export default {
   data: () => ({
     fields: [
       {
-        key: "titulo",
+        key: "titulo".replace(/\n/g, "<br>"),
         label: "Título do Capítulo",
         sortable: true,
         sortDirection: "asc",

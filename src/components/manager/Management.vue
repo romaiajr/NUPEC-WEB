@@ -140,6 +140,9 @@ export default {
   box-sizing: border-box;
   /* padding: 8px 8px 0 8px; */
 }
+.table {
+  white-space: pre-wrap;
+}
 #title {
   box-sizing: border-box;
   padding: 16px 0px;
