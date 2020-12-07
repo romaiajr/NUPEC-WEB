@@ -86,8 +86,9 @@
       ref="modal-addExt"
       title="Adicionar Novo Projeto de Extensão"
       hide-footer
+      @hide="onReset"
     >
-      <b-form @submit.prevent="addProjeto">
+      <b-form @submit.prevent="addProjeto" @reset="onReset">
         <b-form-text> Título do Projeto de Extensão</b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
         <b-form-text>Descrição do Projeto de Extensão</b-form-text>
@@ -95,12 +96,39 @@
         <b-form-text> Nome do Orientador</b-form-text>
         <b-form-input required v-model="form.orientador"></b-form-input>
         <b-form-text> Nome do Aluno</b-form-text>
-        <b-form-input required v-model="form.aluno"></b-form-input>
+        <b-form-input required v-model="form.bolsista"></b-form-input>
         <b-form-text> Link para Logo do Projeto de Extensão</b-form-text>
         <b-form-input required v-model="form.logo"></b-form-input>
+        <b-form-text> Componentes do Projeto de Extensão</b-form-text>
+        <b-form-checkbox
+          id="checkbox-1"
+          v-model="form.tabela"
+          name="checkbox-1"
+          :value="true"
+          :unchecked-value="false"
+        >
+          Tabela com Dados
+        </b-form-checkbox>
+        <b-form-checkbox
+          id="checkbox-2"
+          v-model="form.fotos"
+          name="checkbox-2"
+          :value="true"
+          :unchecked-value="false"
+        >
+          Fotos
+        </b-form-checkbox>
+
+        <b-form-text>Valores das Colunas da Tabela</b-form-text>
+        <b-form-input
+          :disabled="form.tabela == false"
+          required
+          v-model="keys"
+        ></b-form-input>
         <b-form-text id="password-help-block">
-          O link para acesso deve seguir o exemplo: "http://www.uefs.br/"
+          Os valores devem seguir o seguinte formato: "Titulo;Autor;Link"
         </b-form-text>
+
         <div id="button-modal">
           <b-button type="reset" variant="danger">Cancelar</b-button>
           <b-button type="submit" variant="primary">Salvar</b-button>
@@ -131,15 +159,18 @@ export default {
     isLogged: false,
     items: [],
     fields: [],
+    keys: "",
     selected_projeto: "",
     form: {
       titulo: "",
       descricao: "",
       orientador: "",
-      aluno: "",
+      bolsista: "",
       logo: "",
-      tabela: "",
-      fotos: "",
+      tabela: false,
+      fotos: false,
+      fields: [],
+      labels: [],
     },
   }),
   methods: {
@@ -164,6 +195,11 @@ export default {
     },
     async addProjeto() {
       try {
+        this.form.fields = this.keys
+          .toLowerCase()
+          .replace(/\s/g, "_")
+          .split(";");
+        this.form.labels = this.keys.split(";");
         await extensaoService.addProjeto(this.form);
         this.$vs.notification({
           color: "success",
@@ -172,6 +208,7 @@ export default {
         });
         this.getProjetos();
         this.$refs["modal-addExt"].hide();
+        this.form = {};
       } catch (e) {
         this.$vs.notification({
           color: "danger",
@@ -179,6 +216,9 @@ export default {
           text: "Houve um erro ao tentar adicionar o novo Projeto de Extensão",
         });
       }
+    },
+    onReset() {
+      this.form = {};
     },
   },
 };

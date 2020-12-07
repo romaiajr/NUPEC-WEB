@@ -8,7 +8,7 @@
         </div>
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-8">
-          <h5>
+          <h6>
             <!-- O NUPEC trabalha com estudos e intervenções que tem como eixos a
             promoção da saúde, proteção específica, reabilitação e cura, com
             enfoque no adoecimento agudo e crônico no contexto individual,
@@ -16,9 +16,13 @@
             e as dimensões da produção do cuidado nos campos da clínica, da
             saúde coletiva e da saúde mental, privilegiando o trabalho com
             narrativas autobiográficas. -->
-            O NUPEC trabalha com estudos e intervenções voltados para a promoção
-            da saúde, proteção específica, reabilitação e cura.
-          </h5>
+            O NUPEC desde 2010 estuda, pesquisa e faz intervenções
+            extensionistas voltados às práticas de cuidado dos feirantes para
+            consigo, com os seus familiares, com os produtos que comercializam e
+            com o seu local de trabalho nos aspectos físicos, ambientais,
+            sanitários e organizacionais, nas principais feiras-livres da
+            cidade, com enfoque na educação em saúde.
+          </h6>
         </div>
       </div>
       <div class="row m-0" id="card-container">
@@ -88,6 +92,9 @@ a {
   width: 100%;
   height: auto;
   background-color: white;
+}
+#materiais h6 {
+  line-height: 145%;
 }
 #card-container {
   padding-top: 24px;

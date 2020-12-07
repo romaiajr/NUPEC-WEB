@@ -334,7 +334,8 @@
         <b-form-text>Link da Foto </b-form-text>
         <b-form-input required v-model="formFoto.link"></b-form-input>
         <b-form-text id="password-help-block">
-          O link para acesso deve seguir o exemplo: "http://www.uefs.br/"
+          Sugestão: Para melhor harmonia entre as fotos, é recomendado que todas
+          estejam na mesma proporção. Ex: 10x8, 1x1
         </b-form-text>
         <b-form-text>Link para Acesso Externo</b-form-text>
         <b-form-input required v-model="formFoto.linkExterno"></b-form-input>
@@ -577,6 +578,13 @@ export default {
 };
 </script>
 <style>
+/* .card-text {
+  word-wrap: break-word !important;
+}
+.card {
+  max-width: 100% !important;
+  text-align: center !important;
+} */
 .spinner-border {
   color: #255be2 !important;
 }

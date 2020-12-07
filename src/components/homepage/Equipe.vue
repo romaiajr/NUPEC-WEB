@@ -8,10 +8,13 @@
         </div>
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-8">
-          <h5>
-            Nossa equipe é formada por estudantes e professores da Universidade
-            Estadual de Feira de Santana.
-          </h5>
+          <h6>
+            Nossa equipe é formada por Professores e Estudantes do curso de
+            Enfermagem na Universidade Estadual de Feira de Santana, junto a
+            Colaboradores Externos, como feirantes e contribuintes, onde
+            compartilhamos do objetivo de promover o aprofundamento acerca do
+            Cuidar/Cuidado.
+          </h6>
         </div>
       </div>
       <div id="buttons-equipe" v-show="isLogged" class="col-md-2 col-6">
@@ -462,7 +465,9 @@ export default {
   padding: 64px 0px 32px 0;
   background-color: #f2f2f2;
 }
-
+#nossa-equipe h6 {
+  line-height: 145%;
+}
 #button-section {
   padding-top: 32px;
   display: flex;

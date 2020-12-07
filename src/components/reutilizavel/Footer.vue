@@ -11,7 +11,7 @@
             Avenida Transnordestina, s/n - Novo Horizonte - CEP 44036-900 -
             Feira de Santana - Bahia
             <br />
-            Tel: 75 99876-5432 | Email: nupec@uefs.br
+            Telefone: 75 3161-8365 | Email: nupec@uefs.br
           </p>
         </div>
         <div class="row m-0 justify-content-center" style="padding-top: 8px">
