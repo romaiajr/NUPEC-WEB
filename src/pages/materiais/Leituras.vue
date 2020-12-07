@@ -10,7 +10,9 @@
       <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
         >Artigos</b-nav-item
       >
-      <b-nav-item class="mobile-nav">Livros</b-nav-item>
+      <b-nav-item class="mobile-nav" to="/materiais/livros" exact
+        >Livros</b-nav-item
+      >
       <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
@@ -21,47 +23,41 @@
         exact
         >Atividades Complementares</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/leituras-recomendadas" exact
-        >Leituras Recomendadas</b-nav-item
-      >
+      <b-nav-item class="mobile-nav">Leituras Recomendadas</b-nav-item>
     </Navbar>
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
         <div class="col-md-2 col-0 border-right" id="sidebar">
-          <Sidebar active="4" />
+          <Sidebar active="7" />
         </div>
         <div class="col-md-10 col-12" id="table-section">
           <Management
             :conteudo="items"
+            nome="Leituras Recomendadas"
+            sortBy="Nome"
             :fields="fields"
-            nome="Livros"
-            sortBy="nome"
           />
         </div>
       </div>
     </div>
     <b-modal
       id="modal-1"
-      ref="modal-livros"
-      title="Adicionar Novo Livro"
-      @hide="onReset"
+      ref="modal-leituras"
+      title="Adicionar Nova Leitura"
       hide-footer
+      @hide="onReset"
       ><b-form @submit.prevent="onSubmit" @reset="onReset">
-        <b-form-text> Título do Livro </b-form-text>
+        <b-form-text> Título da Leitura </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
-        <b-form-text> Nome do(s) Autor(es) </b-form-text>
-        <b-form-input required v-model="form.autor"></b-form-input>
         <b-form-text> Link para Acesso </b-form-text>
         <b-form-input required v-model="form.link"></b-form-input>
-        <b-form-text id="password-help-block">
-          O link para acesso deve seguir o exemplo: "http://www.uefs.br/"
-        </b-form-text>
         <div id="button-modal">
           <b-button type="reset" variant="danger">Cancelar</b-button>
           <b-button type="submit" variant="primary">Salvar</b-button>
         </div>
       </b-form>
     </b-modal>
+    <!-- MODAL REMOVER -->
     <b-modal
       id="modal-remover"
       title="Confirmar Remoção"
@@ -79,7 +75,8 @@
 import Navbar from "../../components/reutilizavel/Navbar";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
-import livroService from "../../services/livroService";
+import leituraService from "../../services/leituraService";
+
 export default {
   components: {
     Navbar,
@@ -87,16 +84,13 @@ export default {
     Sidebar,
   },
   data: () => ({
+    isLogged: false,
+    text: "",
+    deleteId: "",
     fields: [
       {
         key: "titulo",
-        label: "Título do Livro",
-        sortable: true,
-        sortDirection: "asc",
-      },
-      {
-        key: "autor",
-        label: "Autor(es)",
+        label: "Título",
         sortable: true,
         sortDirection: "asc",
       },
@@ -105,41 +99,42 @@ export default {
     ],
     form: {
       titulo: "",
-      autor: "",
       link: "",
     },
+
     items: [],
   }),
   created() {
-    this.getLivros();
+    this.getLeituras();
   },
   methods: {
     async onSubmit() {
+      this.form.titulo.trim();
+      this.form.link.trim();
       try {
-        await livroService.addLivro(this.form);
+        await leituraService.addLeitura(this.form);
         this.$vs.notification({
           color: "success",
-          title: "Adicionar Livro",
-          text: "Livro adicionado com sucesso!",
+          title: "Adicionar Leitura",
+          text: "Leitura adicionada com sucesso!",
         });
-
-        this.$refs["modal-livros"].hide();
-        this.getLivros();
+        this.getLeituras();
+        this.$refs["modal-leituras"].hide();
       } catch (e) {
         this.$vs.notification({
           color: "danger",
-          title: "Adicionar Livro",
-          text: "Houve um erro ao tentar adicionar o novo Livro",
+          title: "Adicionar Leitura",
+          text: "Houve um erro ao tentar adicionar a novo leitura",
         });
       }
     },
     onReset() {
       this.form = {};
-      this.$refs["modal-livros"].hide();
+      this.$refs["modal-leituras"].hide();
     },
-    getLivros() {
+    getLeituras() {
       const loading = this.$vs.loading();
-      livroService.getLivros().then((response) => {
+      leituraService.getLeituras().then((response) => {
         this.items = response.data.sort((a, b) => {
           return a.titulo.localeCompare(b.titulo);
         });
@@ -150,23 +145,19 @@ export default {
       this.deleteId = obj;
     },
     async onDelete() {
-      this.form.titulo.trim();
-      this.form.autor.trim();
-      this.form.livro.trim();
-      this.form.link.trim();
       try {
-        await livroService.removeLivro(this.deleteId);
+        await leituraService.removeLeitura(this.deleteId);
         this.$vs.notification({
           color: "success",
-          title: "Remover Livro",
-          text: "Livro removido com sucesso!",
+          title: "Remover Leitura",
+          text: "Leitura removida com sucesso!",
         });
-        this.getLivros();
+        this.getLeituras();
       } catch (e) {
         this.$vs.notification({
           color: "danger",
-          title: "Remover Livro",
-          text: "Houve um erro ao tentar remover o livro",
+          title: "Remover Leitura",
+          text: "Houve um erro ao tentar remover o leitura",
         });
       }
     },

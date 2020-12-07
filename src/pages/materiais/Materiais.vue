@@ -41,7 +41,7 @@
           <div class="row m-0" id="card-container">
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/artigos"
+                link="/materiais/iniciacao-cientifica"
                 icone="bx bx-atom"
                 cor="color:RGB(59, 89, 153)"
                 nome="Iniciação Científica"
@@ -91,6 +91,15 @@
                 icone="fa fa-plus-square-o"
                 cor="color:#ff9a00"
                 nome="Atividades Complementares"
+              >
+              </CardMaterial>
+            </div>
+            <div class="col-md-3 col-sm-4">
+              <CardMaterial
+                link="/materiais/atividades-complementares"
+                icone="bx bx-book-open"
+                cor="color:#7ed957"
+                nome="Leituras Recomendadas"
               >
               </CardMaterial>
             </div>

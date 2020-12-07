@@ -22,6 +22,9 @@
         >Atividades Complementares</b-nav-item
       >
     </Navbar>
+    <b-nav-item class="mobile-nav" to="/materiais/leituras-recomendadas" exact
+      >Leituras Recomendadas</b-nav-item
+    >
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
         <div class="col-md-2 col-0 border-right" id="sidebar">

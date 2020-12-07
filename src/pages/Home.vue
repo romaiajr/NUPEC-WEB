@@ -20,6 +20,9 @@
         <b-dropdown-item to="materiais/atividades-complementares" exact
           >Atividades Complementares</b-dropdown-item
         >
+        <b-dropdown-item to="/materiais/leituras-recomendadas" exact
+          >Leituras Recomendadas</b-dropdown-item
+        >
       </b-nav-item-dropdown>
       <b-nav-item @click="scrollMeTo('nossa-equipe')"
         >Nossa Equipe</b-nav-item

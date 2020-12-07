@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%">
     <div id="title">
       <div class="container">
         <h4>
@@ -37,6 +37,7 @@
             hover
             sort-icon-left
             responsive
+            stacked="sm"
             :items="conteudo"
             :fields="fields"
           >

@@ -44,6 +44,14 @@
       :disabled="active == 6"
       >Atividades Complementares</b-list-group-item
     >
+
+    <b-list-group-item
+      to="/materiais/leituras-recomendadas"
+      exact
+      :active="active == 7"
+      :disabled="active == 7"
+      >Leituras Recomendadas</b-list-group-item
+    >
   </b-list-group>
 </template>
 <script>

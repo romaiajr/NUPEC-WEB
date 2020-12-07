@@ -18,6 +18,9 @@
       >
 
       <b-nav-item class="mobile-nav">Atividades Complementares</b-nav-item>
+      <b-nav-item class="mobile-nav" to="/materiais/leituras-recomendadas" exact
+        >Leituras Recomendadas</b-nav-item
+      >
     </Navbar>
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
@@ -535,11 +538,13 @@ export default {
         }
       }
     },
-    resetForm(ref) {
+    resetForm() {
       this.form = {};
       this.formEvento = {};
       this.formFoto = {};
-      this.$refs[ref].hide();
+      this.$refs["modal-add-atividade"].hide();
+      this.$refs["modal-add-evento"].hide();
+      this.$refs["modal-add-foto"].hide();
     },
     getAtividades() {
       const loading = this.$vs.loading();

@@ -21,7 +21,11 @@
       </div>
     </b-navbar>
     <b-modal id="modal-login" ref="modal-login" hide-footer title="Login">
-      <b-form @submit="onLogin">
+      <b-alert :show="loginError == true" variant="danger"
+        >Login ou Senha incorretos. Por favor, tente novamente.</b-alert
+      >
+
+      <b-form @submit.prevent="onLogin">
         <b-form-text> Usuário </b-form-text>
         <b-form-input required v-model="form.user"></b-form-input>
         <b-form-text> Senha </b-form-text>
@@ -55,20 +59,38 @@ export default {
       user: "",
       senha: "",
     },
+    loginError: false,
   }),
   methods: {
     scrollMeTo(refName) {
       this.$parent.scrollMeTo(refName);
     },
     onLogin() {
-      console.log(this.form);
-      sessionStorage.setItem(
-        "login",
-        JSON.stringify({
-          user: this.form.user,
-          senha: this.form.senha,
-        })
-      );
+      if (this.form.user == "NupecUefs" && this.form.senha == "n1u$pec") {
+        sessionStorage.setItem(
+          "login",
+          JSON.stringify({
+            user: this.form.user,
+            senha: this.form.senha,
+          })
+        );
+        this.$vs.notification({
+          color: "success",
+          title: "Login",
+          text: "Login realizado com sucesso!",
+        });
+        this.loginError = false;
+        document.location.reload(true);
+        this.$refs["modal-login"].hide();
+      } else {
+        this.loginError = true;
+        this.$vs.notification({
+          color: "danger",
+          title: "Login",
+          text: "Usuário ou Senha Incorreto",
+        });
+      }
+      this.form = {};
     },
   },
 };

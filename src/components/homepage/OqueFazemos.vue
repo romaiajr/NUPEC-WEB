@@ -24,19 +24,10 @@
       <div class="row m-0" id="card-container">
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/materiais/artigos"
-            icone="fa fa-file-text-o"
+            link="/materiais/iniciacao-cientifica"
+            icone="bx bx-atom"
             cor="color:RGB(59, 89, 153)"
-            nome="Artigos"
-          >
-          </CardMaterial>
-        </div>
-        <div class="col-md-3 col-sm-4">
-          <CardMaterial
-            link="/materiais/livros"
-            icone="bx bx-book"
-            cor="color:#1fa67b"
-            nome="Livros"
+            nome="Iniciação Científica"
           >
           </CardMaterial>
         </div>
@@ -51,10 +42,19 @@
         </div>
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/materiais/atividades-complementares"
-            icone="fa fa-plus-square-o"
-            cor="color:#ff9a00"
-            nome="Atividades Complementares"
+            link="/materiais/artigos"
+            icone="fa fa-file-text-o"
+            cor="color:RGB(59, 89, 153)"
+            nome="Artigos"
+          >
+          </CardMaterial>
+        </div>
+        <div class="col-md-3 col-sm-4">
+          <CardMaterial
+            link="/materiais/livros"
+            icone="bx bx-book"
+            cor="color:#1fa67b"
+            nome="Livros"
           >
           </CardMaterial>
         </div>

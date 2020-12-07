@@ -196,6 +196,24 @@
               />
             </div>
           </div>
+          <div class="row m-0" style="margin-top: 36px !important;">
+            <h4>Colaboradores</h4>
+          </div>
+          <div class="row">
+            <div
+              class="col-6 col-md-4"
+              v-for="membro in equipe"
+              v-show="membro.tipo == options[3]"
+              :key="membro._id"
+            >
+              <CardEquipe
+                class="card-toda-equipe"
+                :imagem="membro.imagem"
+                :nome="membro.nome"
+                :cargo="membro.cargo"
+              />
+            </div>
+          </div>
         </vs-dialog>
       </div>
     </div>
@@ -317,7 +335,7 @@ export default {
       tipo: "",
       imagem: "",
     },
-    options: ["Professor", "Bolsista", "Voluntário"],
+    options: ["Professor", "Bolsista", "Voluntário", "Colaborador"],
     isLogged: false,
     removeId: "",
     componentKey: 0,
@@ -329,15 +347,20 @@ export default {
     getEquipe() {
       equipeService.getEquipe().then((response) => {
         this.equipe = response.data.sort((a, b) => {
-          if (a.tipo == b.tipo) {
-            if (a.nome.includes("Rita")) return -1;
-            if (a.nome.includes("Márcia")) {
-              if (b.nome.includes("Rita")) return +1;
-              else return -1;
-            } else return a.nome.localeCompare(b.nome);
-          } else if (a.tipo == "Professor" && b.tipo != "Professor") return -1;
+          if (a.tipo == "Professor" && b.tipo != "Professor") return -1;
           else if (a.tipo == "Bolsista" && b.tipo == "Voluntário") return -1;
-          else if (a.tipo == "Voluntário" && b.tipo != "Voluntário") return +1;
+          else if (a.tipo == "Voluntário" && b.tipo == "Colaborador") return -1;
+          else if (a.tipo == "Colaborador" && b.tipo != "Colaborador")
+            return +1;
+          else if (a.tipo == b.tipo) {
+            if (a.tipo == "Professor" && b.tipo == "Professor") {
+              if (a.cargo.toLowerCase().includes("coordenador")) return -1;
+              if (a.cargo.toLowerCase().includes("vice-coordenador")) {
+                if (b.cargo.toLowerCase().includes("coordenador")) return +1;
+                else return -1;
+              }
+            } else return a.nome.localeCompare(b.nome);
+          }
         });
         this.loading++;
       });
