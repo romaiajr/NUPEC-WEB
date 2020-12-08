@@ -52,11 +52,11 @@
         <b-form-text> Tipo de Bolsa </b-form-text>
         <b-form-input required v-model="form.tipo"></b-form-input>
         <b-form-text> Nome do(s) Bolsista(as) </b-form-text>
-        <b-form-input required v-model="form.aluno"></b-form-input>
+        <b-form-input required v-model="form.bolsista"></b-form-input>
         <b-form-text> Nome do(s) Orientador(es) </b-form-text>
         <b-form-input required v-model="form.orientador"></b-form-input>
         <b-form-text> Período de Vigência </b-form-text>
-        <b-form-input required v-model="form.data"></b-form-input>
+        <b-form-input required v-model="form.periodo"></b-form-input>
         <b-form-text id="password-help-block">
           O Período de Vigência deve estar no formato AAAA-AAAA: "2020-2021"
         </b-form-text>
@@ -93,7 +93,7 @@ export default {
   data: () => ({
     form: {
       titulo: "",
-      aluno: "",
+      bolsista: "",
       orientador: "",
       periodo: "",
       tipo: "",
@@ -135,7 +135,7 @@ export default {
   methods: {
     async onSubmit() {
       this.form.titulo.trim();
-      this.form.aluno.trim();
+      this.form.bolsista.trim();
       this.form.orientador.trim();
       this.form.tipo.trim();
       this.form.periodo.trim();
