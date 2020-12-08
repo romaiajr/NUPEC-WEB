@@ -339,8 +339,8 @@
           Sugestão: Para melhor harmonia entre as fotos, é recomendado que todas
           estejam na mesma proporção. Ex: 10x8, 1x1
         </b-form-text>
-        <b-form-text>Link para Acesso Externo</b-form-text>
-        <b-form-input required v-model="formFoto.linkExterno"></b-form-input>
+        <b-form-text>Link para Acesso Externo (Não Obrigatório )</b-form-text>
+        <b-form-input v-model="formFoto.linkExterno"></b-form-input>
         <div id="button-modal">
           <b-button type="reset" variant="danger">Cancelar</b-button>
           <b-button type="submit" variant="primary">Salvar</b-button>
@@ -367,16 +367,16 @@
       ref="modal-remove-atividade"
       title="Remover Atividade Complementar"
       hide-footer
+      @hide="resetForm"
       ><b-form @reset="resetForm">
         <b-form-text>
           Selecione a Atividade Complementar a ser removida</b-form-text
         >
-        <b-form-select v-model="deleteid">
+        <b-form-select @change="tipo = 0" v-model="deleteid">
           <b-form-select-option
             v-for="atv in items"
             :key="atv._id"
             :value="atv._id"
-            :v-model="(tipo = 0)"
             >{{ atv.titulo }}</b-form-select-option
           ></b-form-select
         >
@@ -585,9 +585,12 @@ export default {
       this.form = {};
       this.formEvento = {};
       this.formFoto = {};
+      this.deleteid = "";
+      this.tipo = "";
       this.$refs["modal-add-atividade"].hide();
       this.$refs["modal-add-evento"].hide();
       this.$refs["modal-add-foto"].hide();
+      this.$refs["modal-remove-atividade"].hide();
     },
     getAtividades() {
       const loading = this.$vs.loading();
