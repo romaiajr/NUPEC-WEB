@@ -12,7 +12,11 @@
       <div class="container">
         <div class="row m-0">
           <div class="col-md-4 col-6 p-0">
-            <b-form-input v-model="text" placeholder="Pesquisar"></b-form-input>
+            <b-form-input
+              v-model="text"
+              :disabled="!search"
+              placeholder="Pesquisar"
+            ></b-form-input>
           </div>
           <div class="col-md-6 col-2 p-0" />
           <div class="col-md-2 col-4 p-0">
@@ -110,6 +114,7 @@ export default {
     isLogged: false,
     removeId: "",
     items: [],
+    search: false,
   }),
   watch: {
     text() {
@@ -147,6 +152,7 @@ export default {
     fetchItems() {
       setTimeout(() => {
         this.items = this.conteudo;
+        this.search = true;
       }, 800);
     },
   },

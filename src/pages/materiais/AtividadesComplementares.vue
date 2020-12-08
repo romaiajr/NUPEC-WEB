@@ -39,13 +39,16 @@
           <div id="inputs">
             <div class="container">
               <div class="row m-0">
-                <div class="col-md-10 col-2 p-0" />
-                <div class="col-md-2 col-4 p-0">
-                  <div v-show="isLogged">
-                    <b-button block v-b-modal.modal-addAtv
-                      ><p>Adicionar</p></b-button
-                    >
-                  </div>
+                <div class="col-md-8 col-2 p-0" />
+                <div class="col-md-2 col-4 " v-show="isLogged">
+                  <b-button block v-b-modal.modal-addAtv
+                    ><p>Adicionar</p></b-button
+                  >
+                </div>
+                <div class="col-md-2 col-4 " v-show="isLogged">
+                  <b-button block v-b-modal.modal-removeAtividade
+                    ><p>Remover</p></b-button
+                  >
                 </div>
               </div>
             </div>
@@ -71,7 +74,6 @@
           <div class="col-md-8 col-12">
             {{ selected_atividade.atividade[0].titulo }}
           </div>
-          <div class="col-md-0 col-0"></div>
           <div v-show="isLogged" class="col-md-2 col-6">
             <b-button size="sm" block class="btn-form" v-b-modal.modal-addEvt
               ><p>Novo Evento</p></b-button
@@ -358,6 +360,32 @@
     >
       <p>Deseja realmente remover este item?</p>
     </b-modal>
+
+    <!--MODAL REMOVER ATVD-->
+    <b-modal
+      id="modal-removeAtividade"
+      ref="modal-remove-atividade"
+      title="Remover Atividade Complementar"
+      hide-footer
+      ><b-form @reset="resetForm">
+        <b-form-text>
+          Selecione a Atividade Complementar a ser removida</b-form-text
+        >
+        <b-form-select v-model="deleteid">
+          <b-form-select-option
+            v-for="atv in items"
+            :key="atv._id"
+            :value="atv._id"
+            :v-model="(tipo = 0)"
+            >{{ atv.titulo }}</b-form-select-option
+          ></b-form-select
+        >
+        <div id="button-modal">
+          <b-button type="reset" variant="danger">Cancelar</b-button>
+          <b-button v-b-modal.modal-remover variant="primary">Remover</b-button>
+        </div>
+      </b-form>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -514,7 +542,7 @@ export default {
             text: "Evento Removido com sucesso!",
           });
           this.loadInfo(this.selected_atividade.atividade[0]._id);
-        } else {
+        } else if (this.tipo == 2) {
           await atividadeService.deleteFoto(this.deleteid);
           this.$vs.notification({
             color: "success",
@@ -522,6 +550,14 @@ export default {
             text: "Foto Removida com sucesso!",
           });
           this.loadInfo(this.selected_atividade.atividade[0]._id);
+        } else {
+          await atividadeService.removeAtividade(this.deleteid);
+          this.$vs.notification({
+            color: "success",
+            title: "Remover Atividade Complementar",
+            text: "Atividade Complementar Removida com sucesso!",
+          });
+          this.getAtividades();
         }
       } catch (e) {
         if (this.tipo == 1) {
@@ -530,11 +566,17 @@ export default {
             title: "Remover Evento",
             text: "Houve um erro ao tentar remover o evento",
           });
-        } else {
+        } else if (this.tipo == 2) {
           this.$vs.notification({
             color: "danger",
             title: "Remover Foto",
             text: "Houve um erro ao tentar remover a foto",
+          });
+        } else {
+          this.$vs.notification({
+            color: "danger",
+            title: "Remover Atividade Complementar",
+            text: "Houve um erro ao tentar remover a Atividade Complementar",
           });
         }
       }

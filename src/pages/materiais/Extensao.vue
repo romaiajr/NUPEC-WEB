@@ -42,99 +42,143 @@
           <div id="inputs">
             <div class="container">
               <div class="row m-0">
-                <div class="col-md-10 col-2 p-0" />
-                <div class="col-md-2 col-4 p-0">
-                  <div v-show="isLogged">
-                    <b-button block v-b-modal.modal-addExt
-                      ><p>Adicionar</p></b-button
-                    >
-                  </div>
+                <div class="col-md-8 col-2 p-0" />
+                <div class="col-md-2 col-4 " v-show="isLogged">
+                  <b-button block v-b-modal.modal-addExt
+                    ><p>Adicionar</p></b-button
+                  >
+                </div>
+                <div class="col-md-2 col-4 " v-show="isLogged">
+                  <b-button block v-b-modal.modal-removeProjeto
+                    ><p>Remover</p></b-button
+                  >
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row m-0" id="card-container">
-            <CardExtensao
-              v-for="projeto in items"
-              :key="projeto._id"
-              :nome="projeto.titulo"
-              :id="projeto._id"
-              background=" background-color: #f1f1f1"
-              v-on:click="loadInfo(projeto._id)"
-            >
-              <img class="img-projeto" :src="projeto.logo" />
-            </CardExtensao>
+            <div class="row m-0" id="card-container">
+              <CardExtensao
+                v-for="projeto in items"
+                :key="projeto._id"
+                :nome="projeto.titulo"
+                :id="projeto._id"
+                background=" background-color: #f1f1f1"
+                v-on:click="loadInfo(projeto._id)"
+              >
+                <img class="img-projeto" :src="projeto.logo" />
+              </CardExtensao>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- MODAL INFO -->
-    <b-modal ref="modal-info" id="modal-info" size="lg" hide-footer>
-      <template #modal-title>
-        <div class="row m-0">
-          <div class="col-md-12 col-12">
-            {{ selected_projeto.titulo }}
+      <!-- MODAL INFO -->
+      <b-modal ref="modal-info" id="modal-info" size="lg" hide-footer>
+        <template #modal-title>
+          <div class="row m-0">
+            <div class="col-md-12 col-12">
+              {{ selected_projeto.titulo }}
+            </div>
           </div>
-        </div>
-      </template>
-    </b-modal>
+        </template>
+      </b-modal>
 
-    <!-- MODAL ADICIONAR ATIVIDADE -->
-    <b-modal
-      id="modal-addExt"
-      ref="modal-addExt"
-      title="Adicionar Novo Projeto de Extensão"
-      hide-footer
-      @hide="onReset"
-    >
-      <b-form @submit.prevent="addProjeto" @reset="onReset">
-        <b-form-text> Título do Projeto de Extensão</b-form-text>
-        <b-form-input required v-model="form.titulo"></b-form-input>
-        <b-form-text>Descrição do Projeto de Extensão</b-form-text>
-        <b-form-input required v-model="form.descricao"></b-form-input>
-        <b-form-text> Nome do Orientador</b-form-text>
-        <b-form-input required v-model="form.orientador"></b-form-input>
-        <b-form-text> Nome do Aluno</b-form-text>
-        <b-form-input required v-model="form.bolsista"></b-form-input>
-        <b-form-text> Link para Logo do Projeto de Extensão</b-form-text>
-        <b-form-input required v-model="form.logo"></b-form-input>
-        <b-form-text> Componentes do Projeto de Extensão</b-form-text>
-        <b-form-checkbox
-          id="checkbox-1"
-          v-model="form.tabela"
-          name="checkbox-1"
-          :value="true"
-          :unchecked-value="false"
-        >
-          Tabela com Dados
-        </b-form-checkbox>
-        <b-form-checkbox
-          id="checkbox-2"
-          v-model="form.fotos"
-          name="checkbox-2"
-          :value="true"
-          :unchecked-value="false"
-        >
-          Fotos
-        </b-form-checkbox>
+      <!-- MODAL ADICIONAR ATIVIDADE -->
+      <b-modal
+        id="modal-addExt"
+        ref="modal-addExt"
+        title="Adicionar Novo Projeto de Extensão"
+        hide-footer
+        @hide="onReset"
+      >
+        <b-form @submit.prevent="addProjeto" @reset="onReset">
+          <b-form-text> Título do Projeto de Extensão</b-form-text>
+          <b-form-input required v-model="form.titulo"></b-form-input>
+          <b-form-text>Descrição do Projeto de Extensão</b-form-text>
+          <b-form-input required v-model="form.descricao"></b-form-input>
+          <b-form-text> Nome do Orientador</b-form-text>
+          <b-form-input required v-model="form.orientador"></b-form-input>
+          <b-form-text> Nome do Aluno</b-form-text>
+          <b-form-input required v-model="form.bolsista"></b-form-input>
+          <b-form-text> Link para Logo do Projeto de Extensão</b-form-text>
+          <b-form-input required v-model="form.logo"></b-form-input>
+          <b-form-text> Componentes do Projeto de Extensão</b-form-text>
+          <b-form-checkbox
+            id="checkbox-1"
+            v-model="form.tabela"
+            name="checkbox-1"
+            :value="true"
+            :unchecked-value="false"
+          >
+            Tabela com Dados
+          </b-form-checkbox>
+          <b-form-checkbox
+            id="checkbox-2"
+            v-model="form.fotos"
+            name="checkbox-2"
+            :value="true"
+            :unchecked-value="false"
+          >
+            Fotos
+          </b-form-checkbox>
 
-        <b-form-text>Valores das Colunas da Tabela</b-form-text>
-        <b-form-input
-          :disabled="form.tabela == false"
-          required
-          v-model="keys"
-        ></b-form-input>
-        <b-form-text id="password-help-block">
-          Os valores devem seguir o seguinte formato: "Titulo;Autor;Link"
-        </b-form-text>
+          <b-form-text>Valores das Colunas da Tabela</b-form-text>
+          <b-form-input
+            :disabled="form.tabela == false"
+            required
+            v-model="keys"
+          ></b-form-input>
+          <b-form-text id="password-help-block">
+            Os valores devem seguir o seguinte formato: "Titulo;Autor;Link"
+          </b-form-text>
 
-        <div id="button-modal">
-          <b-button type="reset" variant="danger">Cancelar</b-button>
-          <b-button type="submit" variant="primary">Salvar</b-button>
-        </div>
-      </b-form>
-    </b-modal>
+          <div id="button-modal">
+            <b-button type="reset" variant="danger">Cancelar</b-button>
+            <b-button type="submit" variant="primary">Salvar</b-button>
+          </div>
+        </b-form>
+      </b-modal>
+
+      <!-- MODAL REMOVER -->
+      <b-modal
+        id="modal-remover"
+        title="Confirmar Remoção"
+        ok-variant="success"
+        cancel-variant="danger"
+        ok-title="Confirmar"
+        cancel-title="Cancelar"
+        @ok="onDelete"
+      >
+        <p>Deseja realmente remover este item?</p>
+      </b-modal>
+
+      <!--MODAL REMOVER ATVD-->
+      <b-modal
+        id="modal-removeProjeto"
+        ref="modal-remove-projeto"
+        title="Remover Projeto de Extensão"
+        hide-footer
+        ><b-form @reset="onReset">
+          <b-form-text>
+            Selecione o Projeto de Extensão a ser removido</b-form-text
+          >
+          <b-form-select v-model="deleteid">
+            <b-form-select-option
+              v-for="projeto in items"
+              :key="projeto._id"
+              :value="projeto._id"
+              :v-model="(tipo = 0)"
+              >{{ projeto.titulo }}</b-form-select-option
+            ></b-form-select
+          >
+          <div id="button-modal">
+            <b-button type="reset" variant="danger">Cancelar</b-button>
+            <b-button v-b-modal.modal-remover variant="primary"
+              >Remover</b-button
+            >
+          </div>
+        </b-form>
+      </b-modal>
+    </div>
   </div>
 </template>
 <script>
@@ -157,6 +201,7 @@ export default {
   },
   data: () => ({
     isLogged: false,
+    deleteid: "",
     items: [],
     fields: [],
     keys: "",
@@ -219,6 +264,23 @@ export default {
     },
     onReset() {
       this.form = {};
+    },
+    async onDelete() {
+      try {
+        await extensaoService.removeProjeto(this.deleteid);
+        this.$vs.notification({
+          color: "success",
+          title: "Remover Projeto de Extensão",
+          text: "Projeto de Extensão removido com sucesso!",
+        });
+        this.getProjetos();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Remover Projeto de Extensão",
+          text: "Houve um erro ao tentar remover o Projeto de Extensão",
+        });
+      }
     },
   },
 };

@@ -7,7 +7,7 @@ export default {
     return api.post("/atividade-complementar-add", obj);
   },
   removeAtividade: (obj) => {
-    return api.delete("/atividade-complementar-remove", { data: obj });
+    return api.post("/atividade-complementar-remove", { data: obj });
   },
   findAtividade: async (id) => {
     console.log("entrou");
