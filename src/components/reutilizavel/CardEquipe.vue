@@ -6,14 +6,14 @@
       alt="Card image cap"
     />
     <div class="card-body">
-      <h6 class="card-title">
+      <h6 class="card-title text-wrap">
         {{ nome }}
       </h6>
-      <p class="card-text">
+      <p class="card-text text-wrap">
         {{ cargo }}
         <br />
         <small @click="redirect(lattes)" class="linkExterno"
-          >Acessar Lattes</small
+          >Currículo Lattes</small
         >
       </p>
     </div>
@@ -31,13 +31,21 @@ export default {
 };
 </script>
 <style>
+.card {
+  margin: 5% 0% !important;
+}
+
 .card-body {
-  text-align: center;
+  margin: 0% 0% 0% 3% !important;
+  padding: 6% 0% !important;
+  color: black;
 }
 .card-title {
-  color: black;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
-.card-text {
-  color: black;
+.card-img-top {
+  width: 100% !important;
+  height: auto !important;
 }
 </style>

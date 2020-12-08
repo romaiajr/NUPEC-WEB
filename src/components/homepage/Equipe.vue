@@ -507,7 +507,7 @@ export default {
   #nossa-equipe {
     padding: 32px 0 !important;
   }
-  #nossa-equipe br {
+  .title-section br {
     display: none !important;
   }
   .a-button {
@@ -526,7 +526,7 @@ export default {
 }
 
 @media screen and (max-width: 1140px) and (min-width: 761px) {
-  #nossa-equipe br {
+  .title-section br {
     display: none !important;
   }
   #carousel-desktop {

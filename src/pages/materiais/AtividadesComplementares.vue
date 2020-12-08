@@ -86,194 +86,219 @@
           </div>
         </div>
       </template>
-      <div v-for="evento in selected_atividade.eventos" :key="evento._id">
-        <div class="event-title">
-          <h5>{{ evento.titulo }}</h5>
-          <b-button
-            v-show="isLogged"
-            v-b-modal.modal-remover
-            @click="removeId(1, evento._id)"
-            size="sm"
-            variant="danger"
-            squared
-          >
-            <i class="bx bx-trash"></i>
-            Excluir</b-button
-          >
-        </div>
-        <div class="row m-0" id="fotos-section" :key="componentKey">
-          <div
-            class="row m-0"
-            id="carousel-desktop"
-            style="width:100%;margin:10px auto;height: 450px"
-          >
-            <slider
-              ref="slider-desktop"
-              :options="optionsDesktop"
-              v-if="evento.fotos.length != 0"
-            >
-              <!-- slideritem wrapped package with the components you need -->
-              <slideritem
-                v-for="(foto, index) in evento.fotos"
-                :key="index"
-                :style="styleDesktop"
+      <div class="container-fluid">
+        <div
+          id="evento-body"
+          v-for="evento in selected_atividade.eventos"
+          :key="evento._id"
+        >
+          <div class="event-title">
+            <h5>
+              {{ evento.titulo }}
+              <b-button
+                v-show="isLogged"
+                v-b-modal.modal-remover
+                @click="removeId(1, evento._id)"
+                size="sm"
+                variant="danger"
+                squared
               >
-                <b-card
-                  :img-src="foto.link"
-                  img-alt="Foto Equipe"
-                  img-top
-                  style="max-width: 20rem;"
-                  class="mb-2"
-                >
-                  <b-card-text>
-                    {{ foto.legenda }}
-                    <div v-if="foto.linkExterno != undefined">
-                      <small
-                        @click="redirect(foto.linkExterno)"
-                        class="linkExterno"
-                        >Acessar</small
-                      >
-                    </div>
-                  </b-card-text>
-                  <div id="action-card">
-                    <b-button
-                      v-show="isLogged"
-                      v-b-modal.modal-remover
-                      @click="removeId(2, foto._id)"
-                      size="sm"
-                      variant="danger"
-                      squared
-                    >
-                      <i class="bx bx-trash"></i>
-                      Excluir</b-button
-                    >
-                  </div>
-                </b-card>
-              </slideritem>
-              <!-- Customizable loading -->
-            </slider>
-            <div v-else style="width: 100% !important;">
-              <b-alert show variant="warning">
-                <h6>
-                  Ainda não foram inseridas fotos nesta sessão
-                </h6></b-alert
+                <i class="bx bx-trash"></i>
+                Excluir</b-button
               >
-            </div>
+            </h5>
           </div>
-          <div
-            class="row m-0"
-            id="carousel-mobile"
-            style="width:100%;margin:10px auto;height: 500px"
-          >
-            <slider
-              ref="slider-mobile"
-              :options="optionsMobile"
-              v-if="evento.fotos.length != 0"
-            >
-              <!-- slideritem wrapped package with the components you need -->
-              <slideritem
-                v-for="(foto, index) in evento.fotos"
-                :key="index"
-                :style="styleMobile"
+          <div class="row m-0" id="fotos-section" :key="componentKey">
+            <div class="container-fluid">
+              <div
+                class="row m-0"
+                id="carousel-desktop"
+                style="width:100%;margin:10px auto;height: 450px"
               >
-                <b-card
-                  :img-src="foto.link"
-                  img-alt="Foto Equipe"
-                  img-top
-                  style="max-width: 20rem;"
-                  class="mb-2"
+                <slider
+                  ref="slider-desktop"
+                  :options="optionsDesktop"
+                  v-if="evento.fotos.length != 0"
                 >
-                  <b-card-text>
-                    {{ foto.legenda }}
-                    <div v-if="foto.linkExterno != undefined">
-                      <small
-                        @click="redirect(foto.linkExterno)"
-                        class="linkExterno"
-                        >Acessar</small
-                      >
+                  <!-- slideritem wrapped package with the components you need -->
+                  <slideritem
+                    v-for="(foto, index) in evento.fotos"
+                    :key="index"
+                    :style="styleDesktop"
+                  >
+                    <div class="card">
+                      <img
+                        class="card-img-top img-fluid"
+                        :src="foto.link"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <p class="card-title text-wrap">
+                          {{ foto.legenda }}
+                          <br />
+                          <small
+                            v-if="
+                              foto.linkExterno != undefined &&
+                                foto.linkExterno != ''
+                            "
+                            @click="redirect(foto.linkExterno)"
+                            class="linkExterno"
+                            >Acessar</small
+                          >
+                        </p>
+
+                        <div id="action-card">
+                          <b-button
+                            v-show="isLogged"
+                            v-b-modal.modal-remover
+                            @click="removeId(2, foto._id)"
+                            size="sm"
+                            variant="danger"
+                            squared
+                          >
+                            <i class="bx bx-trash"></i>
+                            Excluir</b-button
+                          >
+                        </div>
+                      </div>
                     </div>
-                  </b-card-text>
-                  <div id="action-card">
-                    <b-button
-                      v-show="isLogged"
-                      v-b-modal.modal-remover
-                      @click="removeId(2, foto._id)"
-                      size="sm"
-                      variant="danger"
-                      squared
-                    >
-                      <i class="bx bx-trash"></i>
-                      Excluir</b-button
-                    >
-                  </div>
-                </b-card>
-              </slideritem>
-              <!-- Customizable loading -->
-            </slider>
-            <div v-else style="width: 100% !important;">
-              <b-alert show variant="warning">
-                <h6>
-                  Ainda não foram inseridas fotos nesta sessão
-                </h6></b-alert
+                  </slideritem>
+                  <!-- Customizable loading -->
+                </slider>
+                <div v-else style="width: 100% !important;">
+                  <b-alert show variant="warning">
+                    <h6>
+                      Ainda não foram inseridas fotos nesta sessão
+                    </h6></b-alert
+                  >
+                </div>
+              </div>
+              <div
+                class="row m-0"
+                id="carousel-mobile"
+                style="width:100%;margin:10px auto;height: 500px"
               >
-            </div>
-          </div>
-          <div
-            class="row m-0"
-            id="carousel-medium"
-            style="width:100%;margin:10px auto;height: 450px"
-          >
-            <slider
-              ref="slider-medium"
-              :options="optionsMobile"
-              v-if="evento.fotos.length != 0"
-            >
-              <!-- slideritem wrapped package with the components you need -->
-              <slideritem
-                v-for="(foto, index) in evento.fotos"
-                :key="index"
-                :style="styleMedium"
-              >
-                <b-card
-                  :img-src="foto.link"
-                  img-alt="Foto Equipe"
-                  img-top
-                  style="max-width: 20rem;"
-                  class="mb-2"
+                <slider
+                  ref="slider-mobile"
+                  :options="optionsMobile"
+                  v-if="evento.fotos.length != 0"
                 >
-                  <b-card-text>
-                    {{ foto.legenda }}
-                    <div v-if="foto.linkExterno != undefined">
-                      <small
-                        @click="redirect(foto.linkExterno)"
-                        class="linkExterno"
-                        >Acessar</small
-                      >
+                  <!-- slideritem wrapped package with the components you need -->
+                  <slideritem
+                    v-for="(foto, index) in evento.fotos"
+                    :key="index"
+                    :style="styleMobile"
+                  >
+                    <div class="card">
+                      <img
+                        class="card-img-top img-fluid"
+                        :src="foto.link"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <p class="card-title text-wrap">
+                          {{ foto.legenda }}
+                          <br />
+                          <small
+                            v-if="
+                              foto.linkExterno != undefined &&
+                                foto.linkExterno != ''
+                            "
+                            @click="redirect(foto.linkExterno)"
+                            class="linkExterno"
+                            >Acessar</small
+                          >
+                        </p>
+
+                        <div id="action-card">
+                          <b-button
+                            v-show="isLogged"
+                            v-b-modal.modal-remover
+                            @click="removeId(2, foto._id)"
+                            size="sm"
+                            variant="danger"
+                            squared
+                          >
+                            <i class="bx bx-trash"></i>
+                            Excluir</b-button
+                          >
+                        </div>
+                      </div>
                     </div>
-                  </b-card-text>
-                  <div id="action-card">
-                    <b-button
-                      v-show="isLogged"
-                      v-b-modal.modal-remover
-                      @click="removeId(2, foto._id)"
-                      size="sm"
-                      variant="danger"
-                      squared
-                    >
-                      <i class="bx bx-trash"></i>
-                      Excluir</b-button
-                    >
-                  </div>
-                </b-card></slideritem
+                  </slideritem>
+                  <!-- Customizable loading -->
+                </slider>
+                <div v-else style="width: 100% !important;">
+                  <b-alert show variant="warning">
+                    <h6>
+                      Ainda não foram inseridas fotos nesta sessão
+                    </h6></b-alert
+                  >
+                </div>
+              </div>
+              <div
+                class="row m-0"
+                id="carousel-medium"
+                style="width:100%;margin:10px auto;height: 450px"
               >
-              <!-- Customizable loading -->
-            </slider>
-            <div slot="loading" v-show="evento.fotos.length == 0">
-              <b-alert show variant="warning"
-                ><h6>
-                  Ainda não foram inseridas fotos nesta sessão
-                </h6></b-alert
-              >
+                <slider
+                  ref="slider-medium"
+                  :options="optionsMobile"
+                  v-if="evento.fotos.length != 0"
+                >
+                  <!-- slideritem wrapped package with the components you need -->
+                  <slideritem
+                    v-for="(foto, index) in evento.fotos"
+                    :key="index"
+                    :style="styleMedium"
+                  >
+                    <div class="card">
+                      <img
+                        class="card-img-top img-fluid"
+                        :src="foto.link"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <p class="card-title text-wrap">
+                          {{ foto.legenda }}
+                          <br />
+                          <small
+                            v-if="
+                              foto.linkExterno != undefined &&
+                                foto.linkExterno != ''
+                            "
+                            @click="redirect(foto.linkExterno)"
+                            class="linkExterno"
+                            >Acessar</small
+                          >
+                        </p>
+
+                        <div id="action-card">
+                          <b-button
+                            v-show="isLogged"
+                            v-b-modal.modal-remover
+                            @click="removeId(2, foto._id)"
+                            size="sm"
+                            variant="danger"
+                            squared
+                          >
+                            <i class="bx bx-trash"></i>
+                            Excluir</b-button
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </slideritem>
+                  <!-- Customizable loading -->
+                </slider>
+                <div slot="loading" v-show="evento.fotos.length == 0">
+                  <b-alert show variant="warning"
+                    ><h6>
+                      Ainda não foram inseridas fotos nesta sessão
+                    </h6></b-alert
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -623,13 +648,23 @@ export default {
 };
 </script>
 <style>
-/* .card-text {
-  word-wrap: break-word !important;
-}
 .card {
-  max-width: 100% !important;
-  text-align: center !important;
-} */
+  margin: 5% 0% !important;
+}
+
+.card-body {
+  margin: 0% 0% 0% 3% !important;
+  padding: 6% 0% !important;
+  color: black;
+}
+.card-title {
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+.card-img-top {
+  width: 100% !important;
+  height: auto !important;
+}
 .spinner-border {
   color: #255be2 !important;
 }
@@ -693,6 +728,12 @@ export default {
   display: none;
 }
 
+#evento-body {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 16px;
+  padding-bottom: 16px;
+}
+
 .event-title {
   width: 100%;
   /* background: var(--primary-light-color); */
@@ -700,13 +741,12 @@ export default {
 }
 
 #action-card {
-  margin-top: 8px;
+  margin-right: 8px;
   display: flex;
   justify-content: flex-end;
 }
 
 #fotos-section {
-  padding-top: 8px;
   background: var(--light-color);
   margin: 0px !important;
 }
