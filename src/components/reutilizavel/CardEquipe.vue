@@ -6,9 +6,15 @@
       alt="Card image cap"
     />
     <div class="card-body">
-      <h6 class="card-title">{{ nome }}</h6>
+      <h6 class="card-title">
+        {{ nome }}
+      </h6>
       <p class="card-text">
         {{ cargo }}
+        <br />
+        <small @click="redirect(lattes)" class="linkExterno"
+          >Acessar Lattes</small
+        >
       </p>
     </div>
   </div>
@@ -16,7 +22,12 @@
 <script>
 export default {
   name: "CardEquipe",
-  props: ["imagem", "nome", "cargo"],
+  props: ["imagem", "nome", "cargo", "lattes"],
+  methods: {
+    redirect(row) {
+      window.open(row);
+    },
+  },
 };
 </script>
 <style>

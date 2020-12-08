@@ -214,6 +214,7 @@
                 :imagem="membro.imagem"
                 :nome="membro.nome"
                 :cargo="membro.cargo"
+                :lattes="membro.lattes"
               />
             </div>
           </div>
@@ -240,6 +241,8 @@
         ></b-form-radio-group>
         <b-form-text> Cargo Exercido</b-form-text>
         <b-form-input required v-model="form.cargo"></b-form-input>
+        <b-form-text> Link para o Lattes </b-form-text>
+        <b-form-input required v-model="form.lattes"></b-form-input>
         <b-form-text> Link para Imagem </b-form-text>
         <b-form-input required v-model="form.imagem"></b-form-input>
         <b-form-text id="password-help-block">
@@ -337,6 +340,7 @@ export default {
       cargo: "",
       tipo: "",
       imagem: "",
+      lattes: "",
     },
     options: ["Professor", "Bolsista", "Voluntário", "Colaborador"],
     isLogged: false,
