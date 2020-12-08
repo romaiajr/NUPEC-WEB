@@ -4,7 +4,9 @@
       <div class="container">
         <h4>
           {{ nome }}
-          <b-badge>{{ conteudo.length }}</b-badge>
+          <b-badge>{{
+            filteredList != undefined ? filteredList.length : conteudo.length
+          }}</b-badge>
         </h4>
       </div>
     </div>
@@ -12,11 +14,7 @@
       <div class="container">
         <div class="row m-0">
           <div class="col-md-4 col-6 p-0">
-            <b-form-input
-              v-model="text"
-              :disabled="!search"
-              placeholder="Pesquisar"
-            ></b-form-input>
+            <b-form-input v-model="text" placeholder="Pesquisar"></b-form-input>
           </div>
           <div class="col-md-6 col-2 p-0" />
           <div class="col-md-2 col-4 p-0">
@@ -32,7 +30,6 @@
         <div class="overflow-auto">
           <b-table
             id="table"
-            :key="text"
             :per-page="perPage"
             :current-page="currentPage"
             small
@@ -42,7 +39,7 @@
             sort-icon-left
             responsive
             stacked="sm"
-            :items="conteudo"
+            :items="filteredList == undefined ? conteudo : filteredList"
             :fields="fields"
           >
             <template #cell(link)="row">
@@ -73,7 +70,11 @@
           <div id="pagination">
             <b-pagination
               v-model="currentPage"
-              :total-rows="conteudo.length"
+              :total-rows="
+                filteredList != undefined
+                  ? filteredList.length
+                  : conteudo.length
+              "
               :per-page="perPage"
               aria-controls="table"
             ></b-pagination>
@@ -90,7 +91,6 @@ export default {
     if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
       this.isLogged = true;
     }
-    this.fetchItems();
   },
   props: {
     conteudo: {
@@ -113,13 +113,13 @@ export default {
     currentPage: 1,
     isLogged: false,
     removeId: "",
-    items: [],
-    search: false,
   }),
-  watch: {
-    text() {
+  computed: {
+    filteredList() {
       if (this.text != "") {
-        this.conteudo = this.items.filter((item) => {
+        var reserva = this.conteudo
+        var text = this.text.toLowerCase();
+        return reserva.filter((item) => {
           var titulo =
             item.titulo == undefined ? "" : item.titulo.toLowerCase();
           var nome = item.autor == undefined ? "" : item.autor.toLowerCase();
@@ -128,7 +128,6 @@ export default {
           var orientador =
             item.orientador == undefined ? "" : item.orientador.toLowerCase();
           var orgão = item.tipo == undefined ? "" : item.tipo.toLowerCase();
-          var text = this.text.toLowerCase();
           return (
             titulo.includes(text) ||
             nome.includes(text) ||
@@ -138,22 +137,17 @@ export default {
           );
         });
       } else {
-        this.conteudo = this.items;
+        return (reserva = this.conteudos);
       }
     },
   },
+
   methods: {
     redirect(row) {
       window.open(row.value);
     },
     remove(row) {
       this.$parent.itemRemove(row.item);
-    },
-    fetchItems() {
-      setTimeout(() => {
-        this.items = this.conteudo;
-        this.search = true;
-      }, 800);
     },
   },
 };
