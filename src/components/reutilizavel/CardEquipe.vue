@@ -39,6 +39,7 @@ export default {
   margin: 0% 0% 0% 3% !important;
   padding: 6% 0% !important;
   color: black;
+  text-align: center;
 }
 .card-title {
   word-break: break-word !important;
