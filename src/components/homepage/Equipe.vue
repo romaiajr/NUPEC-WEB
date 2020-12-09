@@ -46,6 +46,7 @@
               :imagem="membro.imagem"
               :nome="membro.nome"
               :cargo="membro.cargo"
+              :lattes="membro.lattes"
             ></CardEquipe
           ></slideritem>
           <!-- Customizable loading -->
@@ -82,6 +83,7 @@
               :imagem="membro.imagem"
               :nome="membro.nome"
               :cargo="membro.cargo"
+              :lattes="membro.lattes"
           /></slideritem>
           <!-- Customizable loading -->
         </slider>
@@ -117,6 +119,7 @@
               :imagem="membro.imagem"
               :nome="membro.nome"
               :cargo="membro.cargo"
+              :lattes="membro.lattes"
           /></slideritem>
           <!-- Customizable loading -->
           <div class="container"></div>
@@ -160,6 +163,7 @@
                 :imagem="membro.imagem"
                 :nome="membro.nome"
                 :cargo="membro.cargo"
+                :lattes="membro.lattes"
               />
             </div>
           </div>
@@ -178,6 +182,7 @@
                 :imagem="membro.imagem"
                 :nome="membro.nome"
                 :cargo="membro.cargo"
+                :lattes="membro.lattes"
               />
             </div>
           </div>
@@ -196,6 +201,7 @@
                 :imagem="membro.imagem"
                 :nome="membro.nome"
                 :cargo="membro.cargo"
+                :lattes="membro.lattes"
               />
             </div>
           </div>
