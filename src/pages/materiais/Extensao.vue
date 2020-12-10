@@ -71,17 +71,6 @@
         </div>
       </div>
 
-      <!-- MODAL INFO -->
-      <b-modal ref="modal-info" id="modal-info" size="lg" hide-footer>
-        <template #modal-title>
-          <div class="row m-0">
-            <div class="col-md-12 col-12">
-              {{ selected_projeto.titulo }}
-            </div>
-          </div>
-        </template>
-      </b-modal>
-
       <!-- MODAL ADICIONAR ATIVIDADE -->
       <b-modal
         id="modal-addExt"
@@ -94,11 +83,11 @@
           <b-form-text> Título do Projeto de Extensão</b-form-text>
           <b-form-input required v-model="form.titulo"></b-form-input>
           <b-form-text>Descrição do Projeto de Extensão</b-form-text>
-          <b-form-input required v-model="form.descricao"></b-form-input>
+          <b-form-textarea required v-model="form.descricao"></b-form-textarea>
           <b-form-text> Nome do Orientador</b-form-text>
-          <b-form-input required v-model="form.orientador"></b-form-input>
+          <b-form-input v-model="form.orientador"></b-form-input>
           <b-form-text> Nome do Aluno</b-form-text>
-          <b-form-input required v-model="form.bolsista"></b-form-input>
+          <b-form-input v-model="form.bolsista"></b-form-input>
           <b-form-text> Link para Logo do Projeto de Extensão</b-form-text>
           <b-form-input required v-model="form.logo"></b-form-input>
           <b-form-text> Componentes do Projeto de Extensão</b-form-text>
@@ -128,7 +117,7 @@
             v-model="keys"
           ></b-form-input>
           <b-form-text id="password-help-block">
-            Os valores devem seguir o seguinte formato: "Titulo;Autor;Link"
+            Os valores devem seguir o seguinte formato "Titulo do Item;Link;"
           </b-form-text>
 
           <div id="button-modal">
@@ -161,7 +150,7 @@
           <b-form-text>
             Selecione o Projeto de Extensão a ser removido</b-form-text
           >
-          <b-form-select v-model="deleteid">
+          <b-form-select v-model="deleteid" @change="deleteClass = 0">
             <b-form-select-option
               v-for="projeto in items"
               :key="projeto._id"
@@ -178,6 +167,333 @@
           </div>
         </b-form>
       </b-modal>
+
+      <!-- MODAL INFO -->
+      <b-modal id="modal-extensao" ref="modal-extensao" size="lg" hide-footer>
+        <template #modal-title>
+          <div class="row m-0">
+            <div class="col-md-8 col-12">
+              {{ selected_projeto.titulo }}
+            </div>
+            <div
+              v-show="isLogged && selected_projeto.fotos"
+              class="col-md-2 col-6"
+            >
+              <b-button size="sm" block class="btn-form" v-b-modal.modal-addEvt
+                ><p>Novo Evento</p></b-button
+              >
+            </div>
+            <div
+              v-show="isLogged && selected_projeto.fotos"
+              class="col-md-2 col-6"
+            >
+              <b-button size="sm" block class="btn-form" v-b-modal.modal-addFt
+                ><p>Nova Foto</p></b-button
+              >
+            </div>
+          </div>
+        </template>
+        <div v-if="selected_projeto.tabela" id="projeto-section">
+          <Management
+            :conteudo="producoes"
+            nome="Produções"
+            :fields="fields"
+            @itemRemove="itemRemove"
+          />
+        </div>
+        <div v-if="selected_projeto.fotos">
+          <div id="evento-body" v-for="evento in eventos" :key="evento._id">
+            <div id="title">
+              <div class="container">
+                <h4>
+                  Eventos
+                </h4>
+              </div>
+            </div>
+            <div class="event-title">
+              <h5>
+                {{ evento.titulo }}
+                <b-button
+                  v-show="isLogged"
+                  v-b-modal.modal-remover
+                  @click="removeId(2, evento._id)"
+                  size="sm"
+                  variant="danger"
+                  squared
+                >
+                  <i class="bx bx-trash"></i>
+                  Excluir</b-button
+                >
+              </h5>
+            </div>
+            <div class="row m-0" :key="componentKey">
+              <div class="container-fluid">
+                <div
+                  class="row m-0"
+                  id="carousel-desktop"
+                  style="width:100%;margin:10px auto;height: 450px"
+                >
+                  <slider
+                    ref="slider-desktop"
+                    :options="optionsDesktop"
+                    v-if="evento.fotos.length != 0"
+                  >
+                    <slideritem
+                      v-for="(foto, index) in evento.fotos"
+                      :key="index"
+                      :style="styleDesktop"
+                    >
+                      <div class="card">
+                        <img
+                          class="card-img-top img-fluid"
+                          :src="foto.link"
+                          alt="Card image cap"
+                        />
+                        <div class="card-body">
+                          <p class="card-title text-wrap">
+                            {{ foto.legenda }}
+                            <br />
+                            <small
+                              v-if="
+                                foto.linkExterno != undefined &&
+                                  foto.linkExterno != ''
+                              "
+                              @click="redirect(foto.linkExterno)"
+                              class="linkExterno"
+                              >Acessar</small
+                            >
+                          </p>
+
+                          <div id="action-card">
+                            <b-button
+                              v-show="isLogged"
+                              v-b-modal.modal-remover
+                              @click="removeId(3, foto._id)"
+                              size="sm"
+                              variant="danger"
+                              squared
+                            >
+                              <i class="bx bx-trash"></i>
+                              Excluir</b-button
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </slideritem>
+                  </slider>
+                  <div v-else style="width: 100% !important;">
+                    <b-alert show variant="warning">
+                      <h6>
+                        Ainda não foram inseridas fotos nesta sessão
+                      </h6></b-alert
+                    >
+                  </div>
+                </div>
+                <div
+                  class="row m-0"
+                  id="carousel-mobile"
+                  style="width:100%;margin:10px auto;height: 500px"
+                >
+                  <slider
+                    ref="slider-mobile"
+                    :options="optionsMobile"
+                    v-if="evento.fotos.length != 0"
+                  >
+                    <slideritem
+                      v-for="(foto, index) in evento.fotos"
+                      :key="index"
+                      :style="styleMobile"
+                    >
+                      <div class="card">
+                        <img
+                          class="card-img-top img-fluid"
+                          :src="foto.link"
+                          alt="Card image cap"
+                        />
+                        <div class="card-body">
+                          <p class="card-title text-wrap">
+                            {{ foto.legenda }}
+                            <br />
+                            <small
+                              v-if="
+                                foto.linkExterno != undefined &&
+                                  foto.linkExterno != ''
+                              "
+                              @click="redirect(foto.linkExterno)"
+                              class="linkExterno"
+                              >Acessar</small
+                            >
+                          </p>
+
+                          <div id="action-card">
+                            <b-button
+                              v-show="isLogged"
+                              v-b-modal.modal-remover
+                              @click="removeId(3, foto._id)"
+                              size="sm"
+                              variant="danger"
+                              squared
+                            >
+                              <i class="bx bx-trash"></i>
+                              Excluir</b-button
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </slideritem>
+                  </slider>
+                  <div v-else style="width: 100% !important;">
+                    <b-alert show variant="warning">
+                      <h6>
+                        Ainda não foram inseridas fotos nesta sessão
+                      </h6></b-alert
+                    >
+                  </div>
+                </div>
+                <div
+                  class="row m-0"
+                  id="carousel-medium"
+                  style="width:100%;margin:10px auto;height: 450px"
+                >
+                  <slider
+                    ref="slider-medium"
+                    :options="optionsMobile"
+                    v-if="evento.fotos.length != 0"
+                  >
+                    <slideritem
+                      v-for="(foto, index) in evento.fotos"
+                      :key="index"
+                      :style="styleMedium"
+                    >
+                      <div class="card">
+                        <img
+                          class="card-img-top img-fluid"
+                          :src="foto.link"
+                          alt="Card image cap"
+                        />
+                        <div class="card-body">
+                          <p class="card-title text-wrap">
+                            {{ foto.legenda }}
+                            <br />
+                            <small
+                              v-if="
+                                foto.linkExterno != undefined &&
+                                  foto.linkExterno != ''
+                              "
+                              @click="redirect(foto.linkExterno)"
+                              class="linkExterno"
+                              >Acessar</small
+                            >
+                          </p>
+
+                          <div id="action-card">
+                            <b-button
+                              v-show="isLogged"
+                              v-b-modal.modal-remover
+                              @click="removeId(3, foto._id)"
+                              size="sm"
+                              variant="danger"
+                              squared
+                            >
+                              <i class="bx bx-trash"></i>
+                              Excluir</b-button
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </slideritem>
+                  </slider>
+                  <div slot="loading" v-show="evento.fotos.length == 0">
+                    <b-alert show variant="warning"
+                      ><h6>
+                        Ainda não foram inseridas fotos nesta sessão
+                      </h6></b-alert
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </b-modal>
+
+      <!-- MODAL ADD PRODUÇÃO -->
+      <b-modal
+        id="modal-1"
+        ref="modal-1"
+        title="Adicionar Produção"
+        hide-footer
+      >
+        <b-form
+          @reset="onReset"
+          @submit.prevent="addProducao"
+          :v-model="(formProducao.projetoId = selected_projeto._id)"
+        >
+          <div v-for="(field, index) in selected_projeto.labels" :key="field">
+            <b-form-text> {{ field }}</b-form-text>
+            <b-form-input
+              required
+              v-if="selected_projeto.fields[index] != 'remove'"
+              v-model="formProducao[selected_projeto.fields[index]]"
+            ></b-form-input>
+          </div>
+          <div id="button-modal">
+            <b-button type="reset" variant="danger">Cancelar</b-button>
+            <b-button type="submit" variant="primary">Salvar</b-button>
+          </div>
+        </b-form>
+      </b-modal>
+
+      <!-- MODAL ADICIONAR EVENTO -->
+      <b-modal
+        id="modal-addEvt"
+        ref="modal-add-evento"
+        title="Adicionar Novo Evento"
+        @hide="onReset"
+        hide-footer
+        ><b-form @submit.prevent="addEvento" @reset="onReset">
+          <b-form-text> Título do Evento </b-form-text>
+          <b-form-input required v-model="formEvento.titulo"></b-form-input>
+          <div id="button-modal">
+            <b-button type="reset" variant="danger">Cancelar</b-button>
+            <b-button type="submit" variant="primary">Salvar</b-button>
+          </div>
+        </b-form>
+      </b-modal>
+
+      <!-- MODAL ADICIONAR FOTO -->
+      <b-modal
+        id="modal-addFt"
+        ref="modal-add-foto"
+        title="Adicionar Nova Foto"
+        @hide="onReset"
+        hide-footer
+        ><b-form @submit.prevent="addFoto" @reset="onReset">
+          <b-form-text>Sessão da Foto</b-form-text>
+          <b-form-select v-model="formFoto.idEvento">
+            <b-form-select-option
+              v-for="evento in eventos"
+              :key="evento._id"
+              :value="evento._id"
+              >{{ evento.titulo }}</b-form-select-option
+            ></b-form-select
+          >
+          <b-form-text>Legenda da Foto </b-form-text>
+          <b-form-input required v-model="formFoto.legenda"></b-form-input>
+          <b-form-text>Link da Foto </b-form-text>
+          <b-form-input required v-model="formFoto.link"></b-form-input>
+          <b-form-text id="password-help-block">
+            Sugestão: Para melhor harmonia entre as fotos, é recomendado que
+            todas estejam na mesma proporção. Ex: 10x8, 1x1
+          </b-form-text>
+          <b-form-text>Link para Acesso Externo (Não Obrigatório )</b-form-text>
+          <b-form-input v-model="formFoto.linkExterno"></b-form-input>
+          <div id="button-modal">
+            <b-button type="reset" variant="danger">Cancelar</b-button>
+            <b-button type="submit" variant="primary">Salvar</b-button>
+          </div>
+        </b-form>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -186,11 +502,16 @@ import Navbar from "../../components/reutilizavel/Navbar";
 import CardExtensao from "../../components/reutilizavel/CardExtensao";
 import Sidebar from "../../components/manager/Sidebar";
 import extensaoService from "../../services/extensaoService";
+import Management from "../../components/manager/Management";
+import { slider, slideritem } from "vue-concise-slider";
 export default {
   components: {
     Navbar,
     CardExtensao,
     Sidebar,
+    Management,
+    slider,
+    slideritem,
   },
   created() {
     this.getProjetos();
@@ -202,6 +523,7 @@ export default {
   data: () => ({
     isLogged: false,
     deleteid: "",
+    deleteClass: "",
     items: [],
     fields: [],
     keys: "",
@@ -217,8 +539,100 @@ export default {
       fields: [],
       labels: [],
     },
+    formProducao: {},
+    producoes: [],
+    eventos: [],
+    componentKey: 0,
+    formEvento: {
+      titulo: "",
+      fotos: "",
+      idProjeto: "",
+    },
+    formFoto: {
+      link: "",
+      legenda: "",
+      idEvento: "",
+      linkExterno: "",
+    },
+    styleDesktop: {
+      height: "auto",
+      width: "31.3%",
+      "margin-right": "2%",
+    },
+    styleMobile: {
+      height: "auto",
+      width: "98%",
+      "margin-right": "2%",
+    },
+    styleMedium: {
+      height: "auto",
+      width: "49%",
+      "margin-right": "2%",
+    },
+    //Slider configuration [obj]
+    optionsDesktop: {
+      currentPage: 0,
+      slidesToScroll: 2,
+      thresholdDistance: "50",
+      pagination: false,
+    },
+    optionsMobile: {
+      currentPage: 0,
+      slidesToScroll: 1,
+      thresholdDistance: "50",
+      pagination: false,
+    },
   }),
   methods: {
+    removeId(tipo, id) {
+      this.deleteid = id;
+      this.deleteClass = tipo;
+    },
+    async addEvento() {
+      this.formEvento.titulo.trim();
+      this.formEvento.idProjeto = this.selected_projeto._id;
+      try {
+        await extensaoService.addEvento(this.formEvento);
+        this.$vs.notification({
+          color: "success",
+          title: "Adicionar Evento",
+          text: "Evento adicionado com sucesso!",
+        });
+        this.loadInfo(this.selected_projeto._id);
+        this.$refs["modal-add-evento"].hide();
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Adicionar Evento",
+          text: "Houve um erro ao tentar adicionar o novo evento",
+        });
+      }
+    },
+    async addFoto() {
+      this.formFoto.link.trim();
+      this.formFoto.legenda.trim();
+      try {
+        await extensaoService.addFoto(this.formFoto);
+        this.$vs.notification({
+          color: "success",
+          title: "Adicionar Foto",
+          text: "Foto adicionada com sucesso!",
+        });
+        this.loadInfo(this.selected_projeto._id);
+        this.$refs["modal-add-foto"].hide();
+        this.componentKey++;
+      } catch (e) {
+        this.$vs.notification({
+          color: "danger",
+          title: "Adicionar Foto",
+          text: "Houve um erro ao tentar adicionar a nova foto",
+        });
+      }
+    },
+    itemRemove(obj) {
+      this.deleteid = obj._id;
+      this.deleteClass = 1;
+    },
     getProjetos() {
       const loading = this.$vs.loading();
       extensaoService.getProjetos().then((response) => {
@@ -227,8 +641,9 @@ export default {
       });
     },
     async loadInfo(id) {
+      this.fields = [];
       const loading = this.$vs.loading();
-      const res = await extensaoService.findProjeto(id);
+      var res = await extensaoService.findProjeto(id);
       this.selected_projeto = res.data[0];
       this.selected_projeto.fields.forEach((field, index) => {
         this.fields.push({
@@ -236,15 +651,32 @@ export default {
           label: this.selected_projeto.labels[index],
         });
       });
+      if (this.selected_projeto.fotos) {
+        var eventos = await extensaoService.getEvento(
+          this.selected_projeto._id
+        );
+        this.eventos = eventos.data;
+        this.eventos.forEach(async (evento) => {
+          var fotos = await extensaoService.getFotos(evento._id);
+          evento.fotos = fotos.data;
+          this.componentKey++;
+        });
+      }
+      if (this.selected_projeto.tabela) {
+        res = await extensaoService.getProducao(this.selected_projeto._id);
+        this.producoes = res.data;
+      }
       loading.close();
+      this.$refs["modal-extensao"].show();
     },
     async addProjeto() {
       try {
+        this.keys = this.keys + "remove";
         this.form.fields = this.keys
           .toLowerCase()
           .replace(/\s/g, "_")
           .split(";");
-        this.form.labels = this.keys.split(";");
+        this.form.labels = this.keys.replace("remove", "").split(";");
         await extensaoService.addProjeto(this.form);
         this.$vs.notification({
           color: "success",
@@ -252,8 +684,8 @@ export default {
           text: "Projeto de Extensão adicionado com sucesso!",
         });
         this.getProjetos();
+        this.onReset;
         this.$refs["modal-addExt"].hide();
-        this.form = {};
       } catch (e) {
         this.$vs.notification({
           color: "danger",
@@ -263,17 +695,99 @@ export default {
       }
     },
     onReset() {
-      this.form = {};
+      this.form = { tabela: false };
+      this.keys = "";
+      // this.fields = "";
+      this.deleteid = "";
+      this.deleteClass = "";
     },
     async onDelete() {
+      if (this.deleteClass == 0) {
+        try {
+          await extensaoService.removeProjeto(this.deleteid);
+          this.$vs.notification({
+            color: "success",
+            title: "Remover Projeto de Extensão",
+            text: "Projeto de Extensão removido com sucesso!",
+          });
+          this.getProjetos();
+          this.$refs["modal-remove-projeto"].hide();
+        } catch (e) {
+          this.$vs.notification({
+            color: "danger",
+            title: "Remover Projeto de Extensão",
+            text: "Houve um erro ao tentar remover o Projeto de Extensão",
+          });
+        }
+      } else if (this.deleteClass == 1) {
+        try {
+          await extensaoService.removeProducao(this.deleteid);
+          this.$vs.notification({
+            color: "success",
+            title: "Remover Item",
+            text: "Item removido com sucesso!",
+          });
+          this.loadInfo(this.selected_projeto._id);
+        } catch (e) {
+          this.$vs.notification({
+            color: "danger",
+            title: "Remover Item",
+            text: "Houve um erro ao tentar remover o item",
+          });
+        }
+      } else if (this.deleteClass == 2) {
+        try {
+          await extensaoService.deleteEvento(this.deleteid);
+          this.$vs.notification({
+            color: "success",
+            title: "Remover Evento",
+            text: "Evento Removido com sucesso!",
+          });
+          this.loadInfo(this.selected_projeto._id);
+        } catch (e) {
+          this.$vs.notification({
+            color: "danger",
+            title: "Remover Evento",
+            text: "Houve um erro ao tentar remover o evento",
+          });
+        }
+      } else {
+        try {
+          await extensaoService.deleteFoto(this.deleteid);
+          this.$vs.notification({
+            color: "success",
+            title: "Remover Foto",
+            text: "Foto Removida com sucesso!",
+          });
+          this.loadInfo(this.selected_projeto._id);
+        } catch (e) {
+          this.$vs.notification({
+            color: "danger",
+            title: "Remover Foto",
+            text: "Houve um erro ao tentar remover a foto",
+          });
+        }
+      }
+    },
+    async addProducao() {
       try {
-        await extensaoService.removeProjeto(this.deleteid);
+        await extensaoService.addProducao(this.formProducao);
         this.$vs.notification({
           color: "success",
-          title: "Remover Projeto de Extensão",
-          text: "Projeto de Extensão removido com sucesso!",
+          title: "Adicionar Produção",
+          text: "Projeto de Extensão adicionado com sucesso!",
         });
-        this.getProjetos();
+        // this.selected_projeto.producoes = this.selected_projeto.producoes
+        //   .push(this.formProducao)
+        //   .sort((a, b) => {
+        //     return a[
+        //       this.selected_projeto.fields[0].localeCompare(
+        //         b[this.selected_projeto.fields[0]]
+        //       )
+        //     ];
+        //   });
+        this.loadInfo(this.selected_projeto._id);
+        this.$refs["modal-1"].hide();
       } catch (e) {
         this.$vs.notification({
           color: "danger",
@@ -286,9 +800,38 @@ export default {
 };
 </script>
 <style>
-/* #sidebar {
-  padding: 8px 8px 0 8px;
-} */
+#projeto-section {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 16px;
+  padding-bottom: 16px;
+}
+
+#modal-extensao .modal-title {
+  width: 100% !important;
+  font-size: 32px !important;
+  text-transform: uppercase !important;
+  color: white !important;
+}
+
+#modal-extensao .modal-header {
+  background-color: var(--primary-dark-color);
+}
+#modal-extensao .btn-form {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  margin: 0 !important;
+}
+#modal-extensao .btn-form:focus {
+  background-color: var(--secondary-dark-color) !important;
+  box-shadow: 0px 0px 1px 2px var(--secondary-light-color) !important;
+}
+#modal-extensao .btn-form:hover {
+  background-color: var(--secondary-dark-color) !important;
+}
+
+#modal-extensao .modal-body {
+  background: white !important;
+}
 #sidebar .active {
   border: 1px solid var(--primary-dark-color) !important;
 

@@ -36,6 +36,7 @@
             :conteudo="items"
             nome="Capítulos de Livros"
             sortBy="nome"
+            @itemRemove="itemRemove"
           />
         </div>
       </div>

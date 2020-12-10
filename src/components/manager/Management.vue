@@ -117,7 +117,7 @@ export default {
   computed: {
     filteredList() {
       if (this.text != "") {
-        var reserva = this.conteudo
+        var reserva = this.conteudo;
         var text = this.text.toLowerCase();
         return reserva.filter((item) => {
           var titulo =
@@ -128,12 +128,21 @@ export default {
           var orientador =
             item.orientador == undefined ? "" : item.orientador.toLowerCase();
           var orgão = item.tipo == undefined ? "" : item.tipo.toLowerCase();
+          var tema = item.tema == undefined ? "" : item.tema.toLowerCase();
+          var apresentadores =
+            item.apresentadores == undefined
+              ? ""
+              : item.apresentadores.toLowerCase();
+          var ano = item.ano == undefined ? "" : item.ano.toLowerCase();
           return (
             titulo.includes(text) ||
             nome.includes(text) ||
             bolsista.includes(text) ||
             orientador.includes(text) ||
-            orgão.includes(text)
+            orgão.includes(text) ||
+            tema.includes(text) ||
+            apresentadores.includes(text) ||
+            ano.includes(text)
           );
         });
       } else {
@@ -147,7 +156,8 @@ export default {
       window.open(row.value);
     },
     remove(row) {
-      this.$parent.itemRemove(row.item);
+      // this.$parent.itemRemove(row.item);
+      this.$emit("itemRemove", row.item);
     },
   },
 };

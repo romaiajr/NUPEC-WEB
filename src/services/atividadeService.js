@@ -14,7 +14,7 @@ export default {
     var atividade = await api.post("/atividade-complementar-getOne", {
       data: id,
     });
-    var eventos = await api.post("/eventos-get", { data: id });
+    var eventos = await api.post("/eventos-getAtv", { data: id });
     var obj = {
       atividade: atividade.data,
       eventos: eventos.data,

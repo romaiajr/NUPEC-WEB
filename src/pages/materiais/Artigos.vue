@@ -36,6 +36,7 @@
             nome="Artigos"
             sortBy="Nome"
             :fields="fields"
+            @itemRemove="itemRemove"
           />
         </div>
       </div>

@@ -36,6 +36,7 @@
             :fields="fields"
             nome="Livros"
             sortBy="nome"
+            @itemRemove="itemRemove"
           />
         </div>
       </div>
@@ -150,10 +151,6 @@ export default {
       this.deleteId = obj;
     },
     async onDelete() {
-      this.form.titulo.trim();
-      this.form.autor.trim();
-      this.form.livro.trim();
-      this.form.link.trim();
       try {
         await livroService.removeLivro(this.deleteId);
         this.$vs.notification({

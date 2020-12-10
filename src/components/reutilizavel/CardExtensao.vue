@@ -18,7 +18,7 @@ export default {
   name: "CardExtensao",
   props: {
     nome: String,
-    id: Number,
+    id: String,
     background: String,
   },
   methods: {

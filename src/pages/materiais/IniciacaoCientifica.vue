@@ -36,6 +36,7 @@
             :conteudo="items"
             nome="Iniciação Científica"
             sortBy="nome"
+            @itemRemove="itemRemove"
           />
         </div>
       </div>

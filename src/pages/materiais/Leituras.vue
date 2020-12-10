@@ -36,6 +36,7 @@
             nome="Leituras Recomendadas"
             sortBy="Nome"
             :fields="fields"
+            @itemRemove="itemRemove"
           />
         </div>
       </div>
