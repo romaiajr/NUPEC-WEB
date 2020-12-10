@@ -48,6 +48,7 @@
                 variant="primary"
                 squared
                 @click="redirect(row)"
+                v-if="row.link != ''"
               >
                 <i class="bx bx-link"></i>
                 Acessar</b-button

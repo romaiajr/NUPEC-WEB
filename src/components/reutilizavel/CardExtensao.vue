@@ -9,7 +9,6 @@
       <div class="wrimagecard-topimage_title">
         <p>{{ nome }}</p>
       </div>
-      <div></div>
     </div>
   </div>
 </template>
@@ -61,6 +60,7 @@ a.wrimagecard:hover,
   padding: 8px 24px;
   height: 80px;
   position: relative;
+  /* background-color: #fafafa; */
 }
 .wrimagecard-topimage a {
   border-bottom: none;

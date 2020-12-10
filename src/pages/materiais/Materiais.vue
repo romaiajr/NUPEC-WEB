@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/atividades-complementares"
+                link="/materiais/leituras-recomendadas"
                 icone="bx bx-book-open"
                 cor="color:#7ed957"
                 nome="Leituras Recomendadas"

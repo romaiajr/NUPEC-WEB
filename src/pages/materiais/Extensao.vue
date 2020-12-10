@@ -841,7 +841,8 @@ export default {
 }
 
 .img-projeto {
-  width: 200px;
+  width: 100% !important;
+  height: auto !important;
 }
 
 @media screen and (max-width: 760px) {
