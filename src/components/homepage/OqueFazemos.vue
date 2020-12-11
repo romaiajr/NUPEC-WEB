@@ -28,16 +28,16 @@
       <div class="row m-0" id="card-container">
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/materiais/iniciacao-cientifica"
+            link="/producoes/projetos-de-pesquisa"
             icone="bx bx-atom"
             cor="color:RGB(59, 89, 153)"
-            nome="Iniciação Científica"
+            nome="Projetos de Pesquisa"
           >
           </CardMaterial>
         </div>
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/materiais/projetos-de-extensao"
+            link="/producoes/projetos-de-extensao"
             icone="fa fa-laptop"
             cor="color:#dc3546"
             nome="Projetos de Extensão"
@@ -46,7 +46,7 @@
         </div>
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/materiais/artigos"
+            link="/producoes/artigos"
             icone="fa fa-file-text-o"
             cor="color:RGB(59, 89, 153)"
             nome="Artigos"
@@ -55,7 +55,7 @@
         </div>
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/materiais/livros"
+            link="/producoes/livros"
             icone="bx bx-book"
             cor="color:#1fa67b"
             nome="Livros"
@@ -64,9 +64,9 @@
         </div>
       </div>
       <div id="button-section">
-        <router-link to="/materiais" exact>
+        <router-link to="/producoes" exact>
           <button class="a-button">
-            <h6>VEJA TODOS OS MATERIAIS</h6>
+            <h6>VEJA TODO CONTEÚDO PRODUZIDO</h6>
           </button>
         </router-link>
       </div>

@@ -20,19 +20,19 @@ const router = new Router({
   routes: [
     { path: "/", component: Home },
     {
-      path: "/materiais",
+      path: "/producoes",
       component: Materiais,
     },
-    { path: "/materiais/artigos", component: Artigos },
-    { path: "/materiais/livros", component: Livros },
-    { path: "/materiais/capitulos-de-livros", component: CapLivro },
+    { path: "/producoes/artigos", component: Artigos },
+    { path: "/producoes/livros", component: Livros },
+    { path: "/producoes/capitulos-de-livros", component: CapLivro },
     {
-      path: "/materiais/atividades-complementares",
+      path: "/producoes/atividades-desenvolvidas",
       component: AtividadesComplementares,
     },
-    { path: "/materiais/projetos-de-extensao", component: Extensao },
-    { path: "/materiais/iniciacao-cientifica", component: IniciacaoCientifica },
-    { path: "/materiais/leituras-recomendadas", component: Leituras },
+    { path: "/producoes/projetos-de-extensao", component: Extensao },
+    { path: "/producoes/projetos-de-pesquisa", component: IniciacaoCientifica },
+    { path: "/producoes/leituras-recomendadas", component: Leituras },
   ],
 });
 

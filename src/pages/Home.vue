@@ -2,25 +2,25 @@
   <div>
     <Navbar>
       <b-nav-item @click="scrollMeTo('quem-somos')">Quem Somos</b-nav-item>
-      <b-nav-item-dropdown text="Materiais" right id="item-dropdown">
-        <b-dropdown-item to="materiais/iniciacao-cientifica" exact
-          >Iniciação Científica</b-dropdown-item
+      <b-nav-item-dropdown text="Produções" right id="item-dropdown">
+        <b-dropdown-item to="producoes/projetos-de-pesquisa" exact
+          >Projetos de Pesquisa</b-dropdown-item
         >
-        <b-dropdown-item to="materiais/projetos-de-extensao" exact
+        <b-dropdown-item to="producoes/projetos-de-extensao" exact
           >Projetos de Extensão</b-dropdown-item
         >
-        <b-dropdown-item to="materiais/artigos" exact>
+        <b-dropdown-item to="producoes/artigos" exact>
           Artigos
         </b-dropdown-item>
-        <b-dropdown-item to="materiais/livros" exact>Livros</b-dropdown-item>
-        <b-dropdown-item to="materiais/capitulos-de-livros" exact
+        <b-dropdown-item to="producoes/livros" exact>Livros</b-dropdown-item>
+        <b-dropdown-item to="producoes/capitulos-de-livros" exact
           >Capítulos de Livros</b-dropdown-item
         >
 
-        <b-dropdown-item to="materiais/atividades-complementares" exact
-          >Atividades Complementares</b-dropdown-item
+        <b-dropdown-item to="producoes/atividades-desenvolvidas" exact
+          >Atividades Desenvolvidas</b-dropdown-item
         >
-        <b-dropdown-item to="/materiais/leituras-recomendadas" exact
+        <b-dropdown-item to="/producoes/leituras-recomendadas" exact
           >Leituras Recomendadas</b-dropdown-item
         >
       </b-nav-item-dropdown>

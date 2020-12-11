@@ -1,21 +1,21 @@
 <template>
   <b-list-group>
     <b-list-group-item
-      to="/materiais/iniciacao-cientifica"
+      to="/producoes/projetos-de-pesquisa"
       exact
       :active="active == 1"
       :disabled="active == 1"
-      >Iniciação Científica</b-list-group-item
+      >Projetos de Pesquisa</b-list-group-item
     >
     <b-list-group-item
-      to="/materiais/projetos-de-extensao"
+      to="/producoes/projetos-de-extensao"
       exact
       :active="active == 2"
       :disabled="active == 2"
       >Projetos de Extensão</b-list-group-item
     >
     <b-list-group-item
-      to="/materiais/artigos"
+      to="/producoes/artigos"
       exact
       :active="active == 3"
       :disabled="active == 3"
@@ -23,14 +23,14 @@
       Artigos</b-list-group-item
     >
     <b-list-group-item
-      to="/materiais/livros"
+      to="/producoes/livros"
       exact
       :active="active == 4"
       :disabled="active == 4"
       >Livros</b-list-group-item
     >
     <b-list-group-item
-      to="/materiais/capitulos-de-livros"
+      to="/producoes/capitulos-de-livros"
       exact
       :active="active == 5"
       :disabled="active == 5"
@@ -38,15 +38,15 @@
     >
 
     <b-list-group-item
-      to="/materiais/atividades-complementares"
+      to="/producoes/atividades-desenvolvidas"
       exact
       :active="active == 6"
       :disabled="active == 6"
-      >Atividades Complementares</b-list-group-item
+      >Atividades Desenvolvidas</b-list-group-item
     >
 
     <b-list-group-item
-      to="/materiais/leituras-recomendadas"
+      to="/producoes/leituras-recomendadas"
       exact
       :active="active == 7"
       :disabled="active == 7"

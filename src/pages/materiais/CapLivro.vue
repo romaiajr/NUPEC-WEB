@@ -1,30 +1,30 @@
 <template>
   <div>
     <Navbar>
-      <b-nav-item class="mobile-nav" to="/materiais/iniciacao-cientifica"
-        >Iniciação Científica</b-nav-item
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-pesquisa"
+        >Projetos de Pesquisa</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
+      <b-nav-item class="mobile-nav" to="/producoes/artigos" exact
         >Artigos</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/livros" exact
+      <b-nav-item class="mobile-nav" to="/producoes/livros" exact
         >Livros</b-nav-item
       >
       <b-nav-item class="mobile-nav">Capítulos de Livros</b-nav-item>
 
       <b-nav-item
         class="mobile-nav"
-        to="/materiais/atividades-complementares"
+        to="/producoes/atividades-desenvolvidas"
         exact
-        >Atividades Complementares</b-nav-item
+        >Atividades Desenvolvidas</b-nav-item
+      >
+      <b-nav-item class="mobile-nav" to="/producoes/leituras-recomendadas" exact
+        >Leituras Recomendadas</b-nav-item
       >
     </Navbar>
-    <b-nav-item class="mobile-nav" to="/materiais/leituras-recomendadas" exact
-      >Leituras Recomendadas</b-nav-item
-    >
     <div class="container-fluid p-0">
       <div class="row m-0" id="content">
         <div class="col-md-2 col-0 border-right" id="sidebar">

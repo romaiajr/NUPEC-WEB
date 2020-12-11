@@ -1,27 +1,27 @@
 <template>
   <div id="materiais-manager">
     <Navbar>
-      <b-nav-item class="mobile-nav" to="/materiais/iniciacao-cientifica"
-        >Iniciação Científica</b-nav-item
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-pesquisa"
+        >Projetos de Pesquisa</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
+      <b-nav-item class="mobile-nav" to="/producoes/artigos" exact
         >Artigos</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/livros" exact
+      <b-nav-item class="mobile-nav" to="/producoes/livros" exact
         >Livros</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
+      <b-nav-item class="mobile-nav" to="/producoes/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
 
       <b-nav-item
         class="mobile-nav"
-        to="/materiais/atividades-complementares"
+        to="/producoes/atividades-desenvolvidas"
         exact
-        >Atividades Complementares</b-nav-item
+        >Atividades Desenvolvidas</b-nav-item
       >
     </Navbar>
     <div class="container-fluid p-0">
@@ -41,16 +41,16 @@
           <div class="row m-0" id="card-container">
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/iniciacao-cientifica"
+                link="/producoes/projetos-de-pesquisa"
                 icone="bx bx-atom"
                 cor="color:RGB(59, 89, 153)"
-                nome="Iniciação Científica"
+                nome="Projetos de Pesquisa"
               >
               </CardMaterial>
             </div>
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/projetos-de-extensao"
+                link="/producoes/projetos-de-extensao"
                 icone="fa fa-laptop"
                 cor="color:#dc3546"
                 nome="Projetos de Extensão"
@@ -59,7 +59,7 @@
             </div>
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/artigos"
+                link="/producoes/artigos"
                 icone="fa fa-file-text-o"
                 cor="color:RGB(59, 89, 153)"
                 nome="Artigos"
@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/livros"
+                link="/producoes/livros"
                 icone="bx bx-book"
                 cor="color:#1fa67b"
                 nome="Livros"
@@ -77,7 +77,7 @@
             </div>
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/capitulos-de-livros"
+                link="/producoes/capitulos-de-livros"
                 icone="bx bx-bookmark"
                 cor="color:#993399"
                 nome="Capítulos de Livros"
@@ -87,16 +87,16 @@
 
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/atividades-complementares"
+                link="/producoes/atividades-desenvolvidas"
                 icone="fa fa-plus-square-o"
                 cor="color:#ff9a00"
-                nome="Atividades Complementares"
+                nome="Atividades Desenvolvidas"
               >
               </CardMaterial>
             </div>
             <div class="col-md-3 col-sm-4">
               <CardMaterial
-                link="/materiais/leituras-recomendadas"
+                link="/producoes/leituras-recomendadas"
                 icone="bx bx-book-open"
                 cor="color:#7ed957"
                 nome="Leituras Recomendadas"

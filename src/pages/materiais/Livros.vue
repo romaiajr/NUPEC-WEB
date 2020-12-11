@@ -1,27 +1,27 @@
 <template>
   <div>
     <Navbar>
-      <b-nav-item class="mobile-nav" to="/materiais/iniciacao-cientifica"
-        >Iniciação Científica</b-nav-item
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-pesquisa"
+        >Projetos de Pesquisa</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
+      <b-nav-item class="mobile-nav" to="/producoes/artigos" exact
         >Artigos</b-nav-item
       >
       <b-nav-item class="mobile-nav">Livros</b-nav-item>
-      <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
+      <b-nav-item class="mobile-nav" to="/producoes/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
 
       <b-nav-item
         class="mobile-nav"
-        to="/materiais/atividades-complementares"
+        to="/producoes/atividades-desenvolvidas"
         exact
-        >Atividades Complementares</b-nav-item
+        >Atividades Desenvolvidas</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/leituras-recomendadas" exact
+      <b-nav-item class="mobile-nav" to="/producoes/leituras-recomendadas" exact
         >Leituras Recomendadas</b-nav-item
       >
     </Navbar>

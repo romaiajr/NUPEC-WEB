@@ -12,7 +12,10 @@
       <p class="card-text text-wrap">
         {{ cargo }}
         <br />
-        <small @click="redirect(lattes)" class="linkExterno"
+        <small
+          @click="redirect(lattes)"
+          v-if="lattes != undefined && lattes != ''"
+          class="linkExterno"
           >Currículo Lattes</small
         >
       </p>

@@ -1,24 +1,24 @@
 <template>
   <div>
     <Navbar>
-      <b-nav-item class="mobile-nav" to="/materiais/iniciacao-cientifica"
-        >Iniciação Científica</b-nav-item
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-pesquisa"
+        >Projetos de Pesquisa</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/projetos-de-extensao" exact
+      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/artigos" exact
+      <b-nav-item class="mobile-nav" to="/producoes/artigos" exact
         >Artigos</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/livros" exact
+      <b-nav-item class="mobile-nav" to="/producoes/livros" exact
         >Livros</b-nav-item
       >
-      <b-nav-item class="mobile-nav" to="/materiais/capitulos-de-livros" exact
+      <b-nav-item class="mobile-nav" to="/producoes/capitulos-de-livros" exact
         >Capítulos de Livros</b-nav-item
       >
 
-      <b-nav-item class="mobile-nav">Atividades Complementares</b-nav-item>
-      <b-nav-item class="mobile-nav" to="/materiais/leituras-recomendadas" exact
+      <b-nav-item class="mobile-nav">Atividades Desenvolvidas</b-nav-item>
+      <b-nav-item class="mobile-nav" to="/producoes/leituras-recomendadas" exact
         >Leituras Recomendadas</b-nav-item
       >
     </Navbar>
@@ -31,7 +31,7 @@
           <div id="title">
             <div class="container">
               <h4>
-                Atividades Complementares
+                Atividades Desenvolvidas
                 <b-badge>{{ items.length }}</b-badge>
               </h4>
             </div>
@@ -573,6 +573,7 @@ export default {
             title: "Remover Evento",
             text: "Evento Removido com sucesso!",
           });
+          this.componentKey++;
           this.loadInfo(this.selected_atividade.atividade[0]._id);
         } else if (this.tipo == 2) {
           await atividadeService.deleteFoto(this.deleteid);
@@ -581,6 +582,7 @@ export default {
             title: "Remover Foto",
             text: "Foto Removida com sucesso!",
           });
+          this.componentKey++;
           this.loadInfo(this.selected_atividade.atividade[0]._id);
         } else {
           await atividadeService.removeAtividade(this.deleteid);
@@ -637,7 +639,7 @@ export default {
       const loading = this.$vs.loading();
       var res = await atividadeService.findAtividade(id);
       this.selected_atividade.atividade = res.atividade;
-      this.selected_atividade.eventos = res.eventos;
+      this.selected_atividade.eventos = res.eventos.reverse();
       this.selected_atividade.eventos.forEach(async (item) => {
         res = await atividadeService.getFotos(item._id);
         item.fotos = res.data;

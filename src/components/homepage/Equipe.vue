@@ -42,6 +42,7 @@
             :key="index"
             :style="styleDesktop"
             ><CardEquipe
+              v-if="membro.tipo != 'Ex-membro'"
               class="card-equipe"
               :imagem="membro.imagem"
               :nome="membro.nome"
@@ -79,6 +80,7 @@
             :key="index"
             :style="styleMobile"
             ><CardEquipe
+              v-if="membro.tipo != 'Ex-membro'"
               class="card-equipe"
               :imagem="membro.imagem"
               :nome="membro.nome"
@@ -115,6 +117,7 @@
             :key="index"
             :style="styleMedium"
             ><CardEquipe
+              v-if="membro.tipo != 'Ex-membro'"
               class="card-equipe"
               :imagem="membro.imagem"
               :nome="membro.nome"
@@ -224,6 +227,25 @@
               />
             </div>
           </div>
+          <div class="row m-0" style="margin-top: 36px !important;">
+            <h4>Ex-membros</h4>
+          </div>
+          <div class="row">
+            <div
+              class="col-6 col-md-4"
+              v-for="membro in equipe"
+              v-show="membro.tipo == options[4]"
+              :key="membro._id"
+            >
+              <CardEquipe
+                class="card-toda-equipe"
+                :imagem="membro.imagem"
+                :nome="membro.nome"
+                :cargo="membro.cargo"
+                :lattes="membro.lattes"
+              />
+            </div>
+          </div>
         </vs-dialog>
       </div>
     </div>
@@ -247,8 +269,8 @@
         ></b-form-radio-group>
         <b-form-text> Cargo Exercido</b-form-text>
         <b-form-input required v-model="form.cargo"></b-form-input>
-        <b-form-text> Link para o Lattes </b-form-text>
-        <b-form-input required v-model="form.lattes"></b-form-input>
+        <b-form-text> Link para o Lattes (Não obrigatório) </b-form-text>
+        <b-form-input v-model="form.lattes"></b-form-input>
         <b-form-text> Link para Imagem </b-form-text>
         <b-form-input required v-model="form.imagem"></b-form-input>
         <b-form-text id="password-help-block">
@@ -269,7 +291,9 @@
         <b-form-text> Selecione o Membro a ser Removido</b-form-text>
         <b-form-select v-model="removeId">
           <b-form-select-option
-            v-for="membro in equipe"
+            v-for="membro in equipe.sort((a, b) => {
+              return a.nome.localeCompare(b.nome);
+            })"
             :key="membro._id"
             :value="membro._id"
             >{{ membro.nome }}</b-form-select-option
@@ -348,7 +372,13 @@ export default {
       imagem: "",
       lattes: "",
     },
-    options: ["Professor", "Bolsista", "Voluntário", "Colaborador"],
+    options: [
+      "Professor",
+      "Bolsista",
+      "Voluntário",
+      "Colaborador",
+      "Ex-membro",
+    ],
     isLogged: false,
     removeId: "",
     componentKey: 0,
@@ -363,8 +393,8 @@ export default {
           if (a.tipo == "Professor" && b.tipo != "Professor") return -1;
           else if (a.tipo == "Bolsista" && b.tipo == "Voluntário") return -1;
           else if (a.tipo == "Voluntário" && b.tipo == "Colaborador") return -1;
-          else if (a.tipo == "Colaborador" && b.tipo != "Colaborador")
-            return +1;
+          else if (a.tipo == "Colaborador" && b.tipo == "Ex-membro") return -1;
+          else if (a.tipo == "Ex-membro" && b.tipo != "Ex-membro") return +1;
           else if (a.tipo == b.tipo) {
             if (a.tipo == "Professor" && b.tipo == "Professor") {
               if (a.cargo.toLowerCase().includes("coordenador")) return -1;
