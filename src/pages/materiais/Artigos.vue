@@ -167,6 +167,10 @@ export default {
           text: "Artigo removido com sucesso!",
         });
         this.getArtigos();
+        // this.items.slice(
+        //   this.items.findIndex((item) => item._id == this.deleteId),
+        //   1
+        // );
       } catch (e) {
         this.$vs.notification({
           color: "danger",

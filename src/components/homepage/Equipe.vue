@@ -50,7 +50,9 @@
               :lattes="membro.lattes"
             ></CardEquipe
           ></slideritem>
-          <!-- Customizable loading -->
+          <div slot="loading">
+            <b-spinner label="Spinning"></b-spinner> Loading...
+          </div>
         </slider>
         <div
           v-show="equipe.length == 0 && loading > 0"
@@ -87,7 +89,9 @@
               :cargo="membro.cargo"
               :lattes="membro.lattes"
           /></slideritem>
-          <!-- Customizable loading -->
+          <div slot="loading">
+            <b-spinner label="Spinning"></b-spinner> Loading...
+          </div>
         </slider>
         <div
           v-show="equipe.length == 0 && loading > 0"
@@ -124,7 +128,9 @@
               :cargo="membro.cargo"
               :lattes="membro.lattes"
           /></slideritem>
-          <!-- Customizable loading -->
+          <div slot="loading">
+            <b-spinner label="Spinning"></b-spinner> Loading...
+          </div>
           <div class="container"></div>
         </slider>
         <div
@@ -291,9 +297,7 @@
         <b-form-text> Selecione o Membro a ser Removido</b-form-text>
         <b-form-select v-model="removeId">
           <b-form-select-option
-            v-for="membro in equipe.sort((a, b) => {
-              return a.nome.localeCompare(b.nome);
-            })"
+            v-for="membro in equipe"
             :key="membro._id"
             :value="membro._id"
             >{{ membro.nome }}</b-form-select-option
