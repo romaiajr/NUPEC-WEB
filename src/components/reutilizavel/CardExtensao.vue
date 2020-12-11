@@ -41,10 +41,10 @@ export default {
 .wrimagecard .fa,
 .wrimagecard .bx {
   position: relative;
-  font-size: 70px;
+  font-size: 80px;
 }
 .wrimagecard-topimage_header {
-  padding: 20px;
+  padding: 12px 12px;
 }
 a.wrimagecard:hover,
 .wrimagecard-topimage:hover {
@@ -57,8 +57,8 @@ a.wrimagecard:hover,
   display: block;
 }
 .wrimagecard-topimage_title {
-  padding: 8px 24px;
-  height: 80px;
+  padding: 0px 8px;
+  height: 70px;
   position: relative;
   /* background-color: #fafafa; */
 }

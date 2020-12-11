@@ -61,6 +61,7 @@
               :id="atividade._id"
               v-on:click="loadInfo(atividade._id)"
             >
+              <img class="img-projeto" :src="atividade.link" />
             </CardExtensao>
           </div>
         </div>
@@ -315,6 +316,11 @@
       ><b-form @submit.prevent="addAtividade" @reset="resetForm">
         <b-form-text> Título da Atividade Complementar </b-form-text>
         <b-form-input required v-model="form.titulo"></b-form-input>
+        <b-form-text> Link para Imagem de Capa </b-form-text>
+        <b-form-input required v-model="form.link"></b-form-input>
+        <b-form-text id="password-help-block">
+          A imagem de capa deve estar recortada no formato 1x1 (quadrado)
+        </b-form-text>
         <div id="button-modal">
           <b-button type="reset" variant="danger">Cancelar</b-button>
           <b-button type="submit" variant="primary">Salvar</b-button>
@@ -450,6 +456,7 @@ export default {
     form: {
       titulo: "",
       eventos: [],
+      link: "",
     },
     formEvento: {
       titulo: "",

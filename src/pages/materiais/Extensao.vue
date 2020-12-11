@@ -61,7 +61,7 @@
                 :key="projeto._id"
                 :nome="projeto.titulo"
                 :id="projeto._id"
-                background=" background-color: #f1f1f1"
+                background=" background-color: #ffffff"
                 v-on:click="loadInfo(projeto._id)"
               >
                 <img class="img-projeto" :src="projeto.logo" />
@@ -833,14 +833,14 @@ export default {
   background: white !important;
 }
 #sidebar .active {
-  border: 1px solid var(--primary-dark-color) !important;
-
   color: white !important;
 
   background-color: var(--primary-dark-color);
 }
 
 .img-projeto {
+  border: solid #f1f1f1;
+  border-width: thin;
   width: 100% !important;
   height: auto !important;
 }
