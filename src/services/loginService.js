@@ -1,6 +1,6 @@
 import api from "@/api";
 export default {
-  getLogin: () => {
-    return api.post("/login");
+  getLogin: (obj) => {
+    return api.post("/login", obj);
   },
 };

@@ -90,7 +90,6 @@ export default {
     Sidebar,
   },
   data: () => ({
-    isLogged: false,
     text: "",
     deleteId: "",
     fields: [

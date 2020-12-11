@@ -88,10 +88,7 @@
 <script>
 export default {
   created() {
-    const user = JSON.parse(sessionStorage.getItem("login"));
-    if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
-      this.isLogged = true;
-    }
+    this.isLogged = JSON.parse(sessionStorage.getItem("isLogged"));
   },
   props: {
     conteudo: {

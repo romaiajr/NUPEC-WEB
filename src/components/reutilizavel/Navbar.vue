@@ -20,7 +20,13 @@
         </b-collapse>
       </div>
     </b-navbar>
-    <b-modal id="modal-login" ref="modal-login" hide-footer title="Login">
+    <b-modal
+      id="modal-login"
+      ref="modal-login"
+      hide-footer
+      title="Login"
+      @hide="loginError = false"
+    >
       <b-alert :show="loginError == true" variant="danger"
         >Login ou Senha incorretos. Por favor, tente novamente.</b-alert
       >
@@ -45,12 +51,10 @@
 </template>
 
 <script>
+import loginService from "../../services/loginService";
 export default {
   mounted() {
-    const user = JSON.parse(sessionStorage.getItem("login"));
-    if (user.user == "NupecUefs" && user.senha == "n1u$pec") {
-      this.isLogged = true;
-    }
+    this.isLogged = JSON.parse(sessionStorage.getItem("isLogged"));
   },
   data: () => ({
     isHover: false,
@@ -65,29 +69,33 @@ export default {
     scrollMeTo(refName) {
       this.$parent.scrollMeTo(refName);
     },
-    onLogin() {
-      if (this.form.user == "NupecUefs" && this.form.senha == "n1u$pec") {
-        sessionStorage.setItem(
-          "login",
-          JSON.stringify({
-            user: this.form.user,
-            senha: this.form.senha,
-          })
-        );
-        this.$vs.notification({
-          color: "success",
-          title: "Login",
-          text: "Login realizado com sucesso!",
-        });
-        this.loginError = false;
-        document.location.reload(true);
-        this.$refs["modal-login"].hide();
-      } else {
+    async onLogin() {
+      try {
+        var res = await loginService.getLogin(this.form);
+        sessionStorage.setItem("isLogged", JSON.stringify(res.data));
+        JSON.parse(sessionStorage.getItem("isLogged"));
+        if (JSON.parse(sessionStorage.getItem("isLogged")) == true) {
+          this.loginError = false;
+          document.location.reload(true);
+          this.$vs.notification({
+            color: "success",
+            title: "Login",
+            text: "Login realizado com sucesso!",
+          });
+        } else {
+          this.loginError = true;
+          this.$vs.notification({
+            color: "danger",
+            title: "Login",
+            text: "Usuário ou Senha Incorreto",
+          });
+        }
+      } catch (e) {
         this.loginError = true;
         this.$vs.notification({
           color: "danger",
           title: "Login",
-          text: "Usuário ou Senha Incorreto",
+          text: "Erro ao conectar com o banco de dados",
         });
       }
       this.form = {};
