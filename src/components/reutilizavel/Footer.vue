@@ -17,7 +17,7 @@
         <div class="row m-0 justify-content-center" style="padding-top: 8px">
           <small
             >Desenvolvido por
-            <a href="https://github.com/romaiajr" id="developer"
+            <a href="https://github.com/romaiajr" target="_blank" id="developer"
               >Roberto Maia</a
             ></small
           >
