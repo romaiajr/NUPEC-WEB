@@ -172,15 +172,28 @@
       <b-modal id="modal-extensao" ref="modal-extensao" size="lg" hide-footer>
         <template #modal-title>
           <div class="row m-0">
-            <div class="col-md-8 col-12">
-              {{ selected_projeto.titulo }}
+            <div class="col-md-12 col-12">
+              <h5>
+                <b>{{ selected_projeto.titulo }}</b>
+              </h5>
+              <div id="descricao-projeto">
+                <small>{{ selected_projeto.descricao }}</small>
+              </div>
             </div>
+          </div>
+          <div class="row" style="margin-top:16px;">
+            <div class="col-md-8 col-0" />
             <div
               v-show="isLogged && selected_projeto.fotos"
-              class="col-md-2 col-6"
+              class="col-md-2 col-6 "
             >
-              <b-button size="sm" block class="btn-form" v-b-modal.modal-addEvt
-                ><p>Novo Evento</p></b-button
+              <b-button
+                size="sm"
+                block
+                class="btn-form"
+                style="margin-left: 15px !important;"
+                v-b-modal.modal-addEvt
+                ><p>Adicionar Evento</p></b-button
               >
             </div>
             <div
@@ -188,7 +201,7 @@
               class="col-md-2 col-6"
             >
               <b-button size="sm" block class="btn-form" v-b-modal.modal-addFt
-                ><p>Nova Foto</p></b-button
+                ><p>Adicionar Foto</p></b-button
               >
             </div>
           </div>
@@ -797,6 +810,9 @@ export default {
 };
 </script>
 <style>
+#descricao-projeto {
+  line-height: 80% !important;
+}
 #projeto-section {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   margin-top: 16px;
