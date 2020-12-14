@@ -9,19 +9,20 @@
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-8">
           <h6>
-            <!-- O Núcleo Integrado de Estudos e Pesquisas sobre o Cuidar/Cuidado foi
-            criado em 2010 com o objetivo de ampliar a discussão acerca do
-            cuidado no processo saúde-doença do indivíduo, família e grupos da
-            comunidade, a partir de um diálogo com referenciais
-            teórico-metodológicos das ciências sociais e humanas e da saúde
-            coletiva. -->
-            O Núcleo de Estudos e Pesquisas sobre o Cuidar/Cuidado (NUPEC) foi
+            <!-- O Núcleo de Estudos e Pesquisas sobre o Cuidar/Cuidado (NUPEC) foi
             fundado na Universidade Estadual de Feira de Santana vinculado à
             Pró-Reitoria de Extensão no ano de 2005. O objetivo do núcleo é
             promover um foro de estudos que reúna professores, enfermeiros,
             estudantes da graduação e pós-graduação em enfermagem e outros
             cursos interessados em aprofundar o conhecimento acerca do
-            cuidar/cuidado em saúde.
+            cuidar/cuidado em saúde. -->
+            O Núcleo de Estudos e Pesquisas sobre o Cuidar/Cuidado (NUPEC) foi
+            criado em 2005 com o objetivo de formar um foro de estudos que reúna
+            docentes, enfermeiros(as), estudantes de graduação e pós-graduação
+            em enfermagem e outros cursos interessados em aprofundar seu
+            conhecimento acerca do cuidar/cuidado em saúde e na enfermagem. Está
+            vinculado ao Departamento de Saúde e Pró-Reitoria de Extensão da
+            UEFS.
           </h6>
         </div>
       </div>

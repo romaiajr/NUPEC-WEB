@@ -1,8 +1,8 @@
 <template>
   <div id="materiais-manager">
     <Navbar>
-      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-pesquisa"
-        >Projetos de Pesquisa</b-nav-item
+      <b-nav-item class="mobile-nav" to="/producoes/iniciacao-cientifica"
+        >Iniciação Científica</b-nav-item
       >
       <b-nav-item class="mobile-nav" to="/producoes/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item

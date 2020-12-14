@@ -3,8 +3,8 @@
     <Navbar>
       <b-nav-item @click="scrollMeTo('quem-somos')">Quem Somos</b-nav-item>
       <b-nav-item-dropdown text="Produções" right id="item-dropdown">
-        <b-dropdown-item to="producoes/projetos-de-pesquisa" exact
-          >Projetos de Pesquisa</b-dropdown-item
+        <b-dropdown-item to="producoes/iniciacao-cientifica" exact
+          >Iniciação Científica</b-dropdown-item
         >
         <b-dropdown-item to="producoes/projetos-de-extensao" exact
           >Projetos de Extensão</b-dropdown-item

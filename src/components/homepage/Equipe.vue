@@ -9,11 +9,15 @@
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-8">
           <h6>
-            Nossa equipe é formada por Professores e Estudantes do curso de
+            <!-- Nossa equipe é formada por Professores e Estudantes do curso de
             Enfermagem na Universidade Estadual de Feira de Santana, junto a
             Colaboradores Externos, como feirantes e contribuintes, onde
             compartilhamos do objetivo de promover o aprofundamento acerca do
-            Cuidar/Cuidado.
+            Cuidar/Cuidado. -->
+            Nossa equipe é composta por um grupo multidisciplinar de
+            pesquisadoras(es) e estudantes de graduação da Universidade Estadual
+            de Feira de Santana, majoritariamente de Enfermagem, visando
+            aprofundar o ensino e a pesquisa acerca do Cuidado.
           </h6>
         </div>
       </div>
@@ -158,7 +162,7 @@
             <h5 class="not-margin">Nossa Equipe</h5>
           </template>
           <div class="row m-0">
-            <h4>Professores</h4>
+            <h4>Professoras(es)</h4>
           </div>
           <div class="row">
             <div
@@ -196,7 +200,7 @@
             </div>
           </div>
           <div class="row m-0" style="margin-top: 36px !important;">
-            <h4>Voluntários</h4>
+            <h4>Voluntários(as)</h4>
           </div>
           <div class="row">
             <div
@@ -215,7 +219,7 @@
             </div>
           </div>
           <div class="row m-0" style="margin-top: 36px !important;">
-            <h4>Colaboradores</h4>
+            <h4>Colaboradores(as)</h4>
           </div>
           <div class="row">
             <div

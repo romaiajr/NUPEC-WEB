@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar>
-      <b-nav-item class="mobile-nav">Projetos de Pesquisa</b-nav-item>
+      <b-nav-item class="mobile-nav">Iniciação Científica</b-nav-item>
       <b-nav-item class="mobile-nav" to="/producoes/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item
       >
@@ -34,7 +34,7 @@
           <Management
             :fields="fields"
             :conteudo="items"
-            nome="Projetos de Pesquisa"
+            nome="Iniciação Científica"
             sortBy="nome"
             @itemRemove="itemRemove"
           />

@@ -1,11 +1,11 @@
 <template>
   <b-list-group>
     <b-list-group-item
-      to="/producoes/projetos-de-pesquisa"
+      to="/producoes/iniciacao-cientifica"
       exact
       :active="active == 1"
       :disabled="active == 1"
-      >Projetos de Pesquisa</b-list-group-item
+      >Iniciação Científica</b-list-group-item
     >
     <b-list-group-item
       to="/producoes/projetos-de-extensao"

@@ -1,8 +1,8 @@
 <template>
   <div>
     <Navbar>
-      <b-nav-item class="mobile-nav" to="/producoes/projetos-de-pesquisa"
-        >Projetos de Pesquisa</b-nav-item
+      <b-nav-item class="mobile-nav" to="/producoes/iniciacao-cientifica"
+        >Iniciação Científica</b-nav-item
       >
       <b-nav-item class="mobile-nav" to="/producoes/projetos-de-extensao" exact
         >Projetos de Extensão</b-nav-item
@@ -621,6 +621,7 @@ export default {
       this.formFoto = {};
       this.deleteid = "";
       this.tipo = "";
+      this.selected_atividade = "";
       this.$refs["modal-add-atividade"].hide();
       this.$refs["modal-add-evento"].hide();
       this.$refs["modal-add-foto"].hide();

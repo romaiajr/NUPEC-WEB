@@ -28,10 +28,10 @@
       <div class="row m-0" id="card-container">
         <div class="col-md-3 col-sm-4">
           <CardMaterial
-            link="/producoes/projetos-de-pesquisa"
+            link="/producoes/iniciacao-cientifica"
             icone="bx bx-atom"
             cor="color:RGB(59, 89, 153)"
-            nome="Projetos de Pesquisa"
+            nome="Iniciação Científica"
           >
           </CardMaterial>
         </div>

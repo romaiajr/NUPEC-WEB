@@ -31,7 +31,7 @@ const router = new Router({
       component: AtividadesComplementares,
     },
     { path: "/producoes/projetos-de-extensao", component: Extensao },
-    { path: "/producoes/projetos-de-pesquisa", component: IniciacaoCientifica },
+    { path: "/producoes/iniciacao-cientifica", component: IniciacaoCientifica },
     { path: "/producoes/leituras-recomendadas", component: Leituras },
   ],
 });

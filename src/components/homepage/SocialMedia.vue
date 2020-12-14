@@ -2,7 +2,12 @@
   <div id="social-media">
     <div class="container">
       <div id="buttons_social">
-        <vs-button icon color="facebook">
+        <vs-button
+          icon
+          color="facebook"
+          href="https://www.facebook.com/profile.php?id=100018617562787"
+          blank
+        >
           <i class="bx bxl-facebook-square"></i>
         </vs-button>
         <vs-button
