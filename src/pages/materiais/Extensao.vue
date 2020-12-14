@@ -68,6 +68,7 @@
               </CardExtensao>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
 
@@ -512,6 +513,7 @@
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
+import Footer from "../../components/reutilizavel/Footer";
 import CardExtensao from "../../components/reutilizavel/CardExtensao";
 import Sidebar from "../../components/manager/Sidebar";
 import extensaoService from "../../services/extensaoService";
@@ -520,6 +522,7 @@ import { slider, slideritem } from "vue-concise-slider";
 export default {
   components: {
     Navbar,
+    Footer,
     CardExtensao,
     Sidebar,
     Management,

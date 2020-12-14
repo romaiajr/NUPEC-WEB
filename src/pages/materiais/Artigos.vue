@@ -38,9 +38,11 @@
             :fields="fields"
             @itemRemove="itemRemove"
           />
+          <Footer />
         </div>
       </div>
     </div>
+
     <b-modal
       id="modal-1"
       ref="modal-artigos"
@@ -79,6 +81,7 @@
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
+import Footer from "../../components/reutilizavel/Footer";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
 import artigoService from "../../services/artigoService";
@@ -86,6 +89,7 @@ import artigoService from "../../services/artigoService";
 export default {
   components: {
     Navbar,
+    Footer,
     Management,
     Sidebar,
   },

@@ -88,7 +88,7 @@
             <div class="col-md-3 col-sm-4">
               <CardMaterial
                 link="/producoes/atividades-desenvolvidas"
-                icone="fa fa-plus-square-o"
+                icone="fa fa-flag-o"
                 cor="color:#ff9a00"
                 nome="Atividades Desenvolvidas"
               >
@@ -97,13 +97,14 @@
             <div class="col-md-3 col-sm-4">
               <CardMaterial
                 link="/producoes/leituras-recomendadas"
-                icone="bx bx-book-open"
+                icone="bx bx-library"
                 cor="color:#7ed957"
                 nome="Leituras Recomendadas"
               >
               </CardMaterial>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     </div>
@@ -111,11 +112,13 @@
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
+import Footer from "../../components/reutilizavel/Footer";
 import Sidebar from "../../components/manager/Sidebar";
 import CardMaterial from "../../components/reutilizavel/CardMaterial";
 export default {
   components: {
     Navbar,
+    Footer,
     Sidebar,
     CardMaterial,
   },

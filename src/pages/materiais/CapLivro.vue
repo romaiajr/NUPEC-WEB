@@ -38,6 +38,7 @@
             sortBy="nome"
             @itemRemove="itemRemove"
           />
+          <Footer />
         </div>
       </div>
     </div>
@@ -83,6 +84,7 @@
 </template>
 <script>
 import Navbar from "../../components/reutilizavel/Navbar";
+import Footer from "../../components/reutilizavel/Footer";
 import Management from "../../components/manager/Management";
 import Sidebar from "../../components/manager/Sidebar";
 import capituloService from "../../services/capituloService";
@@ -90,6 +92,7 @@ import capituloService from "../../services/capituloService";
 export default {
   components: {
     Navbar,
+    Footer,
     Management,
     Sidebar,
   },

@@ -2,7 +2,28 @@
   <div id="rodapé">
     <div class="container">
       <div class="row m-0 justify-content-center">
-        <img src="../../assets/img/Logo.png" alt="logo" id="logo-rodapé" />
+        <div class="row m-0 justify-content-center" id="logos-rodapé">
+          <a href="http://www.uefs.br/" target="_blank">
+            <img
+              src="../../assets/img/logo_uefs2.png"
+              alt="logo"
+              id="logo-rodapé-secundaria1"
+            />
+          </a>
+          <a
+            href="http://www.mpe.uefs.br/modules/conteudo/conteudo.php?conteudo=20"
+            target="_blank"
+          >
+            <img src="../../assets/img/Logo.png" alt="logo" id="logo-rodapé" />
+          </a>
+          <a href="http://proex.uefs.br/" target="_blank">
+            <img
+              src="../../assets/img/proex_logo2.png"
+              alt="logo"
+              id="logo-rodapé-secundaria2"
+            />
+          </a>
+        </div>
         <div class="row m-0 justify-content-center" style="padding-top: 8px">
           <h6>
             NUPEC | NÚCLEO DE ESTUDOS E PESQUISA SOBRE O CUIDAR/CUIDADO
@@ -14,6 +35,7 @@
             Telefone: 75 3161-8365 | Email: nupec@uefs.br
           </p>
         </div>
+
         <div class="row m-0 justify-content-center" style="padding-top: 8px">
           <small
             >Desenvolvido por
@@ -28,18 +50,31 @@
 </template>
 <style>
 #rodapé {
+  border-top: 1px solid #dee2e6 !important;
   width: 100%;
   padding: 24px 0px;
   display: flex;
   align-items: center;
   text-align: center;
 }
-
-#logo-rodapé {
-  display: block;
-  height: 60px;
+#logos-rodapé {
+  display: flex;
+  align-items: center;
 }
-
+#logo-rodapé {
+  margin: 0 8px;
+  display: block;
+  height: 65px;
+}
+#logo-rodapé-secundaria1 {
+  display: block;
+  height: 35px;
+}
+#logo-rodapé-secundaria2 {
+  padding-top: 7px;
+  display: block;
+  height: 35px;
+}
 #developer {
   text-decoration: none;
   color: black;
@@ -94,8 +129,13 @@
 }
 @media screen and (max-width: 760px) {
   #logo-rodapé {
-    width: 30% !important;
-    height: 50px;
+    width: auto;
+    height: 45px;
+  }
+  #logo-rodapé-secundaria1,
+  #logo-rodapé-secundaria2 {
+    width: auto;
+    height: 30px;
   }
 }
 </style>
