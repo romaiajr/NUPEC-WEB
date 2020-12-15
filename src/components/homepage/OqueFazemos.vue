@@ -16,12 +16,13 @@
             e as dimensões da produção do cuidado nos campos da clínica, da
             saúde coletiva e da saúde mental, privilegiando o trabalho com
             narrativas autobiográficas. -->
-            O NUPEC desde 2010 estuda, pesquisa e faz intervenções
-            extensionistas voltados às práticas de cuidado dos feirantes para
-            consigo, com os seus familiares, com os produtos que comercializam e
-            com o seu local de trabalho nos aspectos físicos, ambientais,
-            sanitários e organizacionais, nas principais feiras-livres da
-            cidade, com enfoque na educação em saúde.
+            O NUPEC desde 2010 desenvolve o projeto de pesquisa "Práticas de
+            cuidado no cotidiano de feirantes em Feira de Santana - BA" e
+            intervenções extensionistas voltados às práticas de cuidado dos
+            feirantes para consigo, com os seus familiares, com os produtos que
+            comercializam e com o seu local de trabalho nos aspectos físicos,
+            ambientais, sanitários e organizacionais, nas principais
+            feiras-livres da cidade, com enfoque na educação em saúde.
           </h6>
         </div>
       </div>

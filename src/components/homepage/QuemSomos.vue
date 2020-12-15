@@ -18,11 +18,11 @@
             cuidar/cuidado em saúde. -->
             O Núcleo de Estudos e Pesquisas sobre o Cuidar/Cuidado (NUPEC) foi
             criado em 2005 com o objetivo de formar um foro de estudos que reúna
-            docentes, enfermeiros(as), estudantes de graduação e pós-graduação
-            em enfermagem e outros cursos interessados em aprofundar seu
-            conhecimento acerca do cuidar/cuidado em saúde e na enfermagem. Está
-            vinculado ao Departamento de Saúde e Pró-Reitoria de Extensão da
-            UEFS.
+            docentes pesquisadoras(es), enfermeiros(as), estudantes de graduação
+            e pós-graduação em enfermagem e outros cursos interessados em
+            aprofundar seu conhecimento acerca do cuidar/cuidado em saúde e na
+            enfermagem. Está vinculado ao Departamento de Saúde e Pró-Reitoria
+            de Extensão da UEFS.
           </h6>
         </div>
       </div>
