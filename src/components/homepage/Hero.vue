@@ -6,11 +6,13 @@
 
 <style>
 #hero {
+  background: linear-gradient(92.76deg, #ffd9f0 0%, #ffffff 100%);
+
   display: flex;
   justify-content: center;
   width: 100%;
   height: 316px;
-  background: linear-gradient(
+  /* background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0) 0%,
       rgba(252, 252, 252, 0.213542) 21.35%,
@@ -19,11 +21,11 @@
       rgba(244, 244, 244, 0.848958) 84.9%,
       #f2f2f2 100%
     ),
-    url(../../assets/img/HeroImage.png);
-  -webkit-background-size: cover;
+    url(../../assets/img/HeroImage.png); */
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
   /* background-attachment: fixed; */
 }
 #logo-hero {
@@ -36,7 +38,7 @@
     width: 60%;
   }
   #hero {
-    background: linear-gradient(
+    /* background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) 0%,
         rgba(252, 252, 252, 0.213542) 21.35%,
@@ -45,12 +47,12 @@
         rgba(244, 244, 244, 0.848958) 84.9%,
         #f2f2f2 100%
       ),
-      url(../../assets/img/HeroImage.png);
+      url(../../assets/img/HeroImage.png); */
     height: 200px;
-    -webkit-background-size: cover;
+    /* -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
   }
 }
 @media screen and (max-width: 1140px) and (min-width: 761px) {

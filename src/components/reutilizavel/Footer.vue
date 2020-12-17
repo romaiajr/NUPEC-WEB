@@ -2,28 +2,46 @@
   <div id="rodapé">
     <div class="container">
       <div class="row m-0 justify-content-center">
-        <div class="row m-0 justify-content-center" id="logos-rodapé">
-          <a href="http://www.uefs.br/" target="_blank">
-            <img
-              src="../../assets/img/logo_uefs2.png"
-              alt="logo"
-              id="logo-rodapé-secundaria1"
-            />
-          </a>
-          <a
-            href="http://www.mpe.uefs.br/modules/conteudo/conteudo.php?conteudo=20"
-            target="_blank"
-          >
-            <img src="../../assets/img/Logo.png" alt="logo" id="logo-rodapé" />
-          </a>
-          <a href="http://proex.uefs.br/" target="_blank">
-            <img
-              src="../../assets/img/proex_logo2.png"
-              alt="logo"
-              id="logo-rodapé-secundaria2"
-            />
-          </a>
+        <div class="col-12">
+          <div class="row m-0 justify-content-center" id="logos-rodapé">
+            <a
+              href="http://www.mpe.uefs.br/modules/conteudo/conteudo.php?conteudo=20"
+              target="_blank"
+            >
+              <img
+                src="../../assets/img/Logo.png"
+                alt="logo"
+                id="logo-rodapé"
+              />
+            </a>
+            <a href="http://www.uefs.br/" target="_blank">
+              <img
+                src="../../assets/img/logo_uefs2.png"
+                alt="logo"
+                id="logo-rodapé-secundaria1"
+              />
+            </a>
+            <a href="http://proex.uefs.br/" target="_blank">
+              <img
+                src="../../assets/img/proex_logo2.png"
+                alt="logo"
+                id="logo-rodapé-secundaria2"
+              />
+            </a>
+            <a href="http://www.pppg.uefs.br/" target="_blank">
+              <img
+                src="../../assets/img/pppg.png"
+                alt="logo"
+                id="logo-rodapé-secundaria1"
+              />
+            </a>
+          </div>
         </div>
+        <div
+          class="row m-0 justify-content-center"
+          style="padding-top: 8px"
+          id="logos-rodapé"
+        ></div>
         <div class="row m-0 justify-content-center" style="padding-top: 8px">
           <h6>
             NUPEC | NÚCLEO DE ESTUDOS E PESQUISA SOBRE O CUIDAR/CUIDADO
@@ -62,15 +80,17 @@
   align-items: center;
 }
 #logo-rodapé {
-  margin: 0 8px;
+  margin: 0 4px;
   display: block;
   height: 65px;
 }
 #logo-rodapé-secundaria1 {
+  margin: 0 4px;
   display: block;
   height: 35px;
 }
 #logo-rodapé-secundaria2 {
+  margin: 0 4px;
   padding-top: 7px;
   display: block;
   height: 35px;
